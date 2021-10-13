@@ -3,24 +3,24 @@
 /* Bottom banner with contact info? */
 
 h1 {
-    font-family: Helvetica;
+    font-family: 'Helvetica', sans-serif;
     color: #4b2e83; /* UW purple */
     margin-right: 25px;
     margin-left: 25px;
     padding: 10px 10px;
-    background: #DCDCDC;
+    background-color: #DCDCDC;
 }
 
 h3 {
-    font-family: Helvetica;
+    font-family: 'Helvetica', sans-serif;
     margin-right: 25px;
     margin-left: 25px;
     padding: 10px 10px;
-    background: #DCDCDC;
+    background-color: #DCDCDC;
 }
 
 p {
-    font-family: Helvetica;
+    font-family: 'Helvetica', sans-serif;
     margin-right: 25px;
     margin-left: 25px;
 }
