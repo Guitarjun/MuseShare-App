@@ -11,6 +11,14 @@ h1 {
     background: #DCDCDC;
 }
 
+h3 {
+    font-family: Helvetica;
+    margin-right: 25px;
+    margin-left: 25px;
+    padding: 10px 10px;
+    background: #DCDCDC;
+}
+
 p {
     font-family: Helvetica;
     margin-right: 25px;
