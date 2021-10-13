@@ -2,7 +2,17 @@
 /* Add margins to paragraph */
 /* Bottom banner with contact info? */
 
-* {
-    box-sizing: border-box;
+h1 {
+    font-family: Helvetica;
+    color: #4b2e83; /* UW purple */
+    margin-right: 25px;
+    margin-left: 25px;
+    padding: 10px 10px;
+    background: #DCDCDC;
 }
 
+p {
+    font-family: Helvetica;
+    margin-right: 25px;
+    margin-left: 25px;
+}
