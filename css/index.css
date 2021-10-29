@@ -1,0 +1,19 @@
+nav {
+    position: fixed;
+    display: block;
+    width: 100vw;
+}
+nav * {
+    padding: 0.5rem;
+}
+nav ul {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    padding: 0;
+    color: #47B1AB;
+}
+nav ul li {
+    padding: 0 1em;
+    background-color: black;
+}
