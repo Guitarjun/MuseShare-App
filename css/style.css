@@ -309,6 +309,11 @@ body {
     background-color: #000!important
 }
 
+.white,.hover-white:hover {
+    color: #000!important;
+    background-color: #fff!important
+}
+
 .theme {
     color: #fff !important;
     background-color: #000000 !important
