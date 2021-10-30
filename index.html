@@ -5,7 +5,6 @@
         <title>MuseShare</title>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/example_style.css">
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Fonts -->
@@ -25,8 +24,8 @@
     <!-- Navbar -->
     <div class="top">
         <div class="bar theme top left-align large">
-            <a class="bar-item button right hide-large hover-white large theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
-            <a href="#" class="bar-item buttom theme-l1"><span class="material-icons" aria-label="Home">music_note</span></a>
+            <a class="bar-item button right hide-large hover-white large text-brown" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+            <a href="#" class="bar-item buttom text-lightbrown"><span class="material-icons" aria-label="Home">music_note</span></a>
             <a href="#" class="bar-item button hide-small hover-white">Projects</a>
             <a href="#" class="bar-item button hide-small hover-white">Profile</a>
             <a href="#" class="bar-item button hide-small hover-white">About</a>
@@ -101,42 +100,40 @@
         </div>
     </div>
 
-    <footer id="myFooter">
-        <div class="container theme-l1">
-            <div class="container">
-                <p><a href="mailto:arj1@uw.edu"><span class="material-icons">email</span> arj1@uw.edu</a></p>
-                <!-- <p><a href="tel:555-123-4567"><span class="material-icons">phone</span> 555-123-4567</a></p> -->
-                <p>&copy; Arjun, Rhea, Kyle</p>
-            </div>
-        </div> 
+    <footer>
+        <div class="container">
+            <p><a href="mailto:arj1@uw.edu"><span class="material-icons">email</span> arj1@uw.edu</a></p>
+            <!-- <p><a href="tel:555-123-4567"><span class="material-icons">phone</span> 555-123-4567</a></p> -->
+            <p>&copy; Arjun, Rhea, Kyle</p>
+        </div>
     </footer>
 
     <!-- END MAIN -->
     </div>
 
     <script>
-    // Get the Sidebar
-    var mySidebar = document.getElementById("mySidebar");
+        // Get the Sidebar
+        var mySidebar = document.getElementById("mySidebar");
 
-    // Get the DIV with overlay effect
-    var overlayBg = document.getElementById("myOverlay");
+        // Get the DIV with overlay effect
+        var overlayBg = document.getElementById("myOverlay");
 
-    // Toggle between showing and hiding the sidebar, and add overlay effect
-    function w3_open() {
-    if (mySidebar.style.display === 'block') {
-        mySidebar.style.display = 'none';
+        // Toggle between showing and hiding the sidebar, and add overlay effect
+        function w3_open() {
+        if (mySidebar.style.display === 'block') {
+            mySidebar.style.display = 'none';
+            overlayBg.style.display = "none";
+        } else {
+            mySidebar.style.display = 'block';
+            overlayBg.style.display = "block";
+        }
+        }
+
+        // Close the sidebar with the close button
+        function w3_close() {
+        mySidebar.style.display = "none";
         overlayBg.style.display = "none";
-    } else {
-        mySidebar.style.display = 'block';
-        overlayBg.style.display = "block";
-    }
-    }
-
-    // Close the sidebar with the close button
-    function w3_close() {
-    mySidebar.style.display = "none";
-    overlayBg.style.display = "none";
-    }
+        }
     </script>
 
 </body>
