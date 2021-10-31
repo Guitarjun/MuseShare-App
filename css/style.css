@@ -79,8 +79,11 @@ b,strong {
 }
 
 header {
-    color: white;
     padding-top: 6rem;
+}
+
+header.main-page{
+    color: white;
     padding-bottom: 6rem;
     background-image: url('../img/guitar1.jpg');
     background-color: gray;
@@ -321,4 +324,84 @@ body {
 .theme {
     color: #fff !important;
     background-color: #110c03 !important
+}
+
+header.profile-page {
+    background-color: #8a6c3e;
+    text-align: center;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+header.profile-page img{
+    max-width: 100px;
+}
+
+.wrapper {
+    display: flex;
+    padding: 2em;
+    flex-wrap: wrap;
+}
+
+.about .group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.forum-info {
+    display: flex;
+    flex-wrap: wrap;
+    border: solid #eadcc2;
+    border-radius: 5px;
+    padding: 0.75em;
+}
+
+.forum-info * {
+    flex-basis: 100%;
+}
+
+.forum-info a {
+    padding: 0.5em;
+    background-color: #8a6c3e;
+    color: #eadcc2;
+    max-width: max-content;
+}
+
+.forum-info a:hover {
+    background-color: #eadcc2;
+    color: #8a6c3e;
+    cursor: pointer;
+}
+
+.comments {
+    flex-basis: 100%;
+}
+
+.comments form {
+    margin: 1em 1em;
+    border: solid #eadcc2;
+    border-radius: 5px;
+    padding: 0.75em;
+}
+
+.comments .label {
+    display: block;
+}
+
+.comments .comment {
+    margin: 1em 1em;
+    border: solid #eadcc2;
+    border-radius: 5px;
+    padding: 0.75em;
+}
+
+.comments .comment p {
+    margin-left: 0.5em;
+}
+
+@media (min-width: 768px) {
+    .about .group {
+        flex-wrap: nowrap;
+    }
 }

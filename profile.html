@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">  
+    <title>MuseShare</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/example_style.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400|Raleway:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">       
+</head>
+<body class="background-brown">
+    <div class="top">
+        <div class="bar theme top left-align large">
+            <a class="bar-item button right hide-large hover-white large theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+            <a href="#" class="bar-item buttom theme-l1"><span class="material-icons" aria-label="Home">music_note</span></a>
+            <a href="#" class="bar-item button hide-small hover-white">Projects</a>
+            <a href="#" class="bar-item button hide-small hover-white">Profile</a>
+            <a href="#" class="bar-item button hide-small hover-white">About</a>
+        </div>
+    </div>
+    <header class="profile-page background-brown">
+        <img src="img/default-profile-picture.jpg"/>
+        <h1>Person</h1>
+    </header>
+    <main>
+        <div class="wrapper">
+            <div class="about">
+                <h2>About:</h2>
+                <div class="group">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur fugit deserunt quam sunt omnis beatae qui repellendus quidem voluptate nostrum? Cumque distinctio velit magni dolorem pariatur quo inventore error est?</p>
+                    <div class="forum-info">
+                        <p>Forum posts: 42</p>
+                        <p>Last post: December 24, 1992</p>
+                        <a>View post history</a>
+                    </div>
+                </div>
+            </div>
+            <div class="comments">
+                <h2>Comments:</h2>
+                <form>
+                    <label for="text">Add a comment:</label>
+                    <input type="text" id="text" placeholder="What do you think?">
+                    <input type="radio" id="anonymous" name="comment-type" value="Anonymous" checked>
+                    <label for="anonymous">Post as anonymous</label>
+                    <input type="radio" id="identified" name="comment-type" value="Identified">
+                    <label for="identified">Post as Person</label>
+                </form>
+                <section>
+                <div class="comment">
+                    <h3>Joe:</h3>
+                    <p>I like your music</p>
+                </div>
+                <div class="comment">
+                    <h3>Anonymous:</h3>
+                    <p>Cool guy!</p>
+                </div>
+                <div class="comment">
+                    <h3>Anonymous:</h3>
+                    <p>😎</p>
+                </div>
+            </div>
+            <div class="contact">
+                <h2>Contact:</h2>
+                <p><a href="person@gmail.com"><span class="material-icons">email</span>person@gmail.com</a></p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
