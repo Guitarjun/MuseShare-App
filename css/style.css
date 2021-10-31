@@ -103,15 +103,15 @@ footer {
 }
 
 .text-brown {
-    color: #2C2416;
+    color: #2C2416 !important;
 }
 
 .text-lightbrown {
-    color: #dbc7a2;
+    color: #dbc7a2 !important;
 }
 
 .text-lightestbrown {
-    color: #eadcc2;
+    color: #eadcc2 !important;
 }
 
 footer p {
@@ -139,7 +139,6 @@ a {
     color: inherit;
 }
 
-/* Extract from normalize.css by Nicolas Gallagher and Jonathan Neal git.io/normalize */
 html {
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
@@ -309,6 +308,11 @@ body {
     background-color: #000!important
 }
 
+.brown,.hover-brown:hover {
+    color: #2C2416!important;
+    background-color: #eadcc2!important
+}
+
 .white,.hover-white:hover {
     color: #000!important;
     background-color: #fff!important
@@ -316,5 +320,5 @@ body {
 
 .theme {
     color: #fff !important;
-    background-color: #000000 !important
+    background-color: #110c03 !important
 }
