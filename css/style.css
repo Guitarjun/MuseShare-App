@@ -405,3 +405,7 @@ header.profile-page img{
         flex-wrap: nowrap;
     }
 }
+
+.selected {
+    border: 2px solid #eadcc2!important;
+}
