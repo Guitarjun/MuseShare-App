@@ -407,3 +407,7 @@ header.profile-page img{
         display: block!important
     }
 }
+
+.selected {
+    border: 2px solid #eadcc2!important;
+}
