@@ -24,7 +24,7 @@
     <!-- Navbar -->
     <div class="top">
         <div class="bar theme top left-align large">
-            <a class="bar-item button right hide-large hover-white large text-brown" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+            <a class="bar-item button right hide-large hover-white large text-brown" href="javascript:void(0)" onclick="open()"><i class="fa fa-bars"></i></a>
             <a href="#" class="bar-item buttom text-lightbrown"><span class="material-icons" aria-label="Home">music_note</span></a>
             <a href="#" class="bar-item text-lightestbrown button hide-small hover-brown">Projects</a>
             <a href="#" class="bar-item text-lightestbrown button hide-small hover-brown">Profile</a>
@@ -34,7 +34,7 @@
 
     <!-- Sidebar -->
     <nav class="sidebar bar-block collapse large animate-left" id="mySidebar">
-    <a href="javascript:void(0)" onclick="w3_close()" class="right xlarge padding-large hover-black hide-large" title="Close Menu">
+    <a href="javascript:void(0)" onclick="close()" class="right xlarge padding-large hover-brown hide-large" title="Close Menu">
         <i class="fa fa-remove"></i>
     </a>
     <div class="text-lightbrown">
@@ -47,7 +47,7 @@
     </nav>
 
     <!-- Overlay effect when opening sidebar on small screens -->
-    <div class="overlay hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+    <div class="overlay hide-large text-lightestbrown" onclick="close()" style="cursor:pointer" title="close side menu"></div>
 
     <!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
     <div class="main" style="margin-left:250px">
@@ -112,7 +112,7 @@
         var overlayBg = document.getElementById("myOverlay");
 
         // Toggle between showing and hiding the sidebar, and add overlay effect
-        function w3_open() {
+        function open() {
         if (mySidebar.style.display === 'block') {
             mySidebar.style.display = 'none';
             overlayBg.style.display = "none";
@@ -123,7 +123,7 @@
         }
 
         // Close the sidebar with the close button
-        function w3_close() {
+        function close() {
         mySidebar.style.display = "none";
         overlayBg.style.display = "none";
         }
