@@ -422,10 +422,14 @@ header.profile-page img{
     }
 
     .main {
-        margin-left: 250px;
+        margin-left: 200px;
     }
 
     header.main-page{
+        margin-left: 200px;
+    }
+
+    .margin-200 {
         margin-left: 200px;
     }
 }
@@ -438,12 +442,22 @@ header.profile-page img{
     color: #2C2416!important;
 }
 
+.container {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .container img {
     width: 100%!important;
-    margin: auto;
-    display: block;
+    
 }
 
 .container .card {
     width: 100%;
+}
+
+.img {
+    margin-left: auto;
+    margin-right: auto;
 }
