@@ -411,3 +411,17 @@ header.profile-page img{
 .selected {
     border: 2px solid #eadcc2!important;
 }
+
+.container h2, .container h1 {
+    color: #2C2416!important;
+}
+
+.container img {
+    width: 100%!important;
+    margin: auto;
+    display: block;
+}
+
+.container .card {
+    width: 100%;
+}
