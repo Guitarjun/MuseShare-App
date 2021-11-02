@@ -95,6 +95,11 @@ header.main-page{
     background-position: center;
 }
 
+header.main-page h1 {
+    text-shadow: 2px 2px #dbc7a2;
+    font-size: 3.5rem!important;
+}
+
 header p {
     font-size: 1.25rem;
     font-style: italic;
@@ -418,6 +423,10 @@ header.profile-page img{
 
     .main {
         margin-left: 250px;
+    }
+
+    header.main-page{
+        margin-left: 200px;
     }
 }
 
