@@ -26,7 +26,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 3.5rem;
+    font-size: 2.5rem!important;
+}
+
+h2 {
+    font-size: 1.5rem!important;
 }
 
 html,body {
@@ -91,6 +95,11 @@ header.main-page{
     background-position: center;
 }
 
+header.main-page h1 {
+    text-shadow: 2px 2px #dbc7a2;
+    font-size: 3.5rem!important;
+}
+
 header p {
     font-size: 1.25rem;
     font-style: italic;
@@ -101,8 +110,8 @@ footer {
     background-color: #110c03;
 }
 
-.background-brown {
-    background-color: #C0A172;
+.background-brown, .container .card {
+    background-color: #C0A172!important;
 }
 
 .text-brown {
@@ -178,9 +187,14 @@ body {
     transition: margin-left .4s
 }
 
+.container {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .bar {
     width: 100%;
-    overflow: hidden
+    overflow: hidden;
 }
 
 .center .bar {
@@ -406,6 +420,18 @@ header.profile-page img{
     .sidebar.collapse {
         display: block!important
     }
+
+    .main {
+        margin-left: 200px;
+    }
+
+    header.main-page{
+        margin-left: 200px;
+    }
+
+    .margin-200 {
+        margin-left: 200px;
+    }
 }
 
 .selected {
@@ -416,12 +442,22 @@ header.profile-page img{
     color: #2C2416!important;
 }
 
+.container {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .container img {
     width: 100%!important;
-    margin: auto;
-    display: block;
+    
 }
 
 .container .card {
     width: 100%;
+}
+
+.img {
+    margin-left: auto;
+    margin-right: auto;
 }
