@@ -26,7 +26,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 3.5rem;
+    font-size: 2.5rem!important;
+}
+
+h2 {
+    font-size: 1.5rem!important;
 }
 
 html,body {
@@ -101,8 +105,8 @@ footer {
     background-color: #110c03;
 }
 
-.background-brown {
-    background-color: #C0A172;
+.background-brown, .container .card {
+    background-color: #C0A172!important;
 }
 
 .text-brown {
@@ -178,9 +182,14 @@ body {
     transition: margin-left .4s
 }
 
+.container {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .bar {
     width: 100%;
-    overflow: hidden
+    overflow: hidden;
 }
 
 .center .bar {
@@ -405,6 +414,10 @@ header.profile-page img{
 
     .sidebar.collapse {
         display: block!important
+    }
+
+    .main {
+        margin-left: 250px;
     }
 }
 
