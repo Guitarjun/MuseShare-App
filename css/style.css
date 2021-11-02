@@ -231,19 +231,7 @@ body {
     width: 66.66666%
 }
 
-@media (min-width: 993px) {
-    .modal-content {
-        width:900px
-    }
 
-    .hide-large {
-        display: none!important
-    }
-
-    .sidebar.collapse {
-        display: block!important
-    }
-}
 
 .top,.bottom {
     position: fixed;
@@ -403,6 +391,20 @@ header.profile-page img{
 @media (min-width: 768px) {
     .about .group {
         flex-wrap: nowrap;
+    }
+}
+
+@media (min-width: 993px) {
+    .modal-content {
+        width:900px
+    }
+
+    .hide-large {
+        display: none!important
+    }
+
+    .sidebar.collapse {
+        display: block!important
     }
 }
 
