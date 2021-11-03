@@ -492,3 +492,7 @@ header.profile-page img{
     color: #2C2416;
     text-decoration: none;
 }
+
+.filter {
+    text-decoration: underline;
+}
