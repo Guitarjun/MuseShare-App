@@ -487,3 +487,8 @@ header.profile-page img{
 .project-page .wrapper p {
     font-size: 1.5rem;
 }
+
+.card-link a, .card-text {
+    color: #2C2416;
+    text-decoration: none;
+}
