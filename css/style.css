@@ -475,3 +475,15 @@ header.profile-page img{
     margin-left: auto;
     margin-right: auto;
 }
+
+.project-page img {
+    max-width: 400px;
+}
+
+.project-page header {
+    text-align: center;
+}
+
+.project-page .wrapper p {
+    font-size: 1.5rem;
+}
