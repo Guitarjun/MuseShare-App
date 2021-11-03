@@ -86,18 +86,16 @@ header {
     padding-top: 6rem;
 }
 
-header.main-page{
-    color: white;
-    padding-bottom: 6rem;
-    background-image: url('../img/guitar1.jpg');
-    background-color: gray;
-    background-size: cover;
-    background-position: center;
+header.main-page {
+    background-color: #382E1C;
+    color: #dbc7a2;
+    text-align: center;
 }
 
 header.main-page h1 {
-    text-shadow: 2px 2px #dbc7a2;
+    /* text-shadow: 2px 2px #dbc7a2; */
     font-size: 3.5rem!important;
+    color: #dbc7a2;
 }
 
 header p {
@@ -406,6 +404,22 @@ header.profile-page img{
     .about .group {
         flex-wrap: nowrap;
     }
+
+    header.main-page h1 {
+        text-shadow: 2px 2px #dbc7a2;
+        color: #2C2416;
+        font-size: 3.5rem!important;
+    }
+
+    header.main-page {
+        color: white;
+        padding-bottom: 6rem;
+        background-image: url('../img/guitar1.jpg');
+        background-color: gray;
+        background-size: cover;
+        background-position: center;
+        text-align: left;
+    }
 }
 
 @media (min-width: 993px) {
@@ -439,7 +453,7 @@ header.profile-page img{
 }
 
 .container h2, .container h1 {
-    color: #2C2416!important;
+    color: #2C2416;
 }
 
 .container {
