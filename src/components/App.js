@@ -7,7 +7,7 @@ import { ProjectPage } from './Project';
 
 function App() {
   // need prop for which projects to show based on genre
-
+  
   return (
     <div>
       <NavBar />
