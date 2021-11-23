@@ -3,8 +3,11 @@ import './../App.css';  // Get main css for whole project
 import { Route, Switch, Link, Redirect } from 'react-router-dom';
 import { NavBar } from './NavBar';
 import { SideBar } from './SideBar';
+import { ProjectPage } from './Project';
 
 function App() {
+  // need prop for which projects to show based on genre
+
   return (
     <div>
       <NavBar />
@@ -18,9 +21,10 @@ function App() {
             </header>
             <SideBar />
           </Route>
-          <Route path="/profile">
-            
+          <Route path="/projects/:name">
+            <ProjectPage />  
           </Route>
+          <Redirect to="/" />
       </Switch>
   </div>
 

@@ -5,8 +5,7 @@ export function NavBar() {
     return (
         <div className="top">
             <div className="bar theme top left-align large">
-                <a className="bar-item button right hide-large hover-white large text-brown" onClick={open}><i className="fa fa-bars"></i></a>
-                
+                <div className="bar-item button right hide-large hover-white large text-brown" onClick={open}><i className="fa fa-bars"></i></div>
                 <div className="bar-item button text-lightbrown"><span className="material-icons" aria-label="Home">music_note</span></div>
                 <NavLink exact to="/" className="bar-item text-lightestbrown button hide-small hover-brown" activeClassName="selected">Projects</NavLink>
                 <NavLink to="/profile" className="bar-item text-lightestbrown button hide-small hover-brown" activeClassName="selected">Profile</NavLink>
