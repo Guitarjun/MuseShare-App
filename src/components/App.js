@@ -1,15 +1,29 @@
 // import logo from './logo.svg';
-import './../App.css';
+import './../App.css';  // Get main css for whole project
+import { Route, Switch, Link, Redirect } from 'react-router-dom';
+import { NavBar } from './NavBar';
+import { SideBar } from './SideBar';
 
 function App() {
   return (
-    <header className="main-page margin-200">
-        <div className="container">
-          <h1>MuseShare</h1>
-          <p className="motto">An open-source music collaboration platform!</p>
-        </div>
-    </header>
-    
+    <div>
+      <NavBar />
+        <Switch>
+          <Route exact path="/">
+            <header className="main-page margin-200">
+              <div className="container">
+                <h1>MuseShare</h1>
+                <p className="motto">An open-source music collaboration platform!</p>
+              </div>
+            </header>
+            <SideBar />
+          </Route>
+          <Route path="/profile">
+            
+          </Route>
+      </Switch>
+  </div>
+
   );
 }
 
