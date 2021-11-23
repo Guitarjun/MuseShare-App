@@ -1,6 +1,6 @@
 /* Color palette: https://www.colorcombos.com/color-schemes/192/ColorCombo192.html */
 
-/* TODO: Clean CSS */
+/* TODO: Clean CSS, Figure out how to show background image despite it being out of src/ folder */
 
 * {
   box-sizing: border-box;

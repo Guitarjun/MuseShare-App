@@ -25,14 +25,14 @@ function App() {
               </div>
             </header>
             <SideBar />
-            
+
           </Route>
           <Route path="/projects/:url">
             {/* {setFooter(false)} */}
             <ProjectPage projects={projects}/>
           </Route>
           <Route path="/profile">
-
+            
           </Route>
           <Redirect to="/" />
       </Switch>
