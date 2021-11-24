@@ -16,12 +16,12 @@
     ]
   },
   {
-    "song": "Test song 2",
-    "artists": ["Joe", "Bob"],
-    "url": "testsong2",
-    "note": "Please listen to my music thx",
-    "img": "../img/jana.jpg",
-    "genre": "Indie",
+    "song": "Elements",
+    "artists": ["Zuko"],
+    "url": "elements",
+    "note": "Workin on some heat, feel free to add some more instrumentals to the non-vocal section!",
+    "img": "../img/stefano.jpg",
+    "genre": "Hip Hop/Rap",
     "file": null,
     "feedback": [
       {
@@ -32,6 +32,34 @@
       {
         "user": "not bob",
         "note": "ye cool",
+        "file": null
+      }
+    ]
+  },
+  {
+    "song": "Red",
+    "artists": ["Yash Bindra"],
+    "url": "red",
+    "note": "Looking for a producer to help me mix and master this track!",
+    "img": "../img/yash.jpg",
+    "genre": "Pop",
+    "file": null,
+    "feedback": [
+      
+    ]
+  },
+  {
+    "song": "Fine Dining",
+    "artists": ["Kazaks"],
+    "url": "finedining",
+    "note": "I would love some drums/808s on this. Lmk if you come up with something",
+    "img": "../img/krisjanis.jpg",
+    "genre": "Indie",
+    "file": null,
+    "feedback": [
+      {
+        "user": "User1235",
+        "note": "Sick! Gonna work on some 808s and post it back here",
         "file": null
       }
     ]

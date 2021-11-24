@@ -18,6 +18,26 @@
       "genres": ["Rock", "Other"],
       "email": "arj1@uw.edu",
       "posts": 1
+    },
+    {
+      "name": "Zuko",
+      "url": "zuko",
+      "about": "Hip Hop producer/singer",
+      "projects": ["Elements"],
+      "img": "img/jana.jpg",
+      "genres": ["Rock", "Other"],
+      "email": "zuko@fake.com",
+      "posts": 1
+    },
+    {
+      "name": "Yash Bindra",
+      "url": "yashbindra",
+      "about": "Love 2 sing",
+      "projects": ["Red"],
+      "img": "img/default-profile-picture.jpg",
+      "genres": ["Pop", "Hip Hop/Rap", "Indie"],
+      "email": "yash@fake.edu",
+      "posts": 1
     }
     
   ]
