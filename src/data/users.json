@@ -1,10 +1,21 @@
 [
     {
       "name": "Vxlious",
-      "about": "Hey everyone! My name is Guy, and I'm a producer and drummer who enjoys writing trap beats and drum lines! I'm looking for collaborators (specifically guitarists and bassists), so please check out my projects and lmk if you wanna work on something!",
+      "url": "vxlious",
+      "about": "Hey everyone! My name is Vxlious, and I'm a producer and drummer who enjoys writing trap beats and drum lines! I'm looking for collaborators (specifically guitarists and bassists), so please check out my projects and lmk if you wanna work on something!",
       "projects": ["Done with You"],
-      "img": "img/done_with_you.png",
-      "genres": ["Hip Hop/Rap"]
+      "img": "img/done-with-you.png",
+      "genres": ["Hip Hop/Rap"],
+      "email": "vxlious@fake.com"
+    },
+    {
+      "name": "Guitarjun",
+      "url": "guitarjun",
+      "about": "I am a guitarist with experience in many genres, with an emphasis on fingerstyle, math rock, and neo-soul!",
+      "projects": ["Trapped", "Moonrise"],
+      "img": "img/arjun_profile.jpg",
+      "genres": ["Rock", "Other"],
+      "email": "arj1@uw.edu"
     }
     
   ]

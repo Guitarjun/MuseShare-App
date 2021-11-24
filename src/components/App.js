@@ -4,8 +4,12 @@ import { Route, Switch, Link, Redirect } from 'react-router-dom';
 import { NavBar } from './NavBar';
 import { SideBar } from './SideBar';
 import { ProjectPage } from './Project';
-import projects from './../data/projects.json';
+import { ProfilePage } from './ProfilePage';
 import { useState } from 'react';
+
+// user and project data
+import users from './../data/users.json';
+import projects from './../data/projects.json';
 
 function App() {
   // need prop for which projects to show based on genre
@@ -31,8 +35,8 @@ function App() {
             {/* {setFooter(false)} */}
             <ProjectPage projects={projects}/>
           </Route>
-          <Route path="/profile">
-            
+          <Route path="/profile/:urlUser">
+            <ProfilePage users={users} />
           </Route>
           <Redirect to="/" />
       </Switch>
