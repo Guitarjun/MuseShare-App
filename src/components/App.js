@@ -3,11 +3,12 @@ import './../App.css';  // Get main css for whole project
 import { Route, Switch, Link, Redirect } from 'react-router-dom';
 import { NavBar } from './NavBar';
 import { SideBar } from './SideBar';
-import { ProjectPage } from './Project';
-import projects from './../data/projects.json';
+import ProjectsPanel from './ProjectsPanel';
+import projectsData from './../data/projects.json';
 import { useState } from 'react';
 
 function App() {
+  const [selectedProjects, setselectedProjects] = useState(projectsData);
   // need prop for which projects to show based on genre
 
   // const [footer, setFooter] = useState(false); // For controlling footer width
@@ -29,7 +30,7 @@ function App() {
           </Route>
           <Route path="/projects/:url">
             {/* {setFooter(false)} */}
-            <ProjectPage projects={projects}/>
+            <ProjectsPanel projects={selectedProjects}/>
           </Route>
           <Route path="/profile">
 

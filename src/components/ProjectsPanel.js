@@ -3,7 +3,7 @@ import { useParams } from 'react-router';
 import _ from 'lodash';
 import { CommentList } from './Comment';
 
-export function ProjectPage(props) {
+function ProjectsPanel(props) {
 
     const urlParams = useParams();
     let projectUrl = urlParams.url;
@@ -64,5 +64,6 @@ export function ProjectPage(props) {
 
         </body>
     );
-
 }
+
+export default ProjectsPanel;
