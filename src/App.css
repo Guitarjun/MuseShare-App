@@ -13,6 +13,7 @@
     background-color: #202225;
     display: flex;
     flex-wrap: wrap;
+    padding: 0;
 }
 
 .navbar .left-wrapper {
@@ -41,7 +42,6 @@
 
 .navbar .left-wrapper li {
     font-size: 1.5em;
-    margin: 0.5em 1em 0 0.5em;
 }
 
 .navbar li {
