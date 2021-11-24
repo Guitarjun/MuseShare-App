@@ -2,7 +2,7 @@
 //import './../App.css';  // Get main css for whole project
 import { Route, Switch, Link, Redirect } from 'react-router-dom';
 import NavBar from './NavBar';
-import { ProfilePage } from './profilePage/ProfilePage';
+import { ProfilePage } from './ProfilePage';
 import { useState } from 'react';
 import ProjectsPanel from './projectsPage/ProjectsPanel';
 import { ProjectPage } from './projectsPage/ProjectPage';

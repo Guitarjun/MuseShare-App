@@ -1,7 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router';
 import _ from 'lodash';
-import CommentSection from './../projectsPage/CommentSection';
 
 
 export function ProfilePage(props) {
