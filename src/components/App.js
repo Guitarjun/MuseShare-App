@@ -3,12 +3,13 @@
 import { Route, Switch, Link, Redirect } from 'react-router-dom';
 import NavBar from './NavBar';
 import { ProfilePage } from './profilePage/ProfilePage';
-import userData from './../data/users.json';
 import { useState } from 'react';
+import ProjectsPanel from './projectsPage/ProjectsPanel';
+import { ProjectPage } from './projectsPage/ProjectPage';
 
 // User and project data
-import ProjectsPanel from './projectsPage/ProjectsPanel';
 import projectsData from './../data/projects.json';
+import userData from './../data/users.json';
 
 function App() {
   const [selectedProjects, setSelectedProjects] = useState(projectsData);
@@ -24,6 +25,7 @@ function App() {
             <ProjectsPanel projects={selectedProjects} />
           </Route>
           <Route path="/projects/:url">
+            <ProjectPage projects={projectsData}/>
           </Route>
           <Route path="/profile/:urlUser">
             <ProfilePage users={userData} />

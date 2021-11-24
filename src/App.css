@@ -298,3 +298,18 @@ header.profile-page {
     max-width: 100px;
     margin-top: 5rem;
   }
+
+
+/* Project Page */
+.project-page img {
+    max-width: 400px;
+}
+  
+.project-page header {
+    background-color: #909090;
+    text-align: center;
+}
+
+.project-page .wrapper p {
+    font-size: 1.5rem;
+}
