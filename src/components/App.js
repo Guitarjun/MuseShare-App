@@ -25,10 +25,12 @@ function App() {
             <ProjectsPanel projects={selectedProjects} />
           </Route>
           <Route path="/projects/:url">
-            <ProjectCard projects={projectsData}/>
           </Route>
           <Route path="/profile/:urlUser">
             <ProfilePage users={userData} />
+          </Route>
+          <Route path="/about">
+            
           </Route>
           <Redirect to="/" />
       </Switch>

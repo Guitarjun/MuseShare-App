@@ -6,7 +6,8 @@
       "projects": ["Done with You"],
       "img": "img/done-with-you.png",
       "genres": ["Hip Hop/Rap"],
-      "email": "vxlious@fake.com"
+      "email": "vxlious@fake.com",
+      "posts": 1
     },
     {
       "name": "Guitarjun",
@@ -15,7 +16,8 @@
       "projects": ["Trapped", "Moonrise"],
       "img": "img/arjun_profile.jpg",
       "genres": ["Rock", "Other"],
-      "email": "arj1@uw.edu"
+      "email": "arj1@uw.edu",
+      "posts": 1
     }
     
   ]
