@@ -1,6 +1,6 @@
 [
   {
-    "song": "Done with You",
+    "name": "Done with You",
     "artists": ["hxlli phxntom", "Vxlious"],
     "url": "donewithyou",
     "note": "Hey everyone! Been working on this new piece, playing around with different samples and a Don Toliver-esque sound. Looking for how I can take it to the next level, let me know if you have any thoughts! Personally, I feel like it's missing a verse. Especially a female voice could add a new element to it. Check it out and play around with it!",
@@ -16,7 +16,7 @@
     ]
   },
   {
-    "song": "Elements",
+    "name": "Elements",
     "artists": ["Zuko"],
     "url": "elements",
     "note": "Workin on some heat, feel free to add some more instrumentals to the non-vocal section!",
@@ -37,7 +37,7 @@
     ]
   },
   {
-    "song": "Red",
+    "name": "Red",
     "artists": ["Yash Bindra"],
     "url": "red",
     "note": "Looking for a producer to help me mix and master this track!",
@@ -49,7 +49,7 @@
     ]
   },
   {
-    "song": "Fine Dining",
+    "name": "Fine Dining",
     "artists": ["Kazaks"],
     "url": "finedining",
     "note": "I would love some drums/808s on this. Lmk if you come up with something",
