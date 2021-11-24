@@ -181,7 +181,7 @@ body {
     user-select: none
 }
 
-.main {
+.main,#main {
     transition: margin-left .4s
 }
 

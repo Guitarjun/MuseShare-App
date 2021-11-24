@@ -16,7 +16,7 @@ function ProjectsPanel(props) {
     return (
         <body className="project-page background-brown">
             <header className="background-brown">
-                <img className="mb-3" src={'../'+project.img} alt={project.name + " image"}/>
+                <img className="mb-3" src={project.img} alt={project.name + " image"}/>
                 <h1>{project.name}</h1>
                 <h2>{project.artists}</h2>
                 <p>{project.genre}</p>
