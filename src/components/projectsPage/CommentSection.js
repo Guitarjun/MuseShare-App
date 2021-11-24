@@ -1,8 +1,9 @@
 import React from "react";
+import "./CommentSection.css";
 
 export function CommentSection({comments}) {
 
-    const commentList = comments.forEach((comment) => {
+    const commentList = comments.map((comment) => {
         return (
             <div className="comment">
                 <h3>{comment.user}</h3>
@@ -13,20 +14,28 @@ export function CommentSection({comments}) {
     });
 
     return (
-        <div className="comment-section">
-            <h2>Comments and Collaborator's Versions:</h2>
+        <section className="comment-section">
+            <h1>Comments and Collaborator's Versions:</h1>
             <form>
-                <label for="text">Add a comment:</label>
-                <input type="text" id="text" placeholder="What do you think?" />
-                <input type="radio" id="anonymous" name="comment-type" value="Anonymous" checked />
-                <label for="anonymous">Post as anonymous</label>
-                <input type="radio" id="identified" name="comment-type" value="Identified" />
-                <label for="identified">Post as Person</label>
-                <input type="button" value="Post comment" />
-                <input type="button" value="Attach new version" />
+                <div className="text">
+                    <label for="text">Add a comment:</label>
+                    <input type="text" id="text" placeholder="What do you think?" />
+                </div>
+                <div className="radios">
+                    <input type="radio" id="anonymous" name="comment-type" value="anonymous" checked />
+                    <label for="anonymous">Post as anonymous</label>
+                    <input type="radio" id="identified" name="comment-type" value="identified" />
+                    <label for="identified">Post as Person:</label>
+                </div>
+                <div className="post-buttons-wrapper">
+                    <div className="post-buttons">
+                        <input type="button" value="Attach new version" />
+                        <input type="button" value="Post comment" />
+                    </div>
+                </div>
             </form>
             {commentList}
-        </div>
+        </section>
     );
 }
 

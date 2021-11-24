@@ -1,4 +1,3 @@
-footer {
-    position: fixed;
-    bottom: 0px;
+.app footer {
+    margin-left: 1em;
 }

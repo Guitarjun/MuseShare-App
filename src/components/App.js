@@ -2,15 +2,11 @@
 //import './../App.css';  // Get main css for whole project
 import { Route, Switch, Link, Redirect } from 'react-router-dom';
 import NavBar from './NavBar';
-import FilterPanel from './projectsPage/FilterPanel';
+import FilterDropdown from './FilterDropdown';
 import ProjectsPanel from './projectsPage/ProjectsPanel';
 import projectsData from './../data/projects.json';
 import { useState } from 'react';
 import "./App.css"
-
-// user and project data
-import users from './../data/users.json';
-import projects from './../data/projects.json';
 
 function App() {
   const [selectedProjects, setselectedProjects] = useState(projectsData);
@@ -21,18 +17,14 @@ function App() {
   // const [footer, setFooter] = useState(false); // For controlling footer width
 
   return (
-    <div>
+    <div className="app">
       <NavBar />
-      <FilterPanel />
-      {/*<ProjectsPanel projects={selectedProjects} />*/}
+      <ProjectsPanel projects={selectedProjects} />
       <footer className="margin-200">
-        <div className="container">
-            <p><a href="mailto:arj1@uw.edu"><span className="material-icons">email</span> arj1@uw.edu</a></p>
-            <p>&copy; Arjun, Rhea, Kyle</p>
-        </div>
-    </footer>
-  </div>
-
+          <p><a href="mailto:arj1@uw.edu"><span className="material-icons">email</span> arj1@uw.edu</a></p>
+          <p>&copy; Arjun, Rhea, Kyle</p>
+      </footer>
+    </div>
   );
 }
 
