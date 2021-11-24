@@ -1,12 +1,11 @@
 // import logo from './logo.svg';
 //import './../App.css';  // Get main css for whole project
 import { Route, Switch, Link, Redirect } from 'react-router-dom';
-import NavBar from './NavBar';
+import Navbar from './Navbar';
 import FilterDropdown from './FilterDropdown';
 import ProjectsPanel from './projectsPage/ProjectsPanel';
 import projectsData from './../data/projects.json';
 import { useState } from 'react';
-import "./App.css"
 
 function App() {
   const [selectedProjects, setselectedProjects] = useState(projectsData);
@@ -18,7 +17,7 @@ function App() {
 
   return (
     <div className="app">
-      <NavBar />
+      <Navbar />
       <ProjectsPanel projects={selectedProjects} />
       <footer className="margin-200">
           <p><a href="mailto:arj1@uw.edu"><span className="material-icons">email</span> arj1@uw.edu</a></p>

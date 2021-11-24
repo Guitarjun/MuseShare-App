@@ -1,5 +1,4 @@
 import React from 'react'; //import React Component
-import "./FilterDropdown.css";
 
 function FilterDropdown() {
     const options = [

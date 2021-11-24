@@ -1,6 +1,5 @@
 import React from "react";
 import CommentSection from "./CommentSection";
-import "./ProjectCard.css"
 
 function ProjectCard({project}) {
 

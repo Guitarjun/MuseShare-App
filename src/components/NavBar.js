@@ -1,12 +1,11 @@
 import React from "react"; //import React Component
 import { NavLink } from "react-router-dom";
 import FilterDropdown from './FilterDropdown';
-import "./NavBar.css"
 
-function NavBar() {
+function Navbar() {
     const showFilter = true;
     return (
-        <nav className="nav-bar">
+        <nav className="navbar">
             <div className="left-wrapper">
                 <ul>
                     <li>
@@ -33,4 +32,4 @@ function NavBar() {
     );
 }
 
-export default NavBar;
+export default Navbar;

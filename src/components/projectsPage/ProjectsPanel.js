@@ -1,6 +1,5 @@
 import React from "react";
 import ProjectCard from './ProjectCard';
-import "./ProjectsPanel.css";
 
 function ProjectsPanel(props) {
 
