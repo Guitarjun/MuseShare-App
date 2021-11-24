@@ -16,18 +16,23 @@
     ]
   },
   {
-    "song": "Done with You",
-    "artists": ["hxlli phxntom", "Vxlious"],
+    "song": "Test song 2",
+    "artists": ["Joe", "Bob"],
     "url": "donewithyou",
     "note": "Hey everyone! Been working on this new piece, playing around with different samples and a Don Toliver-esque sound. Looking for how I can take it to the next level, let me know if you have any thoughts! Personally, I feel like it's missing a verse. Especially a female voice could add a new element to it. Check it out and play around with it!",
-    "img": "../img/done-with-you.png",
-    "genre": "Hip Hop/Rap",
+    "img": "../img/jana.jpg",
+    "genre": "Indie",
     "file": null,
     "feedback": [
       {
-        "user": "Jack",
-        "note": "I love it wow! Added some drums, check it out.",
-        "file": "done-with-you-jack.mp3"
+        "user": "not joe",
+        "note": "bery cool",
+        "file": null
+      },
+      {
+        "user": "not bob",
+        "note": "ye cool",
+        "file": null
       }
     ]
   }
