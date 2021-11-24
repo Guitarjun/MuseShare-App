@@ -210,6 +210,10 @@
     padding: 1em;
 }
 
+.project-card:hover {
+    background-color: gray;
+}
+
 .project-card header {
     display: flex;
     flex-direction: row;

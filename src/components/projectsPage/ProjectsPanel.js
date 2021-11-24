@@ -1,10 +1,12 @@
 import React from "react";
+import { useState } from 'react';
+import { Redirect } from 'react-router';
 
 function ProjectsPanel(props) {
 
     const projectsList = props.projects.map((project) => {
         return (
-            <ProjectCard project={project} />
+            <ProjectCard key={project.url} project={project} />
         );
     });
 
@@ -16,14 +18,23 @@ function ProjectsPanel(props) {
 }
 
 function ProjectCard(props) {
+    const [redirectTo, setRedirect] = useState(undefined);
+
     let project = props.project;
+
+    const handleClick = () => {
+        setRedirect("/projects/" + project.url);
+      }
 
     const artists = "By: " + project.artists.reduce((prev, current) => {
         return prev + ", " + current;
     });
 
+    if (redirectTo) {
+        return <Redirect push to={redirectTo}></Redirect>
+    }
     return (
-        <div className="project-card">
+        <div className="project-card" onClick={handleClick}>
             <header>
                 <div className="header-wrapper">
                     <img src={'../'+project.img} alt={project.name + " image"}/>
