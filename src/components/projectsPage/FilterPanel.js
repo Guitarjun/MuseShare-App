@@ -1,6 +1,6 @@
 import React from 'react'; //import React Component
 
-export function SideBar() {
+function FilterPanel() {
     return (
         <div>
             <nav className="sidebar bar-block collapse large animate-left" id="mySidebar">
@@ -35,3 +35,5 @@ function close() {
     mySidebar.style.display = "none";
     overlayBg.style.display = "none";
 }
+
+export default FilterPanel;

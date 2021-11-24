@@ -1,0 +1,42 @@
+.nav-bar {
+    position: fixed;
+    width: 100%;
+    background-color: #202225;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+}
+
+ul > li {
+    display: inline-block;
+    margin: 0.5em 1px;
+    font-size: 1.5em;
+}
+
+ul > li  * {
+    color: white;
+}
+
+span {
+    user-select: none;
+    position: relative;
+    right: 0.9em;
+    top: 0.1em;
+}
+
+a {
+    padding: 0.5em;
+    border-radius: 5px;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #202225;
+    background-color: white;
+}
+
+.active {
+    box-shadow: 0px 0px 0px 2px white inset; /*Border contained in bounds of element*/
+}

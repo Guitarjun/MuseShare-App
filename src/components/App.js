@@ -1,11 +1,10 @@
 // import logo from './logo.svg';
-import './../App.css';  // Get main css for whole project
+//import './../App.css';  // Get main css for whole project
 import { Route, Switch, Link, Redirect } from 'react-router-dom';
-import { NavBar } from './NavBar';
-import { SideBar } from './SideBar';
-import ProjectsPanel from './ProjectsPanel';
+import NavBar from './NavBar';
+import FilterPanel from './projectsPage/FilterPanel';
+import ProjectsPanel from './projectsPage/ProjectsPanel';
 import projectsData from './../data/projects.json';
-import { ProfilePage } from './ProfilePage';
 import { useState } from 'react';
 
 // user and project data
@@ -23,27 +22,7 @@ function App() {
   return (
     <div>
       <NavBar />
-        <Switch>
-          <Route exact path="/">
-            {/* {setFooter(true)} */}
-            <header className="main-page margin-200">
-              <div className="container">
-                <h1>MuseShare</h1>
-                <p className="motto">An open-source music collaboration platform!</p>
-              </div>
-            </header>
-            <SideBar />
-
-          </Route>
-          <Route path="/projects/:url">
-            {/* {setFooter(false)} */}
-            <ProjectsPanel projects={selectedProjects}/>
-          </Route>
-          <Route path="/profile/:urlUser">
-            <ProfilePage users={users} />
-          </Route>
-          <Redirect to="/" />
-      </Switch>
+      <FilterPanel />
       <ProjectsPanel projects={selectedProjects} />
       <footer className="margin-200">
         <div className="container">
@@ -57,3 +36,25 @@ function App() {
 }
 
 export default App;
+
+/*
+      <Switch>
+        <Route exact path="/">
+
+          <header className="main-page margin-200">
+            <div className="container">
+              <h1>MuseShare</h1>
+              <p className="motto">An open-source music collaboration platform!</p>
+            </div>
+          </header>
+          <SideBar />
+        </Route>
+        <Route path="/projects/:url">
+            <ProjectsPanel projects={selectedProjects}/>
+          </Route>
+          <Route path="/profile/:urlUser">
+            <ProfilePage users={users} />
+        </Route>
+        <Redirect to="/" />
+      </Switch>
+*/

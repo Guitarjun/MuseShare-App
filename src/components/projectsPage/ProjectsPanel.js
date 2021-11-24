@@ -1,20 +1,14 @@
-import React from "react"; //import React Component
-import { useParams } from 'react-router';
-import _ from 'lodash';
+import React from "react";
 import ProjectCard from './ProjectCard';
+import "./ProjectsPanel.css";
 
 function ProjectsPanel(props) {
 
-    console.log(props.projects);
-
     const projectsList = props.projects.map((project) => {
-        console.log(project)
         return (
             <ProjectCard project={project} />
         );
     });
-
-    console.log(projectsList);
 
     return (
         <div className="project-panel">
