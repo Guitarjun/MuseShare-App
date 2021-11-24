@@ -6,6 +6,7 @@ import FilterPanel from './projectsPage/FilterPanel';
 import ProjectsPanel from './projectsPage/ProjectsPanel';
 import projectsData from './../data/projects.json';
 import { useState } from 'react';
+import "./App.css"
 
 // user and project data
 import users from './../data/users.json';
@@ -23,7 +24,7 @@ function App() {
     <div>
       <NavBar />
       <FilterPanel />
-      <ProjectsPanel projects={selectedProjects} />
+      {/*<ProjectsPanel projects={selectedProjects} />*/}
       <footer className="margin-200">
         <div className="container">
             <p><a href="mailto:arj1@uw.edu"><span className="material-icons">email</span> arj1@uw.edu</a></p>
