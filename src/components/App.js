@@ -28,25 +28,3 @@ function App() {
 }
 
 export default App;
-
-/*
-      <Switch>
-        <Route exact path="/">
-
-          <header className="main-page margin-200">
-            <div className="container">
-              <h1>MuseShare</h1>
-              <p className="motto">An open-source music collaboration platform!</p>
-            </div>
-          </header>
-          <SideBar />
-        </Route>
-        <Route path="/projects/:url">
-            <ProjectsPanel projects={selectedProjects}/>
-          </Route>
-          <Route path="/profile/:urlUser">
-            <ProfilePage users={users} />
-        </Route>
-        <Redirect to="/" />
-      </Switch>
-*/
