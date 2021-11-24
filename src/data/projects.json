@@ -14,5 +14,21 @@
         "file": "done-with-you-jack.mp3"
       }
     ]
+  },
+  {
+    "song": "Done with You",
+    "artists": ["hxlli phxntom", "Vxlious"],
+    "url": "donewithyou",
+    "note": "Hey everyone! Been working on this new piece, playing around with different samples and a Don Toliver-esque sound. Looking for how I can take it to the next level, let me know if you have any thoughts! Personally, I feel like it's missing a verse. Especially a female voice could add a new element to it. Check it out and play around with it!",
+    "img": "../img/done-with-you.png",
+    "genre": "Hip Hop/Rap",
+    "file": null,
+    "feedback": [
+      {
+        "user": "Jack",
+        "note": "I love it wow! Added some drums, check it out.",
+        "file": "done-with-you-jack.mp3"
+      }
+    ]
   }
 ]

@@ -14,6 +14,8 @@ import projects from './../data/projects.json';
 
 function App() {
   const [selectedProjects, setselectedProjects] = useState(projectsData);
+
+  console.log(selectedProjects);
   // need prop for which projects to show based on genre
 
   // const [footer, setFooter] = useState(false); // For controlling footer width
@@ -42,7 +44,7 @@ function App() {
           </Route>
           <Redirect to="/" />
       </Switch>
-      {/* <footer className={footer ? "margin-200" : ""}> */}
+      <ProjectsPanel projects={selectedProjects} />
       <footer className="margin-200">
         <div className="container">
             <p><a href="mailto:arj1@uw.edu"><span className="material-icons">email</span> arj1@uw.edu</a></p>
