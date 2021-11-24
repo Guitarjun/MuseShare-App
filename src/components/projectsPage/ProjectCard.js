@@ -23,7 +23,6 @@ function ProjectCard({project}) {
                     <button className="btn btn-primary">Download</button>
                 </section>
             </div>
-            <CommentSection comments={project.feedback}/>
         </div>
     );
 }
