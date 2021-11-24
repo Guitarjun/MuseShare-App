@@ -5,7 +5,6 @@ import NavBar from './NavBar';
 import { ProfilePage } from './profilePage/ProfilePage';
 import userData from './../data/users.json';
 import { useState } from 'react';
-import ProjectCard from './projectsPage/ProjectCard';
 
 // User and project data
 import ProjectsPanel from './projectsPage/ProjectsPanel';
