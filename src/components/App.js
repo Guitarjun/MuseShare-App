@@ -5,7 +5,12 @@ import { NavBar } from './NavBar';
 import { SideBar } from './SideBar';
 import ProjectsPanel from './ProjectsPanel';
 import projectsData from './../data/projects.json';
+import { ProfilePage } from './ProfilePage';
 import { useState } from 'react';
+
+// user and project data
+import users from './../data/users.json';
+import projects from './../data/projects.json';
 
 function App() {
   const [selectedProjects, setselectedProjects] = useState(projectsData);
@@ -26,14 +31,14 @@ function App() {
               </div>
             </header>
             <SideBar />
-            
+
           </Route>
           <Route path="/projects/:url">
             {/* {setFooter(false)} */}
             <ProjectsPanel projects={selectedProjects}/>
           </Route>
-          <Route path="/profile">
-
+          <Route path="/profile/:urlUser">
+            <ProfilePage users={users} />
           </Route>
           <Redirect to="/" />
       </Switch>

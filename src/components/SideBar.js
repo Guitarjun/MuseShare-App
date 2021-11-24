@@ -9,6 +9,7 @@ export function SideBar() {
                 </a>
                 <div className="text-lightbrown">
                     <h4 className="bar-item text-lightestbrown"><b>Genres</b></h4>
+                    {/* Use NavLinks for a's below */}
                     <a className="bar-item button hover-brown" href="#">All</a>
                     <a className="bar-item button hover-brown" href="#">Rock</a>
                     <a className="bar-item button hover-brown" href="#">Pop</a>
