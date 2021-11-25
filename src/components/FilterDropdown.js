@@ -3,18 +3,10 @@ import React, { useState } from 'react'; //import React Component
 function FilterDropdown(props) {
     let callback = props.callback;
 
-    const [currentGenre, setGenre] = useState('All');
-
     const handleChangeSelect = function(event) {
         console.log("SELECTED")
-        let genre = event.target.value;
-        if (genre != currentGenre) {
-            setGenre(genre);
-        }
-    }
-
-    const handleClick = function(event) {
-        callback(currentGenre);
+        const genre = event.target.value;
+        callback(genre);
     }
 
     const options = [
@@ -33,7 +25,6 @@ function FilterDropdown(props) {
                 <option value="Country">Country</option>
                 <option value="Other">Other</option>
             </select>
-            <button type="button" onClick={handleClick} className="btn-light btn m-2 mb-3">Apply Filter</button>
         </div>
     );
 }

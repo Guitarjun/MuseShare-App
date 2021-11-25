@@ -4,7 +4,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import NavBar from './NavBar';
 import { ProfilePage } from './ProfilePage';
 import { useState } from 'react';
-import ProjectsPanel from './projectsPage/ProjectsPanel';
+import ProjectList from './projectsPage/ProjectList';
 import { ProjectPage } from './projectsPage/ProjectPage';
 
 
@@ -29,13 +29,12 @@ function App(props) {
     console.log(genre);
   }
 
-
   return (
     <div className="app">
       <NavBar callback={applyFilter} />
       <Switch>
           <Route exact path="/">
-            <ProjectsPanel projects={selectedProjects} />
+            <ProjectList projects={selectedProjects} />
           </Route>
           <Route path="/projects/:url">
             <ProjectPage projects={projectsData}/>
@@ -44,11 +43,9 @@ function App(props) {
             <ProfilePage users={userData} />
           </Route>
           <Route path="/about">
-            
           </Route>
           <Redirect to="/" />
       </Switch>
-      
       <footer className="margin-200">
           <p><a href="mailto:arj1@uw.edu"><span className="material-icons">email</span> arj1@uw.edu</a></p>
           <p>&copy; Arjun, Rhea, Kyle</p>

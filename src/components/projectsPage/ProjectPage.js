@@ -23,8 +23,8 @@ export function ProjectPage(props) {
                 <h1>{project.name}</h1>
                 <h2>{artists}</h2>
                 <p>{project.genre}</p>
-                <a className="btn btn-dark mb-2" href="#" role="button"><span className="material-icons mb-3">play_arrow</span> 2:04  </a>
-                <a className="btn btn-primary" href="#" role="button">Download</a>
+                <button className="btn btn-dark mb-2"><span className="material-icons mb-3">play_arrow</span> 2:04  </button>
+                <button className="btn btn-primary">Download</button>
             </header>
             <main>
                 <div className="wrapper">
@@ -37,9 +37,6 @@ export function ProjectPage(props) {
                 </div>
                 <CommentSection comments={project.feedback}/>
             </main>
-
-
         </body>
     );
-
 }
