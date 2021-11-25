@@ -17,14 +17,14 @@ export function CommentSection({comments}) {
             <h1>Comments and Collaborator's Versions:</h1>
             <form>
                 <div className="text">
-                    <label for="text">Add a comment:</label>
+                    <label htmlFor="text">Add a comment:</label>
                     <input type="text" id="text" placeholder="What do you think?" />
                 </div>
                 <div className="radios">
-                    <input type="radio" id="anonymous" name="comment-type" value="anonymous" checked />
-                    <label for="anonymous">Post as anonymous</label>
+                    <input type="radio" id="anonymous" name="comment-type" value="anonymous" />
+                    <label htmlFor="anonymous">Post as anonymous</label>
                     <input type="radio" id="identified" name="comment-type" value="identified" />
-                    <label for="identified">Post as Person:</label>
+                    <label htmlFor="identified">Post as Person:</label>
                 </div>
                 <div className="post-buttons-wrapper">
                     <div className="post-buttons">

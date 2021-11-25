@@ -1,3 +1,5 @@
+/* TODO: Improve responsive design (for smaller screens, larger is fine) */
+
 /* App */
 
 .app footer {
@@ -211,7 +213,7 @@
 }
 
 .project-card:hover {
-    background-color: gray;
+    background-color: #A0A0A0;
 }
 
 .project-card header {

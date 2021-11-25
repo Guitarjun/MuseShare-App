@@ -12,12 +12,16 @@ export function ProjectPage(props) {
 
     if(!project) return <h2>No project specified</h2> //if unspecified
 
+    const artists = "By: " + project.artists.reduce((prev, current) => {
+        return prev + ", " + current;
+    });
+
     return (
         <body className="project-page">
             <header className="background-brown">
                 <img className="mb-3" src={'../'+project.img} alt={project.name + " image"}/>
                 <h1>{project.name}</h1>
-                <h2>{"by: " +project.artists}</h2>
+                <h2>{artists}</h2>
                 <p>{project.genre}</p>
                 <a className="btn btn-dark mb-2" href="#" role="button"><span className="material-icons mb-3">play_arrow</span> 2:04  </a>
                 <a className="btn btn-primary" href="#" role="button">Download</a>

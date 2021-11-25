@@ -2,11 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
 import { BrowserRouter } from 'react-router-dom';
-import firebase from 'firebase/app';
 import "./App.css";
 
+// User and project data
+import projectsData from './data/projects.json';
+import userData from './data/users.json';
 
 ReactDOM.render(
-    <BrowserRouter><App /></BrowserRouter>,
+    <BrowserRouter><App users={userData} projects={projectsData}/></BrowserRouter>,
   document.getElementById('root')
 );

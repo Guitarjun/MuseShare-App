@@ -1,25 +1,38 @@
 // import logo from './logo.svg';
 //import './../App.css';  // Get main css for whole project
-import { Route, Switch, Link, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import NavBar from './NavBar';
 import { ProfilePage } from './ProfilePage';
 import { useState } from 'react';
 import ProjectsPanel from './projectsPage/ProjectsPanel';
 import { ProjectPage } from './projectsPage/ProjectPage';
 
-// User and project data
-import projectsData from './../data/projects.json';
-import userData from './../data/users.json';
 
-function App() {
+
+function App(props) {
+
+  let userData = props.users;
+  let projectsData = props.projects; 
+
+  // State and function for handling genre filter
   const [selectedProjects, setSelectedProjects] = useState(projectsData);
 
-  console.log(selectedProjects);
-  // need prop for which projects to show based on genre
+  const applyFilter = function(genre) {
+    if (genre == 'All') {
+      setSelectedProjects(projectsData);
+    } else {
+      let newData = projectsData.filter((project) => {
+        return project.genre == genre;
+      });
+      setSelectedProjects(newData);
+    }
+    console.log(genre);
+  }
+
 
   return (
     <div className="app">
-      <NavBar />
+      <NavBar callback={applyFilter} />
       <Switch>
           <Route exact path="/">
             <ProjectsPanel projects={selectedProjects} />

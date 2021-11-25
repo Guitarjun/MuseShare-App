@@ -2,7 +2,7 @@ import React from "react"; //import React Component
 import { NavLink } from "react-router-dom";
 import FilterDropdown from './FilterDropdown';
 
-function NavBar() {
+function NavBar(props) {
     const showFilter = true;
     return (
         <nav className="navbar">
@@ -12,7 +12,7 @@ function NavBar() {
                         <span className="material-icons" aria-label="Home">music_note</span>
                         <span>MuseShare</span>
                     </li>
-                    {showFilter && <li><FilterDropdown /></li>}
+                    {showFilter && <li><FilterDropdown callback={props.callback}/></li>}
                 </ul>
             </div>
             <div className="right-wrapper">
