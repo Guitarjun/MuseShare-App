@@ -24,7 +24,7 @@ function NavBar(props) {
                         <NavLink exact to="/profile" activeClassName="active">Profile</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/about" activeClassName="active">About</NavLink>
+                        <NavLink to="/signup" activeClassName="active">Sign Up</NavLink>
                     </li>
                 </ul>
             </div>

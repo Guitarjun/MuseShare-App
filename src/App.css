@@ -248,7 +248,7 @@ header.profile-page {
   }
 
   header.profile-page img{
-    max-width: 100px;
+    max-width: 400px;
     margin-top: 5rem;
   }
 
@@ -265,4 +265,10 @@ header.profile-page {
 
 .project-page .wrapper p {
     font-size: 1.5rem;
+}
+
+/* Sign Up Page */
+.signup-page header {
+    background-color: #909090;
+    text-align: center;
 }

@@ -26,8 +26,6 @@ export function ProfilePage(props) {
                             <p>{user.about}</p>
                             <div className="forum-info">
                                 <p>Forum posts: {user.posts}</p>
-                                <p>Last post: December 24, 1992</p>
-                                <a>View post history</a>
                             </div>
                         </div>
                     </div>

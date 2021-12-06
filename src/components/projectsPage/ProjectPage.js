@@ -18,7 +18,7 @@ export function ProjectPage(props) {
 
     return (
         <body className="project-page">
-            <header className="background-brown">
+            <header>
                 <img className="mb-3" src={'../'+project.img} alt={project.name + " image"}/>
                 <h1>{project.name}</h1>
                 <h2>{artists}</h2>

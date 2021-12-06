@@ -3,11 +3,12 @@
 import { Route, Switch, Redirect } from 'react-router-dom';
 import NavBar from './NavBar';
 import { ProfilePage } from './ProfilePage';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ProjectList from './projectsPage/ProjectList';
 import { ProjectPage } from './projectsPage/ProjectPage';
-
-
+import { SignUpPage } from './SignUpPage';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 
 function App(props) {
 
@@ -16,6 +17,9 @@ function App(props) {
 
   // State and function for handling genre filter
   const [selectedProjects, setSelectedProjects] = useState(projectsData);
+
+  // Current user
+  const [currentUser, setCurrentUser] = useState(undefined);
 
   const applyFilter = function(genre) {
     if (genre == 'All') {
@@ -27,6 +31,20 @@ function App(props) {
       setSelectedProjects(newData);
     }
   }
+
+  // Check if user is logged in
+  useEffect(() => {
+    let authUnregFunc = firebase.auth().onAuthStateChanged((firebaseUser) => {
+      if(firebaseUser){ //firebaseUser defined: is logged in
+          console.log('logged in');
+          setCurrentUser(firebaseUser);
+      }
+      else { //firebaseUser undefined: is not logged in
+          console.log('logged out');
+      }
+  });
+  
+});
 
   return (
     <div className="app">
@@ -41,7 +59,8 @@ function App(props) {
           <Route path="/profile/:urlUser">
             <ProfilePage users={userData} />
           </Route>
-          <Route path="/about">
+          <Route path="/signup">
+            <SignUpPage />
           </Route>
           <Redirect to="/" />
       </Switch>
