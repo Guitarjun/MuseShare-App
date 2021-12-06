@@ -26,7 +26,6 @@ function App(props) {
       });
       setSelectedProjects(newData);
     }
-    console.log(genre);
   }
 
   return (

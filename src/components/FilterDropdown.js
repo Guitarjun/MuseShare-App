@@ -4,7 +4,6 @@ function FilterDropdown(props) {
     let callback = props.callback;
 
     const handleChangeSelect = function(event) {
-        console.log("SELECTED")
         const genre = event.target.value;
         callback(genre);
     }
