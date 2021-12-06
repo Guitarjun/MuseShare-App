@@ -4,8 +4,8 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import NavBar from './NavBar';
 import { ProfilePage } from './ProfilePage';
 import { useState } from 'react';
-import ProjectList from './projectsPage/ProjectList';
-import { ProjectPage } from './projectsPage/ProjectPage';
+import ProjectList from './projects/ProjectList';
+import { ProjectPage } from './projects/ProjectPage';
 
 
 
