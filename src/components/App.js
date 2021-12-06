@@ -4,11 +4,11 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import NavBar from './NavBar';
 import { ProfilePage } from './ProfilePage';
 import { useState, useEffect } from 'react';
-import ProjectList from './projectsPage/ProjectList';
-import { ProjectPage } from './projectsPage/ProjectPage';
+import ProjectList from './projects/ProjectList';
+import { ProjectPage } from './projects/ProjectPage';
 import { SignUpPage } from './SignUpPage';
-import firebase from 'firebase/app';
-import 'firebase/auth';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
 
 function App(props) {
 
@@ -37,13 +37,13 @@ function App(props) {
     let authUnregFunc = firebase.auth().onAuthStateChanged((firebaseUser) => {
       if(firebaseUser){ //firebaseUser defined: is logged in
           console.log('logged in');
-          setCurrentUser(firebaseUser);
+          setCurrentUser(firebaseUser); // Set current user if logged in
       }
       else { //firebaseUser undefined: is not logged in
           console.log('logged out');
+          setCurrentUser(null);
       }
   });
-  
 });
 
   return (

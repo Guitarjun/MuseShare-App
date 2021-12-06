@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './components/App';
 import { BrowserRouter } from 'react-router-dom';
 import "./App.css";
-import firebase from 'firebase/app';
+import { initializeApp } from 'firebase/app';
 
 // User and project data
 import projectsData from './data/projects.json';
