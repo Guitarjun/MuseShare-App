@@ -4,6 +4,9 @@ import FilterDropdown from './FilterDropdown';
 
 function NavBar(props) {
     const showFilter = true;
+    let currentUser = props.currentUser;
+    let userEmail = currentUser.userEmail;
+
     return (
         <nav className="navbar">
             <div className="left-wrapper">

@@ -48,7 +48,7 @@ function App(props) {
 
   return (
     <div className="app">
-      <NavBar callback={applyFilter} />
+      <NavBar user={currentUser} callback={applyFilter} />
       <Switch>
           <Route exact path="/">
             <ProjectList projects={selectedProjects} />

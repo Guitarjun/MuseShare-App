@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom';
 import App from './components/App';
 import { BrowserRouter } from 'react-router-dom';
 import "./App.css";
-import { initializeApp } from 'firebase/app';
 import firebase from "firebase/compat/app";
 
 // User and project data
 import projectsData from './data/projects.json';
 import userData from './data/users.json';
 
+// Firebase MusheShare app credentials
 const firebaseConfig = {
   apiKey: "AIzaSyCpC441zDhyzmLRQst5scMgsRtRXz1CHZ0",
   authDomain: "museshare-5e6ed.firebaseapp.com",
