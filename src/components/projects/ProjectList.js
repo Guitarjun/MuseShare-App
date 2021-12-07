@@ -25,11 +25,9 @@ function ProjectList(props) {
     );
 }
 
-function ProjectCard(props) {
+function ProjectCard({project}) {
 
     const [redirectTo, setRedirect] = useState(undefined);
-
-    let project = props.project;
 
     const handleClick = () => {
         setRedirect("/projects/" + project.url);
