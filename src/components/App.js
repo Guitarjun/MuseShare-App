@@ -9,14 +9,16 @@ import { ProjectPage } from './projects/ProjectPage';
 import { SignUpPage } from './SignUpPage';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
+import UploadProjectPage from './projects/UploadProjectPage';
 
 function App(props) {
   let database = props.database;
+  let storage = props.storage;
 
-  let userData = database.ref('users'); // User data stored in the realtime database, not the official Firebase user data
-  let userStorage = null; // User data in cloud storage (for profile images)
-  let projectsData = database.ref('projects');   // Project data in realtime database (not including reference to the image and audio file)
-  let projectsStorage = null; // Project data in cloud storage (audio file and images)
+  let userData = database.ref('users/'); // User data stored in the realtime database, not the official Firebase user data
+  let userStorage = storage.ref('users/'); // User data in cloud storage (profile image)
+  let projectsData = database.ref('projects/');   // Project data in realtime database (not including reference to the image and audio file)
+  let projectsStorage = storage.ref('projects/'); // Project data in cloud storage (audio file and image)
 
   // State and function for handling genre filter
   const [selectedProjects, setSelectedProjects] = useState(projectsData);
@@ -28,7 +30,7 @@ function App(props) {
     if (genre == 'All') {
       setSelectedProjects(projectsData);
     } else {
-      // Update this to read 
+      // THIS LOGIC NEEDS TO CHANGE NOW THAT WE ARE USING FIREBASE
       let newData = projectsData.filter((project) => {
         return project.genre == genre;
       });
@@ -63,8 +65,11 @@ function App(props) {
           <Route path="/profile/:urlUser">
             <ProfilePage userData={userData} userStorage={userStorage} projectsData={selectedProjects} user={currentUser}/>
           </Route>
-          <Route path="/signup">
+          <Route path="/login">
             <SignUpPage />
+          </Route>
+          <Route path="/upload">
+            <UploadProjectPage />
           </Route>
           <Redirect to="/" />
       </Switch>

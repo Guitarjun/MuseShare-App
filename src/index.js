@@ -5,10 +5,6 @@ import { BrowserRouter } from 'react-router-dom';
 import "./App.css";
 import firebase from "firebase/compat/app";
 
-// User and project data
-import projectsData from './data/projects.json';
-import userData from './data/users.json';
-
 // Firebase MusheShare app credentials
 const firebaseConfig = {
   apiKey: "AIzaSyCpC441zDhyzmLRQst5scMgsRtRXz1CHZ0",
@@ -24,10 +20,10 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-let database = firebase.database();
-
+let database = firebase.database(); // Realtime database
+let storage = firebase.storage(); // Cloud storage
 
 ReactDOM.render(
-    <BrowserRouter><App database={database}/></BrowserRouter>,
+    <BrowserRouter><App database={database} storage={storage}/></BrowserRouter>,
   document.getElementById('root')
 );

@@ -5,16 +5,17 @@ import 'firebase/compat/auth';
 
 export function SignUpPage(props) {
 
-    // Need to allow user to sign up, log in, log out
-    // This page should double as a sign up page and a login page
+    // This page will double as a sign up and a login page
+    // Something like ("already have an account? Login instead...")
 
-    // All of these undefined fields should be set with forms that the user can enter information into
+    // All of these  fields should be set with forms that the user can enter information into (hence what the sign up page is for)
     let email = null;
     let password = null;
     let displayName = null;
     let photoURL = null;
     let introduction = null;
 
+    // For sign up
     firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((userCredentials) => {
         let user = userCredentials.user; //access the newly created user
@@ -32,6 +33,10 @@ export function SignUpPage(props) {
     .catch((error) => { //report any errors
         console.log(error.message);
     });
+
+    // For login
+    // ...
+
     return (
         <body>
             <header className="signup-page"> 

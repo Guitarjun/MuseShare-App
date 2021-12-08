@@ -4,6 +4,8 @@ import { Redirect } from 'react-router';
 
 function ProjectList(props) {
 
+    // LOGIC NEEDS TO CHANGE DUE TO FIREBASE
+
     if(props.projects.length == 0) {
         return (
             <div className="project-list">
@@ -26,6 +28,8 @@ function ProjectList(props) {
 }
 
 function ProjectCard({project}) {
+
+    // LOGIC NEEDS TO CHANGE BECAUSE OF FIREBASE
 
     const [redirectTo, setRedirect] = useState(undefined);
 
