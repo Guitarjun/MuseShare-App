@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { Redirect } from 'react-router';
 
 function ProjectList(props) {
-    
 
     if(props.projects.length == 0) {
         return (

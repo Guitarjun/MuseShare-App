@@ -28,6 +28,7 @@ function App(props) {
     if (genre == 'All') {
       setSelectedProjects(projectsData);
     } else {
+      // Update this to read 
       let newData = projectsData.filter((project) => {
         return project.genre == genre;
       });
