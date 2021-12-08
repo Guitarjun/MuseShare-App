@@ -13,8 +13,10 @@ import 'firebase/compat/auth';
 function App(props) {
   let database = props.database;
 
-  let userData = database.ref('users'); // This refers to the extra user data stored in the realtime database, not the official Firebase user data
+  let userData = database.ref('users'); // User data stored in the realtime database, not the official Firebase user data
+  let userStorage = null; // User data in cloud storage (for profile images)
   let projectsData = database.ref('projects');   // Project data in realtime database (not including reference to the image and audio file)
+  let projectsStorage = null; // Project data in cloud storage (audio file and images)
 
   // State and function for handling genre filter
   const [selectedProjects, setSelectedProjects] = useState(projectsData);
@@ -49,16 +51,16 @@ function App(props) {
 
   return (
     <div className="app">
-      <NavBar user={currentUser} callback={applyFilter} loggedIn={currentUser}/>
+      <NavBar user={currentUser} callback={applyFilter}/>
       <Switch>
           <Route exact path="/">
-            <ProjectList projects={selectedProjects} />
+            <ProjectList projects={selectedProjects} projectsData={projectsData} projectsStorage={projectsStorage}/>
           </Route>
           <Route path="/projects/:url">
             <ProjectPage projects={projectsData}/>
           </Route>
           <Route path="/profile/:urlUser">
-            <ProfilePage users={userData} projects={selectedProjects} />
+            <ProfilePage userData={userData} userStorage={userStorage} projectsData={selectedProjects} user={currentUser}/>
           </Route>
           <Route path="/signup">
             <SignUpPage />

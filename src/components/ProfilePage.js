@@ -1,14 +1,20 @@
 import React from 'react';
 import { useParams } from 'react-router';
-import _ from 'lodash';
+import ProjectList from './projects/ProjectList';
 
 
 export function ProfilePage(props) {
     let userData = props.userData;
+    let userStorage = props.userStorage;
     const urlParams = useParams();
     let urlUser = urlParams.urlUser;
+    let projectsData = props.projectsData;
 
-    let user =  _.find(userData, {url: urlUser}); //find user based on url
+    let user = userData.child(urlUser);     // Retrieve realtime database user data
+    // Read introduction, number of projects with event listener
+
+    // Read image from cloud storage
+    
 
     if(!user) return <h2>No user specified</h2> //if unspecified
     
@@ -29,6 +35,7 @@ export function ProfilePage(props) {
                             </div>
                         </div>
                     </div>
+                    <ProjectList />
                     <div className="contact">
                         <h2>Contact:</h2>
                         <p><a href={"mailto:"+user.email}><span className="material-icons">email</span>{user.email}</a></p>
