@@ -10,10 +10,10 @@ import { SignUpPage } from './SignUpPage';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import UploadProjectPage from './projects/UploadProjectPage';
+import { database } from '..';
+import { storage } from '..';
 
 function App(props) {
-  let database = props.database;
-  let storage = props.storage;
 
   let userData = database.ref('users/'); // User data stored in the realtime database, not the official Firebase user data
   let userStorage = storage.ref('users/'); // User data in cloud storage (profile image)
@@ -52,24 +52,25 @@ function App(props) {
   });
 });
 
+  // Don't use firebase data as props, change this
   return (
     <div className="app">
       <NavBar user={currentUser} callback={applyFilter}/>
       <Switch>
           <Route exact path="/">
-            <ProjectList projects={selectedProjects} projectsData={projectsData} projectsStorage={projectsStorage}/>
+            <ProjectList projects={selectedProjects} />
           </Route>
           <Route path="/projects/:url">
             <ProjectPage projects={projectsData}/>
           </Route>
           <Route path="/profile/:urlUser">
-            <ProfilePage userData={userData} userStorage={userStorage} projectsData={selectedProjects} user={currentUser}/>
+            <ProfilePage projectsData={selectedProjects} currentUser={currentUser}/>
           </Route>
           <Route path="/login">
             <SignUpPage />
           </Route>
           <Route path="/upload">
-            <UploadProjectPage />
+            <UploadProjectPage currentUser={currentUser}/>
           </Route>
           <Redirect to="/" />
       </Switch>

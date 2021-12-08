@@ -1,10 +1,11 @@
-import React from 'react';
-import { useParams } from 'react-router';
+import { React, useState } from 'react';
+import { Redirect, useParams } from 'react-router';
 import ProjectList from './projects/ProjectList';
 
 
 export function ProfilePage(props) {
     const urlParams = useParams();
+    let currentUser = props.currentUser;
 
     let userData = props.userData;
     let userStorage = props.userStorage;
@@ -14,15 +15,16 @@ export function ProfilePage(props) {
 
     let user = userData.child(urlUser);     // Retrieve realtime database user data
     // Read introduction, displayName with event listener
+    // users/urlUser/...
 
     // Read image from cloud storage
-
+    // users/urlUser/...
 
     // State for user-specific projects
     const [selectedUserProjects, setSelectedUserProjects] = useState(projectsData);
     
 
-    if() return <h2>User not found</h2> //if user does not exist
+    if(null) return <h2>User not found</h2> //if user does not exist
     
     return (
         <body>

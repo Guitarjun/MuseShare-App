@@ -5,8 +5,13 @@ import FilterDropdown from './FilterDropdown';
 function NavBar(props) {
     const showFilter = true;
     let currentUser = props.currentUser;
-    let userEmail = currentUser.userEmail;
-    let userUrl = userEmail.substring(0, userEmail.indexOf("@"));   // Key associated with a user (first part of email address)
+    let userEmail = null;
+    let userId = null;
+    
+    if (currentUser) {
+        userEmail = currentUser.userEmail;
+        userId = userEmail.substring(0, userEmail.indexOf("@"));   // Key associated with a user (first part of email address)
+    }
 
     return (
         <nav className="navbar">
@@ -25,11 +30,14 @@ function NavBar(props) {
                         <NavLink exact to="/" activeClassName="active">Projects</NavLink>
                     </li>
                     <li>
-                        <NavLink to={"/profile/" + userUrl} activeClassName="active">Profile</NavLink>
+                        <NavLink to={"/profile/" + userId} activeClassName="active">Profile</NavLink>
                         {/* Need to go to sign up page if user is not logged in */}
                     </li>
                     <li>
                         <NavLink to="/signup" activeClassName="active">Log In</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/upload" activeClassName="active">Upload Project</NavLink>
                     </li>
                 </ul>
             </div>

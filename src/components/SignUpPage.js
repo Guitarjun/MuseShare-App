@@ -2,33 +2,48 @@ import React, { useState } from "react"; //import React Component
 import 'firebase/auth';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
+import { database } from "..";
+import { storage } from "..";
 
 export function SignUpPage(props) {
 
     // This page will double as a sign up and a login page
-    // Something like ("already have an account? Login instead...")
+    // Something like ("Sign up [sign up logic and forms]! Already have an account? Login instead... [login logic and forms]")
+    // TODO: All the UI, Add sign up page itself, add login page and login firebase logic. All database handling is complete :)
+        // Add loading spinners to UI
 
-    // All of these  fields should be set with forms that the user can enter information into (hence what the sign up page is for)
-    let email = null;
+    // React UI stuff...
+
+
+
+
+    // All of these  fields should be set according to the user input into the UI (DON'T CHANGE THESE FIELD NAMES)
+    let email = null; 
     let password = null;
     let displayName = null;
-    let photoURL = null;
     let introduction = null;
+    let photoFile = null; // file object
+
+    // MODIFY ABOVE FOR REACT STRUCTURE/UI, DO NOT MODIFY BELOW!
+
+
+
+    // Non-user-inputted fields
+    let userId = email.substring(0, email.indexOf("@"));   // User key
+    let photoURL = 'users/'+userId+'/profilePictures/'+photoFile;    // The purpose of this field is to store a reference in the realtime database to the image file (which exists in the cloud storage)
 
     // For sign up
     firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((userCredentials) => {
-        let user = userCredentials.user; //access the newly created user
-        console.log('User created: '+user.uid);
-    }).then((firebaseUser) => {
-        firebaseUser.updateProfie({
+        let user = userCredentials.user; //access the newly created user and set fields
+        user.updateProfile({
             displayName: displayName,
             photoURL: photoURL
         })
-        let userUrl = email.substring(0, email.indexOf("@"));
-        // Add introduction, displayName, userUrl, email to REALTIME DATABASE
-        // Add photoUrl to CLOUD STORAGE
-        
+        console.log('User created: '+user.uid);
+    }).then(() => { 
+        writeUserData(email, userId, photoURL, displayName, introduction);
+        writeUserStorage(photoFile, photoURL);
     })
     .catch((error) => { //report any errors
         console.log(error.message);
@@ -37,10 +52,28 @@ export function SignUpPage(props) {
     // For login
     // ...
 
+
+    // MODIFY BELOW FOR REACT STRUCTURE/UI
     return (
         <body>
             <header className="signup-page"> 
+            {/* TODO: Entire UI for both sign up and login options*/}
             </header>
         </body>
     );
+}
+
+// Write user data for realtime database
+function writeUserData(email, userId, photoUrl, name, introduction) {
+    database.ref('users/'+userId).set({
+        displayName: name,
+        email: email,
+        imagePath: photoUrl,
+        introduction: introduction,
+    });
+}
+
+// Write user data for cloud storage
+function writeUserStorage(file, photoURL) {
+    // Set to photoUrl
 }

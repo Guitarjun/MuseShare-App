@@ -4,6 +4,8 @@ import App from './components/App';
 import { BrowserRouter } from 'react-router-dom';
 import "./App.css";
 import firebase from "firebase/compat/app";
+import 'firebase/compat/database';
+import 'firebase/compat/storage';
 
 // Firebase MusheShare app credentials
 const firebaseConfig = {
@@ -20,10 +22,11 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-let database = firebase.database(); // Realtime database
-let storage = firebase.storage(); // Cloud storage
+// Global variables for database
+export let database = firebase.database(); // Realtime database
+export let storage = firebase.storage(); // Cloud storage
 
 ReactDOM.render(
-    <BrowserRouter><App database={database} storage={storage}/></BrowserRouter>,
+    <BrowserRouter><App /></BrowserRouter>,
   document.getElementById('root')
 );
