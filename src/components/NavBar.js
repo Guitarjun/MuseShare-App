@@ -5,14 +5,11 @@ import FilterDropdown from './FilterDropdown';
 function NavBar(props) {
     const showFilter = true;
     let currentUser = props.currentUser;
-    let userEmail = null;
-    let userId = null;
+    let userId = props.userId;
     let link = null;
 
     // If user is logged in, profile button takes them to their profile, otherwise takes them to login page
     if (currentUser) {
-        userEmail = currentUser.userEmail;
-        userId = userEmail.substring(0, userEmail.indexOf("@"));   // Key associated with a user (first part of email address)
         link = <NavLink to={"/profile/" + userId} activeClassName="active">Profile</NavLink>;
     } else {
         link = <NavLink to={"/upload"} activeClassName="active">Profile</NavLink>;

@@ -11,7 +11,7 @@ function UploadProjectPage(props) {
     }
 
     // React UI stuff to retrieve the below fields...
-
+    // Make sure to use form validation (homework 6 problem b for reference)
     
 
 
@@ -24,7 +24,7 @@ function UploadProjectPage(props) {
 
     // MODIFY ABOVE FOR REACT STRUCTURE/UI, DO NOT MODIFY BELOW!
 
-    
+
     // Need to get user information
     let userId = null;
 

@@ -1,15 +1,17 @@
-import React from 'react'; //import React Component
+import React, { useState } from 'react'; //import React Component
 import { useParams } from 'react-router';
 import _ from 'lodash';
 
+// Allow user to delete their own projects, update the audio file
+// Audio file should have easy download feature for all users
 export function ProjectPage(props) {
-
     const urlParams = useParams();
-    let projectUrl = urlParams.url;
+    let projectId = urlParams.url;
+    const [userProject, setUserProject] = useState(false);  // Indicates whether the current project belongs to the user
 
-    let project =  _.find(props.projects, {url: projectUrl}); //find project based on url
+    let project =  _.find(props.projects, {url: projectId}); //find project based on url
 
-    if(!project) return <h2>No project specified</h2> //if unspecified
+    if(null) return <h2>Project not found</h2> //if not found
 
     const artists = "By: " + project.artists.reduce((prev, current) => {
         return prev + ", " + current;

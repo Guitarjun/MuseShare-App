@@ -25,8 +25,9 @@ function App(props) {
 
   // Current user
   const [currentUser, setCurrentUser] = useState(undefined);
+  const [userId, setUserId] = useState(null);
 
-  
+
   const applyFilter = function(genre) {
     if (genre == 'All') {
       setSelectedProjects(projectsData);
@@ -45,32 +46,35 @@ function App(props) {
       if(firebaseUser){ //firebaseUser defined: is logged in
           console.log('logged in');
           setCurrentUser(firebaseUser); // Set current user if logged in
+          let email = firebaseUser.email;
+          setUserId(email.substring(0, email.indexOf("@")));
       }
       else { //firebaseUser undefined: is not logged in
           console.log('logged out');
           setCurrentUser(null);
+          setUserId(null);
       }
   });
 });
 
   return (
     <div className="app">
-      <NavBar user={currentUser} callback={applyFilter}/>
+      <NavBar currentUser={currentUser} userId={userId} callback={applyFilter}/>
       <Switch>
           <Route exact path="/">
             <ProjectList projects={selectedProjects} />
           </Route>
           <Route path="/projects/:url">
-            <ProjectPage projects={projectsData}/>
+            <ProjectPage projects={projectsData} currentUser={currentUser} userId={userId}/>
           </Route>
           <Route path="/profile/:urlUser">
-            <ProfilePage projectsData={selectedProjects} currentUser={currentUser}/>
+            <ProfilePage projectsData={selectedProjects} currentUser={currentUser} userId={userId}/>
           </Route>
           <Route path="/login">
-            <SignUpPage />
+            <SignUpPage currentUser={currentUser} userId={userId}/>
           </Route>
           <Route path="/upload">
-            <UploadProjectPage currentUser={currentUser}/>
+            <UploadProjectPage currentUser={currentUser} userId={userId}/>
           </Route>
           <Redirect to="/" />
       </Switch>

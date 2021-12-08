@@ -13,6 +13,7 @@ export function SignUpPage(props) {
         // Add loading spinners to UI
 
     // React UI stuff to retrieve the below fields...
+    // Make sure to use form validation (homework 6 problem b for reference)
 
 
 
@@ -58,6 +59,7 @@ export function SignUpPage(props) {
         <body>
             <header className="signup-page"> 
             {/* TODO: Entire UI for both sign up and login options*/}
+            Sign up page
             </header>
         </body>
     );

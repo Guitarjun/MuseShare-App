@@ -1,19 +1,23 @@
-import { React, useState } from 'react';
-import { Redirect, useParams } from 'react-router';
+import { React, useEffect, useState } from 'react';
+import { useParams } from 'react-router';
 import ProjectList from './projects/ProjectList';
-
 
 export function ProfilePage(props) {
     const urlParams = useParams();
-    let currentUser = props.currentUser;
+    const [onUserProfile, setOnUserProfile] = useState(false);  // Indicates whether user is on their own profile page
 
-    let userData = props.userData;
-    let userStorage = props.userStorage;
+    let userId = null;  // Change to state variable
+
     let urlUser = urlParams.urlUser;
-    let projectsData = props.projectsData;
-    let projectsStorage = props.projectsStorage;
 
-    let user = userData.child(urlUser);     // Retrieve realtime database user data
+    if (userId == urlUser) {  // User is on their own profile page
+        setOnUserProfile(true);
+    }
+
+    if (onUserProfile) {
+        // if we are on our own profile page
+    }   
+
     // Read introduction, displayName with event listener
     // users/urlUser/...
 
@@ -21,7 +25,7 @@ export function ProfilePage(props) {
     // users/urlUser/...
 
     // State for user-specific projects
-    const [selectedUserProjects, setSelectedUserProjects] = useState(projectsData);
+    const [selectedUserProjects, setSelectedUserProjects] = useState();
     
 
     if(null) return <h2>User not found</h2> //if user does not exist
@@ -43,7 +47,7 @@ export function ProfilePage(props) {
                             </div>
                         </div>
                     </div>
-                    <ProjectList />
+                    <ProjectList projects={selectedUserProjects}/>
                     <div className="contact">
                         <h2>Contact:</h2>
                         <p><a href={"mailto:"+user.email}><span className="material-icons">email</span>{user.email}</a></p>
