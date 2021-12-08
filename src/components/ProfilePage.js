@@ -6,7 +6,8 @@ export function ProfilePage(props) {
     const urlParams = useParams();
     const [onUserProfile, setOnUserProfile] = useState(false);  // Indicates whether user is on their own profile page
 
-    let userId = null;  // Change to state variable
+    let userId = props.userId;
+    let currentUser = props.currentUser;
 
     let urlUser = urlParams.urlUser;
 
@@ -15,8 +16,10 @@ export function ProfilePage(props) {
     }
 
     if (onUserProfile) {
-        // if we are on our own profile page
-    }   
+        // if we are on our own profile page...
+    }
+
+
 
     // Read introduction, displayName with event listener
     // users/urlUser/...
