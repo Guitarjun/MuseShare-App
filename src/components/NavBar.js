@@ -9,12 +9,13 @@ function NavBar(props) {
     let userId = null;
     let link = null;
 
+    // If user is logged in, profile button takes them to their profile, otherwise takes them to login page
     if (currentUser) {
         userEmail = currentUser.userEmail;
         userId = userEmail.substring(0, userEmail.indexOf("@"));   // Key associated with a user (first part of email address)
         link = <NavLink to={"/profile/" + userId} activeClassName="active">Profile</NavLink>;
     } else {
-        link = <NavLink to={"/profile"} activeClassName="active">Profile</NavLink>;
+        link = <NavLink to={"/upload"} activeClassName="active">Profile</NavLink>;
     }
 
     return (

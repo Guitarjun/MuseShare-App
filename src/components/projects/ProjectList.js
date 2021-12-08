@@ -4,6 +4,9 @@ import { Redirect } from 'react-router';
 
 function ProjectList(props) {
 
+    
+
+
     // LOGIC NEEDS TO CHANGE DUE TO FIREBASE
 
     if(props.projects.length == 0) {
@@ -22,7 +25,7 @@ function ProjectList(props) {
 
     return (
         <div className="project-list">
-            {projectsList}
+            {/* {projectsList} */}
         </div>
     );
 }

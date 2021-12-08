@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router';
-import { database } from "..";
-import { storage } from "..";
+import { database } from "../..";
+import { storage } from "../..";
 
 function UploadProjectPage(props) {
     let currentUser = props.currentUser;
@@ -24,6 +24,7 @@ function UploadProjectPage(props) {
 
     // MODIFY ABOVE FOR REACT STRUCTURE/UI, DO NOT MODIFY BELOW!
 
+    
     // Need to get user information
     let userId = null;
 

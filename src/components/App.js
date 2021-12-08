@@ -26,6 +26,7 @@ function App(props) {
   // Current user
   const [currentUser, setCurrentUser] = useState(undefined);
 
+  
   const applyFilter = function(genre) {
     if (genre == 'All') {
       setSelectedProjects(projectsData);
@@ -52,7 +53,6 @@ function App(props) {
   });
 });
 
-  // Don't use firebase data as props, change this
   return (
     <div className="app">
       <NavBar user={currentUser} callback={applyFilter}/>
