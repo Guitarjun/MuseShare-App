@@ -11,7 +11,7 @@ export function SignUpPage(props) {
     // All of these undefined fields should be set with forms that the user can enter information into
     let email = null;
     let password = null;
-    let username = null;
+    let displayName = null;
     let photoURL = null;
     let introduction = null;
 
@@ -21,12 +21,11 @@ export function SignUpPage(props) {
         console.log('User created: '+user.uid);
     }).then((firebaseUser) => {
         firebaseUser.updateProfie({
-            displayName: username,
+            displayName: displayName,
             photoURL: photoURL
         })
-        // Need to add public fields to realtime database and image path to cloud storage
         let userUrl = email.substring(0, email.indexOf("@"));
-        // Add introduction, username, userUrl, email to REALTIME DATABASE
+        // Add introduction, displayName, userUrl, email to REALTIME DATABASE
         // Add photoUrl to CLOUD STORAGE
         
     })
