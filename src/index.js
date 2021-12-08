@@ -24,8 +24,10 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+let database = firebase.database();
+
 
 ReactDOM.render(
-    <BrowserRouter><App users={userData} projects={projectsData}/></BrowserRouter>,
+    <BrowserRouter><App database={database}/></BrowserRouter>,
   document.getElementById('root')
 );

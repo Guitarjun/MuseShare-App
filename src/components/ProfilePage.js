@@ -4,7 +4,7 @@ import _ from 'lodash';
 
 
 export function ProfilePage(props) {
-    let userData = props.users;
+    let userData = props.userData;
     const urlParams = useParams();
     let urlUser = urlParams.urlUser;
 
