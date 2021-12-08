@@ -12,7 +12,7 @@ export function SignUpPage(props) {
     // TODO: All the UI, Add sign up page itself, add login page and login firebase logic. All database handling is complete :)
         // Add loading spinners to UI
 
-    // React UI stuff...
+    // React UI stuff to retrieve the below fields...
 
 
 
@@ -20,9 +20,9 @@ export function SignUpPage(props) {
     // All of these  fields should be set according to the user input into the UI (DON'T CHANGE THESE FIELD NAMES)
     let email = null; 
     let password = null;
-    let displayName = null;
-    let introduction = null;
-    let photoFile = null; // file object
+    let displayName = null; // Username
+    let about = null;    // About user
+    let photoFile = null; // Profile picture file
 
     // MODIFY ABOVE FOR REACT STRUCTURE/UI, DO NOT MODIFY BELOW!
 
@@ -30,7 +30,7 @@ export function SignUpPage(props) {
 
     // Non-user-inputted fields
     let userId = email.substring(0, email.indexOf("@"));   // User key
-    let photoURL = 'users/'+userId+'/profilePictures/'+photoFile;    // The purpose of this field is to store a reference in the realtime database to the image file (which exists in the cloud storage)
+    let photoURL = 'users/'+userId+'/profilePicture/'+photoFile;    // The purpose of this field is to store a reference in the realtime database to the image file (which exists in the cloud storage)
 
     // For sign up
     firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -42,7 +42,7 @@ export function SignUpPage(props) {
         })
         console.log('User created: '+user.uid);
     }).then(() => { 
-        writeUserData(email, userId, photoURL, displayName, introduction);
+        writeUserData(email, userId, photoURL, displayName, about);
         writeUserStorage(photoFile, photoURL);
     })
     .catch((error) => { //report any errors
@@ -64,12 +64,12 @@ export function SignUpPage(props) {
 }
 
 // Write user data for realtime database
-function writeUserData(email, userId, photoUrl, name, introduction) {
+function writeUserData(email, userId, photoUrl, name, about) {
     database.ref('users/'+userId).set({
         displayName: name,
         email: email,
         imagePath: photoUrl,
-        introduction: introduction,
+        introduction: about,
     });
 }
 

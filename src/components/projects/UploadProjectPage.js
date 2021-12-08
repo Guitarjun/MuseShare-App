@@ -10,17 +10,17 @@ function UploadProjectPage(props) {
         return <Redirect to='/signup' />
     }
 
-    // React UI stuff...
+    // React UI stuff to retrieve the below fields...
 
     
 
 
     // All of these fields should be set according to the user input into the UI (DON'T CHANGE THESE FIELD NAMES) 
-    let genre = null;   // THIS ONE NEEDS TO BE SET WITH A DROPDOWN MENU SO THE USER IS ONLY CHOOSING GENRES WE SUPPORT WITH OUR GENRE FILTER
-    let name = null;
-    let description = null;
-    let photoFile = null; // file object
-    let audioFile = null; // file object
+    let genre = null;   // THIS ONE NEEDS TO BE SET WITH A DROPDOWN MENU (not a text input) SO THE USER IS ONLY CHOOSING GENRES WE SUPPORT WITH OUR GENRE FILTER
+    let name = null;    // name of project
+    let description = null; // project description
+    let photoFile = null; // project's cover image
+    let audioFile = null; // project's audio file
 
     // MODIFY ABOVE FOR REACT STRUCTURE/UI, DO NOT MODIFY BELOW!
 
@@ -28,26 +28,35 @@ function UploadProjectPage(props) {
     let userId = null;
 
     // Non-user-inputted fields
-    let audioFilePath = 'projects/' + userId + 'audio' + audioFile;
+    let audioFilePath = 'projects/' + userId + '/audio/' + audioFile;
     let photoFilePath = 'projects/' + userId + '/image/' + photoFile;
-    
+    let projectId = (userId + '-' + name.replace(/\s/g, '')).toLowerCase();   // Project key
 
+    writeProjectData(userId, projectId, name, genre, description, audioFilePath, photoFilePath);
     
 
     // MODIFY BELOW FOR REACT STRUCTURE/UI
-    return ({
-        null
-    });
+    return (
+        <div>
+           
+        </div>
+    );
 }
 
 // Write project metadata to realtime database
-function writeProjectData() {
-
+function writeProjectData(userId, projectId, name, genre, description, audioFilePath, photoFilePath) {
+    database.ref('projects/'+userId+'/'+projectId).set({
+        name: name,
+        genre: genre,
+        description: description,
+        audioFilePath: audioFilePath,
+        imagePath: photoFilePath
+    });
 }
 
 // Write project audio file and image to cloud storage
-function writeProjectStorage() {
-
+function writeProjectStorage(photoFile, audioFile, photoFilePath, audioFilePath) {
+    
 }
 
 export default UploadProjectPage;

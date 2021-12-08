@@ -7,10 +7,14 @@ function NavBar(props) {
     let currentUser = props.currentUser;
     let userEmail = null;
     let userId = null;
-    
+    let link = null;
+
     if (currentUser) {
         userEmail = currentUser.userEmail;
         userId = userEmail.substring(0, userEmail.indexOf("@"));   // Key associated with a user (first part of email address)
+        link = <NavLink to={"/profile/" + userId} activeClassName="active">Profile</NavLink>;
+    } else {
+        link = <NavLink to={"/profile"} activeClassName="active">Profile</NavLink>;
     }
 
     return (
@@ -30,8 +34,7 @@ function NavBar(props) {
                         <NavLink exact to="/" activeClassName="active">Projects</NavLink>
                     </li>
                     <li>
-                        <NavLink to={"/profile/" + userId} activeClassName="active">Profile</NavLink>
-                        {/* Need to go to sign up page if user is not logged in */}
+                        {link}
                     </li>
                     <li>
                         <NavLink to="/signup" activeClassName="active">Log In</NavLink>

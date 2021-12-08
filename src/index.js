@@ -23,8 +23,8 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 // Global variables for database
-export let database = firebase.database(); // Realtime database
-export let storage = firebase.storage(); // Cloud storage
+export var database = firebase.database(); // Realtime database
+export var storage = firebase.storage(); // Cloud storage
 
 ReactDOM.render(
     <BrowserRouter><App /></BrowserRouter>,
