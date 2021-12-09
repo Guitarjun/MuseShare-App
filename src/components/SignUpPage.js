@@ -25,15 +25,12 @@ export function SignUpPage(props) {
     let about = null;    // About user
     let photoFile = null; // Profile picture file
 
-    // MODIFY ABOVE FOR REACT STRUCTURE/UI, DO NOT MODIFY BELOW!
-
-
-
     // Non-user-inputted fields
     let userId = email.substring(0, email.indexOf("@"));   // User key
     let photoURL = 'users/'+userId+'/profilePicture/'+photoFile;    // The purpose of this field is to store a reference in the realtime database to the image file (which exists in the cloud storage)
 
     // For sign up
+    // THIS IS FOR WHEN THE SIGN UP FORM IS SUBMITTED
     firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((userCredentials) => {
         let user = userCredentials.user; //access the newly created user and set fields
@@ -45,14 +42,21 @@ export function SignUpPage(props) {
     }).then(() => { 
         writeUserData(email, userId, photoURL, displayName, about);
         writeUserStorage(photoFile, photoURL);
+        console.log('User data uploaded: ' + userId);
     })
     .catch((error) => { //report any errors
         console.log(error.message);
     });
 
     // For login
-    // ...
+    //sign in a user
+    firebase.auth().signInWithEmailAndPassword(email, password)
+    .catch(err => console.log(err)); //log any errors for debugging
 
+    // For logout
+    //sign out a user
+    firebase.auth().signOut()
+    .catch(err => console.log(err)); //log any errors for debugging
 
     // MODIFY BELOW FOR REACT STRUCTURE/UI
     return (

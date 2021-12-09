@@ -21,11 +21,23 @@ function App(props) {
   let projectsStorage = storage.ref('projects/'); // Project data in cloud storage (audio file and image)
 
   // State and function for handling genre filter
-  const [selectedProjects, setSelectedProjects] = useState(projectsData);
+  const [selectedProjects, setSelectedProjects] = useState(null);
 
   // Current user
   const [currentUser, setCurrentUser] = useState(undefined);
   const [userId, setUserId] = useState(null);
+
+  // Get data and update state
+  useEffect(() => {
+    var projectsRef = database.ref('projects/');
+    projectsRef.on('value', (snapshot) => {
+    const data = snapshot.val();
+    console.log(data);
+    setSelectedProjects(data);
+    });
+    return (() => {projectsRef.off()});
+  }, []);
+  
 
 
   const applyFilter = function(genre) {
