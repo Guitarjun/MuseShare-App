@@ -29,6 +29,7 @@ function App(props) {
 
 
   const applyFilter = function(genre) {
+    // Retrieve data from realtime database, set projects accordingly to projects in object form
     if (genre == 'All') {
       setSelectedProjects(projectsData);
     } else {

@@ -35,7 +35,7 @@ export function ProfilePage(props) {
     
     return (
         <body>
-            <header className="profile-page">
+            {/* <header className="profile-page">
                 <img src={'../'+user.img} alt={user.name + " profile image"}/>
                 <h1>{user.name}</h1>
             </header>
@@ -56,7 +56,7 @@ export function ProfilePage(props) {
                         <p><a href={"mailto:"+user.email}><span className="material-icons">email</span>{user.email}</a></p>
                     </div>
                 </div>
-            </main>
+            </main> */}
         </body>
     );
 }

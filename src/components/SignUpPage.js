@@ -76,6 +76,47 @@ function writeUserData(email, userId, photoUrl, name, about) {
 }
 
 // Write user data for cloud storage
-function writeUserStorage(file, photoURL) {
-    // Set to photoUrl
+function writeUserStorage(photoFile, photoURL) {
+    let photoUploadTask = storage.ref().child(photoURL).put(photoFile);
+    photoUploadTask.on(storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
+    (snapshot) => {
+    // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+    var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+    console.log('Upload is ' + progress + '% done');
+    switch (snapshot.state) {
+        case storage.TaskState.PAUSED: // or 'paused'
+        console.log('Upload is paused');
+        break;
+        case storage.TaskState.RUNNING: // or 'running'
+        console.log('Upload is running');
+        break;
+        default:
+            
+    }
+    }, 
+    (error) => {
+    // A full list of error codes is available at
+    // https://firebase.google.com/docs/storage/web/handle-errors
+    switch (error.code) {
+        case 'storage/unauthorized':
+        // User doesn't have permission to access the object
+        break;
+        case 'storage/canceled':
+        // User canceled the upload
+        break;
+
+        case 'storage/unknown':
+        // Unknown error occurred, inspect error.serverResponse
+        break;
+        default:
+            console.log('Some other error has occurred');
+    }
+    }, 
+    () => {
+    // Upload completed successfully, now we can get the download URL
+    photoUploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+        console.log('File available at', downloadURL);
+    });
+    }
+    );
 }
