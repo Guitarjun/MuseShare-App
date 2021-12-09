@@ -12,8 +12,7 @@ import 'firebase/compat/auth';
 import UploadProjectPage from './projects/UploadProjectPage';
 import { database } from '..';
 
-// Notes: need to figure out a better way to do this:
-  // projects/user/project
+// Add pagination
 // Need to store different versions of projects
 // Need to update security
 // Need to add forms, handleSubmission(), etc.

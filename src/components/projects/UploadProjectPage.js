@@ -22,7 +22,8 @@ function UploadProjectPage(props) {
     let audioFile = null; // project's audio file (must be a File type)
 
     // Non-user-inputted fields
-    let projectId = (userId + '-' + name.replace(/\s/g, '')).toLowerCase();   // Project key
+    // let projectId = (userId + '-' + name.replace(/\s/g, '')).toLowerCase();   // Project key
+    let projectId = name.replace(/\s/g, '').toLowerCase();
     let audioFilePath = 'projects/' + userId + '/' + projectId + '/audio/' + audioFile.name;
     let photoFilePath = 'projects/' + userId + '/' + projectId + '/image/' + photoFile.name;
 

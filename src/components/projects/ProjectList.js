@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from 'react';
 import { Redirect } from 'react-router';
 import _ from 'lodash';
+import { storage } from "../..";
 
 function ProjectList(props) {
     let selectedProjects = props.projects;
@@ -29,7 +30,6 @@ function ProjectList(props) {
             }
         }
     } else {
-        console.log(selectedProjects);
         for (let userId in selectedProjects) {
             let artistProjects = selectedProjects[String(userId)];
             for (let projectId in artistProjects) {
@@ -49,6 +49,9 @@ function ProjectList(props) {
 function ProjectCard({project, projectId, userId}) {
 
     const [redirectTo, setRedirect] = useState(undefined);
+    const [imageUrl, setImageUrl] = useState(null);
+
+    getImage(setImageUrl, project['imagePath']);
 
     // Update this with added userId in path
     const handleClick = () => {
@@ -64,7 +67,7 @@ function ProjectCard({project, projectId, userId}) {
     return (
         <div className="project-card" onClick={handleClick}>
             <div className="card-img">
-                <img src={'../'+project.img} alt={project.name + " image"}/>
+                <img src={imageUrl} alt={project.name + " image"}/>
             </div>
             <div className="card-body">
                 <h1>{project.name}</h1>
@@ -77,6 +80,13 @@ function ProjectCard({project, projectId, userId}) {
             </div>
         </div>
     );
+}
+
+function getImage(setImage, path) {
+    let imageRef = storage.ref().child(String(path));
+    imageRef.getDownloadURL().then((url) => {
+        setImage(url);
+    });
 }
 
 export default ProjectList;

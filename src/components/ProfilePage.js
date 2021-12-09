@@ -35,12 +35,7 @@ export function ProfilePage(props) {
     }
 
     // Read image from cloud storage
-    let imageRef = storage.ref().child(String(user['imagePath']));
-    let downloadUrl = imageRef.getDownloadURL().then((url) => {
-        setImageUrl(url);
-        console.log(url);
-    });
-    // console.log(image);
+    getImage(setImageUrl, user['imagePath']);
     
     return (
         <body>
@@ -68,4 +63,11 @@ export function ProfilePage(props) {
             </main>
         </body>
     );
+}
+
+function getImage(setImage, path) {
+    let imageRef = storage.ref().child(String(path));
+    imageRef.getDownloadURL().then((url) => {
+        setImage(url);
+    });
 }
