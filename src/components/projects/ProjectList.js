@@ -29,6 +29,7 @@ function ProjectList(props) {
             }
         }
     } else {
+        console.log(selectedProjects);
         for (let userId in selectedProjects) {
             let artistProjects = selectedProjects[String(userId)];
             for (let projectId in artistProjects) {

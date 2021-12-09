@@ -34,13 +34,16 @@ export function ProfilePage(props) {
     }
 
     // Read image from cloud storage
+    let image = null;
     let imageRef = storage.ref().child(String(user['imagePath']));
-    console.log(imageRef);
+    let imageUrl = imageRef.getDownloadURL().then((url) => {
+        image = url;
+    });
     
     return (
         <body>
             <header className="profile-page">
-                <img src={imageRef} alt={urlUser + " profile image"}/>
+                <img src={image} alt={urlUser + " profile image"}/>
                 <h1>{user['displayName']}</h1>
             </header>
             <main>

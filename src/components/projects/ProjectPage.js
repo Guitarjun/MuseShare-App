@@ -11,8 +11,7 @@ export function ProjectPage(props) {
     let projectsData = props.projects;
 
     const [userProject, setUserProject] = useState(false);  // Indicates whether the current project belongs to the user
-    // useEffect(() => {
-    // });
+
     let projects = projectsData[String(projectUserId)];
     console.log(projects);
     if (!projects) {
