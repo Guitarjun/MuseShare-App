@@ -1,15 +1,14 @@
 import { React, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
+import { storage } from '..';
 import ProjectList from './projects/ProjectList';
 
 export function ProfilePage(props) {
     const urlParams = useParams();
     const [onUserProfile, setOnUserProfile] = useState(false);  // Indicates whether user is on their own profile page
-    const [selectedUserProjects, setSelectedUserProjects] = useState();     // State for user-specific projects
 
     let selectedProjects = props.projectsData;
     let currentUserId = props.userId;
-    let currentUser = props.currentUser;
     let userData = props.userData;
     let user = null;
 
@@ -24,6 +23,7 @@ export function ProfilePage(props) {
         // if we are on our own profile page...
     }
 
+    // Filter for this user's projects
     for (let userId in userData) {
         if (userId == urlUser) {
             user = userData[String(userId)];
@@ -34,13 +34,13 @@ export function ProfilePage(props) {
     }
 
     // Read image from cloud storage
-    // users/urlUser/...
-    
+    let imageRef = storage.ref().child(String(user['imagePath']));
+    console.log(imageRef);
     
     return (
         <body>
             <header className="profile-page">
-                <img src={'../'} alt={urlUser + " profile image"}/>
+                <img src={imageRef} alt={urlUser + " profile image"}/>
                 <h1>{user['displayName']}</h1>
             </header>
             <main>
