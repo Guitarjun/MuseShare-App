@@ -14,8 +14,11 @@ import { database } from '..';
 
 // Notes: need to figure out a better way to do this:
   // projects/user/project
-  // projects/user-project
-  // projects/project
+// Need to store different versions of projects
+// Need to update security
+// Need to add forms, handleSubmission(), etc.
+// Need to add features (check individual classes)
+// Need to add comment features
 function App(props) {
 
   const [userData, setUserData] = useState([]);
@@ -30,17 +33,18 @@ function App(props) {
 
   // Get project data and update state
   useEffect(() => {
-    var projectsRef = database.ref('projects/');
+    let projectsRef = database.ref('projects/');
     projectsRef.on('value', (snapshot) => {
     const data = snapshot.val();
     setProjectsData(data);
+    setSelectedProjects(data);
     });
     return (() => {projectsRef.off()});
   }, []);
-  
+
   // Get user data and update state
   useEffect(() => {
-    var userRef = database.ref('users/');
+    let userRef = database.ref('users/');
     userRef.on('value', (snapshot) => {
     const data = snapshot.val();
     setUserData(data);
@@ -48,15 +52,20 @@ function App(props) {
     return (() => {userRef.off()});
   }, []);
 
-
   const applyFilter = function(genre) {
-    console.log('filter selected: ' + genre);
     if (genre == 'All') {
       setSelectedProjects(projectsData);
     } else {
-      let newData = projectsData.filter((project) => {
-        return project.genre == genre;
-      });
+      let newData = {};
+      for (let userId in projectsData) {
+        let artistProjects = projectsData[String(userId)];
+        for (let projectId in artistProjects) {
+            let project = artistProjects[String(projectId)];
+            if (genre == project['genre']) {
+              newData[String(userId)] = {projectId: project};
+            }
+        }
+      }
       setSelectedProjects(newData);
     }
   }
@@ -85,11 +94,11 @@ function App(props) {
           <Route exact path="/">
             <ProjectList projects={selectedProjects} />
           </Route>
-          <Route path="/projects/:url">
+          <Route path="/projects/:userId/:projectId">
             <ProjectPage projects={projectsData} currentUser={currentUser} userId={userId}/>
           </Route>
           <Route path="/profile/:urlUser">
-            <ProfilePage projectsData={selectedProjects} currentUser={currentUser} userId={userId}/>
+            <ProfilePage projectsData={selectedProjects} userData={userData} currentUser={currentUser} userId={userId}/>
           </Route>
           <Route path="/login">
             <SignUpPage currentUser={currentUser} userId={userId}/>

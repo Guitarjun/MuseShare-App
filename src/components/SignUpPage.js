@@ -30,7 +30,6 @@ export function SignUpPage(props) {
     let photoURL = 'users/'+userId+'/profilePicture/'+photoFile;    // The purpose of this field is to store a reference in the realtime database to the image file (which exists in the cloud storage)
 
     // For sign up
-    // THIS IS FOR WHEN THE SIGN UP FORM IS SUBMITTED
     firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((userCredentials) => {
         let user = userCredentials.user; //access the newly created user and set fields
@@ -49,12 +48,10 @@ export function SignUpPage(props) {
     });
 
     // For login
-    //sign in a user
     firebase.auth().signInWithEmailAndPassword(email, password)
     .catch(err => console.log(err)); //log any errors for debugging
 
     // For logout
-    //sign out a user
     firebase.auth().signOut()
     .catch(err => console.log(err)); //log any errors for debugging
 

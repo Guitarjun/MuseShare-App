@@ -1,32 +1,40 @@
-import React, { useState } from 'react'; //import React Component
+import React, { useEffect, useState } from 'react'; //import React Component
 import { useParams } from 'react-router';
-import _ from 'lodash';
 
+// Incorporate collaborators somehow
 // Allow user to delete their own projects, update the audio file
 // Audio file should have easy download feature for all users
 export function ProjectPage(props) {
     const urlParams = useParams();
-    let projectId = urlParams.url;
+    let projectId = urlParams.projectId;
+    let projectUserId  = urlParams.userId;
     let projectsData = props.projects;
 
     const [userProject, setUserProject] = useState(false);  // Indicates whether the current project belongs to the user
-
-    let project =  projectsData.projectId; //find project based on url
+    // useEffect(() => {
+    // });
+    let projects = projectsData[String(projectUserId)];
+    console.log(projects);
+    if (!projects) {
+        console.log('cant find user')
+        return <body className="project-page"><h2>User not found</h2></body>;
+    }
+    let project =  projects[String(projectId)]; //find project based on url
+    
 
     if(!project) return <h2>Project not found</h2> //if not found
 
-    const artists = "By: " + project.artists.reduce((prev, current) => {
-        return prev + ", " + current;
-    });
+
+    const artist = "By: " + project.author;
 
     return (
         <body className="project-page">
             <header className="background-brown">
-                <img className="mb-3" src={'../'+project.img} alt={project.name + " image"}/>
-                <h1>{project.name}</h1>
-                <h2>{artists}</h2>
-                <p>{project.genre}</p>
-                <button className="btn btn-dark mb-2"><span className="material-icons mb-3">play_arrow</span> 2:04  </button>
+                <img className="mb-3" src={'../'} alt={project.name + " image"}/>
+                <h1>{project['name']}</h1>
+                <h2>{artist}</h2>
+                <p>{project['genre']}</p>
+                <button className="btn btn-dark mb-2"><span className="material-icons mb-3">play_arrow</span></button>
                 <button className="btn btn-primary">Download</button>
             </header>
             <main>
@@ -34,11 +42,11 @@ export function ProjectPage(props) {
                     <div className="about">
                         <h2>Musician's Note:</h2>
                         <div className="group">
-                            <p>{project.note}</p>
+                            <p>{project['description']}</p>
                         </div>
                     </div>
                 </div>
-                <CommentSection comments={project.feedback}/>
+                {/* <CommentSection /> */}
             </main>
         </body>
     );

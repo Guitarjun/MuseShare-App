@@ -5,58 +5,62 @@ import ProjectList from './projects/ProjectList';
 export function ProfilePage(props) {
     const urlParams = useParams();
     const [onUserProfile, setOnUserProfile] = useState(false);  // Indicates whether user is on their own profile page
+    const [selectedUserProjects, setSelectedUserProjects] = useState();     // State for user-specific projects
 
-    let userId = props.userId;
+    let selectedProjects = props.projectsData;
+    let currentUserId = props.userId;
     let currentUser = props.currentUser;
+    let userData = props.userData;
+    let user = null;
 
     let urlUser = urlParams.urlUser;
 
-    if (userId == urlUser) {  // User is on their own profile page
+    if (currentUserId == urlUser) {  // User is on their own profile page
         setOnUserProfile(true);
+        // ...
     }
 
     if (onUserProfile) {
         // if we are on our own profile page...
     }
 
-
-
-    // Read introduction, displayName with event listener
-    // users/urlUser/...
+    for (let userId in userData) {
+        if (userId == urlUser) {
+            user = userData[String(userId)];
+        }
+    }
+    if(!user) {
+        return <h2>User not found</h2> //if user does not exist
+    }
 
     // Read image from cloud storage
     // users/urlUser/...
-
-    // State for user-specific projects
-    const [selectedUserProjects, setSelectedUserProjects] = useState();
     
-
-    if(null) return <h2>User not found</h2> //if user does not exist
     
     return (
         <body>
-            {/* <header className="profile-page">
-                <img src={'../'+user.img} alt={user.name + " profile image"}/>
-                <h1>{user.name}</h1>
+            <header className="profile-page">
+                <img src={'../'} alt={urlUser + " profile image"}/>
+                <h1>{user['displayName']}</h1>
             </header>
             <main>
                 <div className="wrapper">
                     <div className="about">
                         <h2>About:</h2>
                         <div className="group">
-                            <p>{user.about}</p>
-                            <div className="forum-info">
+                            <p>{user['about']}</p>
+                            {/* <div className="forum-info">
                                 <p>Forum posts: {user.posts}</p>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
-                    <ProjectList projects={selectedUserProjects}/>
+                    <ProjectList projects={selectedProjects} userId={urlUser}/>
                     <div className="contact">
                         <h2>Contact:</h2>
-                        <p><a href={"mailto:"+user.email}><span className="material-icons">email</span>{user.email}</a></p>
+                        <p><a href={"mailto:"+user['email']}><span className="material-icons">email</span>{user['email']}</a></p>
                     </div>
                 </div>
-            </main> */}
+            </main>
         </body>
     );
 }

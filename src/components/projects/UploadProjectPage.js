@@ -23,8 +23,8 @@ function UploadProjectPage(props) {
 
     // Non-user-inputted fields
     let projectId = (userId + '-' + name.replace(/\s/g, '')).toLowerCase();   // Project key
-    let audioFilePath = 'projects/' + projectId + '/audio/' + audioFile.name;
-    let photoFilePath = 'projects/' + projectId + '/image/' + photoFile.name;
+    let audioFilePath = 'projects/' + userId + '/' + projectId + '/audio/' + audioFile.name;
+    let photoFilePath = 'projects/' + userId + '/' + projectId + '/image/' + photoFile.name;
 
     // THIS SHOULD BE MOVED INTO AN EVENT LISTENER when the user click's "submit"
     writeProjectData(userId, projectId, name, genre, description, audioFilePath, photoFilePath);
@@ -41,12 +41,13 @@ function UploadProjectPage(props) {
 
 // Write project metadata to realtime database
 function writeProjectData(userId, projectId, name, genre, description, audioFilePath, photoFilePath) {
-    database.ref('projects/'+projectId).set({
+    database.ref('projects/'+ userId + '/' + projectId).set({
         name: name,
         genre: genre,
         description: description,
         audioFilePath: audioFilePath,
-        imagePath: photoFilePath
+        imagePath: photoFilePath,
+        author: userId
     });
 }
 
