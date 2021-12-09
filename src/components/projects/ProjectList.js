@@ -3,25 +3,21 @@ import { useState } from 'react';
 import { Redirect } from 'react-router';
 
 function ProjectList(props) {
+    let selectedProjects = props.selectedProjects;
 
-    
+    if(!selectedProjects || selectedProjects.length == 0) {
+        return (
+            <div className="project-list">
+                <h1>No available projects</h1>
+            </div>
+        );
+    }
 
-
-    // LOGIC NEEDS TO CHANGE DUE TO FIREBASE
-
-    // if(props.projects.length == 0) {
-    //     return (
-    //         <div className="project-list">
-    //             <h1>No available projects</h1>
-    //         </div>
-    //     );
-    // }
-
-    // const projectsList = props.projects.map((project) => {
-    //     return (
-    //         <ProjectCard key={project.url} project={project} />
-    //     );
-    // });
+//     const projectsList = props.projects.map((project) => {
+//         return (
+//             <ProjectCard key={project.url} project={project} />
+//         );
+//     });
 
     return (
         <div className="project-list">

@@ -7,11 +7,13 @@ import _ from 'lodash';
 export function ProjectPage(props) {
     const urlParams = useParams();
     let projectId = urlParams.url;
+    let projectsData = props.projects;
+
     const [userProject, setUserProject] = useState(false);  // Indicates whether the current project belongs to the user
 
-    let project =  _.find(props.projects, {url: projectId}); //find project based on url
+    let project =  projectsData.projectId; //find project based on url
 
-    if(null) return <h2>Project not found</h2> //if not found
+    if(!project) return <h2>Project not found</h2> //if not found
 
     const artists = "By: " + project.artists.reduce((prev, current) => {
         return prev + ", " + current;

@@ -11,41 +11,49 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import UploadProjectPage from './projects/UploadProjectPage';
 import { database } from '..';
-import { storage } from '..';
 
+// Notes: need to figure out a better way to do this:
+  // projects/user/project
+  // projects/user-project
+  // projects/project
 function App(props) {
 
-  let userData = database.ref('users/'); // User data stored in the realtime database, not the official Firebase user data
-  let userStorage = storage.ref('users/'); // User data in cloud storage (profile image)
-  let projectsData = database.ref('projects/');   // Project data in realtime database (not including reference to the image and audio file)
-  let projectsStorage = storage.ref('projects/'); // Project data in cloud storage (audio file and image)
+  const [userData, setUserData] = useState([]);
+  const [projectsData, setProjectsData] = useState([]);
 
   // State and function for handling genre filter
-  const [selectedProjects, setSelectedProjects] = useState(null);
+  const [selectedProjects, setSelectedProjects] = useState([]);
 
   // Current user
   const [currentUser, setCurrentUser] = useState(undefined);
   const [userId, setUserId] = useState(null);
 
-  // Get data and update state
+  // Get project data and update state
   useEffect(() => {
     var projectsRef = database.ref('projects/');
     projectsRef.on('value', (snapshot) => {
     const data = snapshot.val();
-    console.log(data);
-    setSelectedProjects(data);
+    setProjectsData(data);
     });
     return (() => {projectsRef.off()});
   }, []);
   
+  // Get user data and update state
+  useEffect(() => {
+    var userRef = database.ref('users/');
+    userRef.on('value', (snapshot) => {
+    const data = snapshot.val();
+    setUserData(data);
+    });
+    return (() => {userRef.off()});
+  }, []);
 
 
   const applyFilter = function(genre) {
-    // Retrieve data from realtime database, set projects accordingly to projects in object form
+    console.log('filter selected: ' + genre);
     if (genre == 'All') {
       setSelectedProjects(projectsData);
     } else {
-      // THIS LOGIC NEEDS TO CHANGE NOW THAT WE ARE USING FIREBASE
       let newData = projectsData.filter((project) => {
         return project.genre == genre;
       });
