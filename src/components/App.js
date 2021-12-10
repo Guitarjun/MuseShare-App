@@ -12,11 +12,11 @@ import 'firebase/compat/auth';
 import UploadProjectPage from './projects/UploadProjectPage';
 import { database } from '..';
 
+// CURRENT SCHEMA USERS/PROJECTS IS NOT EFFICIENT FOR FINDING PROJECTS, NEED TO OPTIMIZE
 // Add pagination
 // Need to store different versions of projects
 // Need to update security
 // Need to add forms, handleSubmission(), etc.
-// Need to add features (check individual classes)
 // Need to add comment features
 function App(props) {
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'; //import React Component
 import { useParams } from 'react-router';
+import { storage } from '../..';
 
 // Incorporate collaborators somehow
 // Allow user to delete their own projects, update the audio file
@@ -11,25 +12,24 @@ export function ProjectPage(props) {
     let projectsData = props.projects;
 
     const [userProject, setUserProject] = useState(false);  // Indicates whether the current project belongs to the user
+    const [imageUrl, setImageUrl] = useState(null);
 
     let projects = projectsData[String(projectUserId)];
-    console.log(projects);
     if (!projects) {
         console.log('cant find user')
         return <body className="project-page"><h2>User not found</h2></body>;
     }
     let project =  projects[String(projectId)]; //find project based on url
-    
-
     if(!project) return <h2>Project not found</h2> //if not found
-
-
+    
+    
+    getImage(setImageUrl, project['imagePath']);
     const artist = "By: " + project.author;
 
     return (
         <body className="project-page">
             <header className="background-brown">
-                <img className="mb-3" src={'../'} alt={project.name + " image"}/>
+                <img className="mb-3" src={imageUrl} alt={project.name + " image"}/>
                 <h1>{project['name']}</h1>
                 <h2>{artist}</h2>
                 <p>{project['genre']}</p>
@@ -87,4 +87,11 @@ export function CommentSection({comments}) {
             {commentList}
         </section>
     );
+}
+
+function getImage(setImage, path) {
+    let imageRef = storage.ref().child(String(path));
+    imageRef.getDownloadURL().then((url) => {
+        setImage(url);
+    });
 }
