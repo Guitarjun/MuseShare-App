@@ -3,7 +3,7 @@ import { useParams } from 'react-router';
 import { storage } from '../..';
 
 // Incorporate collaborators somehow
-// Allow user to delete their own projects, update the audio file
+// TODO: Button to visit artist's page
 // Audio file should have easy download feature for all users
 export function ProjectPage(props) {
     const urlParams = useParams();
@@ -97,5 +97,7 @@ function getImage(setImage, path) {
     let imageRef = storage.ref().child(String(path));
     imageRef.getDownloadURL().then((url) => {
         setImage(url);
+    }).catch((err) => {
+        setImage(null);
     });
 }

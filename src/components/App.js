@@ -13,6 +13,8 @@ import UploadProjectPage from './projects/UploadProjectPage';
 import { database } from '..';
 import { AuthProvider } from '../contexts/AuthContext';
 import LogInPage from './LogInPage';
+import PrivateRoute from './PrivateRoute';
+import Dashboard from './Dashboard';
 
 // CURRENT SCHEMA USERS/PROJECTS IS NOT EFFICIENT FOR FINDING PROJECTS, NEED TO OPTIMIZE
 // Add pagination
@@ -102,6 +104,9 @@ function App(props) {
             <Route path="/profile/:urlUser">
               <ProfilePage projectsData={selectedProjects} userData={userData} currentUser={currentUser} userId={userId}/>
             </Route>
+            <PrivateRoute exact path="/dashboard/:userId"> 
+              <Dashboard projectsData={selectedProjects} userData={userData} userId={userId} />
+            </PrivateRoute>
             <Route exact path="/signup">
               <SignUpPage />
             </Route>

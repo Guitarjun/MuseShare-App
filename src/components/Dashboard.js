@@ -3,13 +3,13 @@ import { useParams } from 'react-router';
 import { storage } from '..';
 import ProjectList from './projects/ProjectList';
 
-export function ProfilePage(props) {
+export default function Dashboard(props) {
     const urlParams = useParams();
     const[imageUrl, setImageUrl] = useState(null);
 
     let selectedProjects = props.projectsData;
     let userData = props.userData;
-    let urlUser = urlParams.urlUser;
+    let urlUser = urlParams.userId;
 
     let user = userData[String(urlUser)];
 
@@ -20,13 +20,14 @@ export function ProfilePage(props) {
 
     // Read image from cloud storage
     // TODO: Fix memory leak
-    getImage(setImageUrl, user['imagePath']);
+    // getImage(setImageUrl, user['imagePath']);
     
     return (
         <body>
             <header className="profile-page">
                 <img src={imageUrl} alt={urlUser + " profile image"}/>
                 <h1>{user['displayName']}</h1>
+                <button className="btn btn-danger">Log Out</button>
             </header>
             <main>
                 <div className="wrapper">
