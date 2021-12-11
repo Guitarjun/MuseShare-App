@@ -59,7 +59,7 @@ export default function SignUpPage() {
   
     return (
     <div className="wrapper">
-            <h2 className="text-center mt-4">Sign Up</h2>
+            <h2 className="text-center position-relative mt-4">Sign Up</h2>
             {error && <Alert variant="danger">{error}</Alert>}
             <Form onSubmit={handleSubmit}>
               <Form.Group className="m-3" id="display">

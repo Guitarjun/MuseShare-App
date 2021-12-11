@@ -7,6 +7,12 @@ import firebase from "firebase/compat/app";
 import 'firebase/compat/database';
 import 'firebase/compat/storage';
 
+/* 
+Idea to implement:
+Users need to firsk ask to collaborate, then they can download the file if the artist agrees.
+Right now: Public download links and no way to message artist (or messages in general)
+ */
+
 // Firebase MusheShare app credentials
 const firebaseConfig = {
   apiKey: "AIzaSyCpC441zDhyzmLRQst5scMgsRtRXz1CHZ0",
