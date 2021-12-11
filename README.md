@@ -1,1 +1,2 @@
-# MuseShare, an interactive music collaboration web app
+# MuseShare
+## an interactive music collaboration web app
