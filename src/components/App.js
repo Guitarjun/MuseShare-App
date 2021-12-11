@@ -62,10 +62,11 @@ function App(props) {
       let newData = {};
       for (let userId in projectsData) {
         let artistProjects = projectsData[String(userId)];
+        newData[String(userId)] = {};
         for (let projectId in artistProjects) {
             let project = artistProjects[String(projectId)];
             if (genre == project['genre']) {
-              newData[String(userId)] = {[projectId]: project};
+              newData[String(userId)][projectId] = project; // Need this to append
             }
         }
       }

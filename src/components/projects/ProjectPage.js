@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'; //import React Component
 import { useParams } from 'react-router';
-import { storage } from '../..';
 import { getImage } from '../../firebaseUtils';
 import { NavLink } from 'react-router-dom';
 
@@ -13,7 +12,6 @@ export function ProjectPage(props) {
     let projectUserId  = urlParams.userId;
     let projectsData = props.projects;
 
-    const [userProject, setUserProject] = useState(false);  // Indicates whether the current project belongs to the user
     const [imageUrl, setImageUrl] = useState(null);
 
     let projects = projectsData[String(projectUserId)];
