@@ -2,9 +2,10 @@ import { React, useState } from 'react';
 import { useParams } from 'react-router';
 import { storage } from '..';
 import ProjectList from './projects/ProjectList';
-import { Button, Alert } from "react-bootstrap";
+import { Alert } from "react-bootstrap";
 import { useAuth } from '../contexts/AuthContext';
 import { Link, useHistory } from "react-router-dom";
+import { getImage } from '../firebaseUtils';
 
 export default function Dashboard(props) {
     const urlParams = useParams();
@@ -29,7 +30,6 @@ export default function Dashboard(props) {
             setError("Failed to log out");
         }
     }
-    
 
     // Read image from cloud storage
     // TODO: Fix memory leak
@@ -65,17 +65,4 @@ export default function Dashboard(props) {
             </main>
         </div>
     );
-}
-
-function getImage(setImage, path) {
-    if (path) {
-        let imageRef = storage.ref().child(String(path));
-        imageRef.getDownloadURL().then((url) => {
-            setImage(url);
-        }).catch((err) => {
-            setImage(null);
-        });
-    } else {
-        setImage(null);
-    }
 }

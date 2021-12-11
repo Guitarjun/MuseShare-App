@@ -2,6 +2,7 @@ import { React, useState } from 'react';
 import { useParams } from 'react-router';
 import { storage } from '..';
 import ProjectList from './projects/ProjectList';
+import { getImage } from '../firebaseUtils';
 
 export function ProfilePage(props) {
     const urlParams = useParams();
@@ -20,7 +21,7 @@ export function ProfilePage(props) {
 
     // Read image from cloud storage
     // TODO: Fix memory leak
-    getImage(setImageUrl, user['imagePath']);
+    // getImage(setImageUrl, user['imagePath']);
     
     return (
         <body>
@@ -50,11 +51,3 @@ export function ProfilePage(props) {
     );
 }
 
-function getImage(setImage, path) {
-    let imageRef = storage.ref().child(String(path));
-    imageRef.getDownloadURL().then((url) => {
-        setImage(url);
-    }).catch((err) => {
-        setImage(null);
-    });
-}

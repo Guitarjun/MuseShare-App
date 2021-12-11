@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'; //import React Component
 import { useParams } from 'react-router';
 import { storage } from '../..';
+import { getImage } from '../../firebaseUtils';
 
 // Incorporate collaborators somehow
 // TODO: Button to visit artist's page
@@ -26,7 +27,7 @@ export function ProjectPage(props) {
     const artist = "By: " + project.author;
 
     return (
-        <body className="project-page">
+        <div className="project-page">
             <header className="background-brown">
                 <img className="mb-3" src={imageUrl} alt={project.name + " image"}/>
                 <h1>{project['name']}</h1>
@@ -46,7 +47,7 @@ export function ProjectPage(props) {
                 </div>
                 {/* <CommentSection /> */}
             </main>
-        </body>
+        </div>
     );
 }
 
@@ -91,13 +92,4 @@ export function CommentSection({comments}) {
 // Add flagging method
 function Comment() {
 
-}
-
-function getImage(setImage, path) {
-    let imageRef = storage.ref().child(String(path));
-    imageRef.getDownloadURL().then((url) => {
-        setImage(url);
-    }).catch((err) => {
-        setImage(null);
-    });
 }
