@@ -26,6 +26,7 @@ export default function LogInPage() {
         .catch(err => {
             setError("Failed to log in");
             console.log(err)}); //log any errors for debugging 
+        history.push('/');
     }
   
     return (

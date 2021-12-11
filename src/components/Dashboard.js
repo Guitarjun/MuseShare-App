@@ -2,10 +2,17 @@ import { React, useState } from 'react';
 import { useParams } from 'react-router';
 import { storage } from '..';
 import ProjectList from './projects/ProjectList';
+import { Button, Alert } from "react-bootstrap";
+import { useAuth } from '../contexts/AuthContext';
+import { Link, useHistory } from "react-router-dom";
 
 export default function Dashboard(props) {
     const urlParams = useParams();
+    const { logout } = useAuth();
     const[imageUrl, setImageUrl] = useState(null);
+    const [error, setError] = useState("");
+    const history = useHistory();
+   
 
     let selectedProjects = props.projectsData;
     let userData = props.userData;
@@ -13,21 +20,33 @@ export default function Dashboard(props) {
 
     let user = userData[String(urlUser)];
 
+    async function handleLogout() {
+        setError('');
+        try {
+            await logout();
+            history.push("/login");
+        } catch {
+            setError("Failed to log out");
+        }
+    }
+    
 
+    // Read image from cloud storage
+    // TODO: Fix memory leak
+    // let path = user['imagePath'];
+    // getImage(setImageUrl, path);
+    
     if(!user) {
         return <h2>User not found</h2> //if user does not exist
     }
 
-    // Read image from cloud storage
-    // TODO: Fix memory leak
-    // getImage(setImageUrl, user['imagePath']);
-    
     return (
-        <body>
+        <div>
             <header className="profile-page">
                 <img src={imageUrl} alt={urlUser + " profile image"}/>
-                <h1>{user['displayName']}</h1>
-                <button className="btn btn-danger">Log Out</button>
+                <h1>{user['displayName'] + " (Me)"}</h1>
+                {error && <Alert variant="danger">{error}</Alert>}
+                <button variant="link" onClick={handleLogout} className="btn btn-danger">Log Out</button>
             </header>
             <main>
                 <div className="wrapper">
@@ -35,9 +54,6 @@ export default function Dashboard(props) {
                         <h2>About:</h2>
                         <div className="group">
                             <p>{user['about']}</p>
-                            {/* <div className="forum-info">
-                                <p>Forum posts: {user.posts}</p>
-                            </div> */}
                         </div>
                     </div>
                     <ProjectList projects={selectedProjects} userId={urlUser}/>
@@ -47,15 +63,19 @@ export default function Dashboard(props) {
                     </div>
                 </div>
             </main>
-        </body>
+        </div>
     );
 }
 
 function getImage(setImage, path) {
-    let imageRef = storage.ref().child(String(path));
-    imageRef.getDownloadURL().then((url) => {
-        setImage(url);
-    }).catch((err) => {
+    if (path) {
+        let imageRef = storage.ref().child(String(path));
+        imageRef.getDownloadURL().then((url) => {
+            setImage(url);
+        }).catch((err) => {
+            setImage(null);
+        });
+    } else {
         setImage(null);
-    });
+    }
 }

@@ -6,14 +6,13 @@ function NavBar(props) {
     const showFilter = true;
     let currentUser = props.currentUser;
     let userId = props.userId;
-    let profileLink = null;
     let loginLink = null;
+    let dashboardLink = null;
     // If user is logged in, profile button takes them to their profile, otherwise takes them to login page
-    if (currentUser) {
-        loginLink = <NavLink to="/signup" activeClassName="active">Log Out</NavLink>
-        // Log out logic ^
+    if (!currentUser) {
+        loginLink = <NavLink to="/signup" activeClassName="active">Log In</NavLink>;
     } else {
-        loginLink = <NavLink to="/signup" activeClassName="active">Log In</NavLink>
+        dashboardLink = <NavLink to={"/dashboard/" + userId} activeClassName="active">Profile</NavLink>;
     }
 
     return (
@@ -33,7 +32,7 @@ function NavBar(props) {
                         <NavLink exact to="/" activeClassName="active">Projects</NavLink>
                     </li>
                     <li>
-                        <NavLink to={"/dashboard/" + userId} activeClassName="active">Profile</NavLink>
+                        {dashboardLink}
                     </li>
                     <li>
                         {loginLink}
