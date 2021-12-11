@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from 'react';
 import { Redirect } from 'react-router';
 import _ from 'lodash';
-import { storage } from "../..";
+import { getImage } from "../../firebaseUtils";
 
 function ProjectList(props) {
     let selectedProjects = props.projects;
@@ -82,11 +82,5 @@ function ProjectCard({project, projectId, userId}) {
     );
 }
 
-function getImage(setImage, path) {
-    let imageRef = storage.ref().child(String(path));
-    imageRef.getDownloadURL().then((url) => {
-        setImage(url);
-    });
-}
 
 export default ProjectList;
