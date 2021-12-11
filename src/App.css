@@ -16,6 +16,7 @@
     display: flex;
     flex-wrap: wrap;
     padding: 0;
+    z-index : 1;
 }
 
 .navbar .left-wrapper {
@@ -126,7 +127,6 @@
     flex-direction: column;
     justify-content: center;
     width: min-content;
-    height: min-content;
     box-shadow: 7px 7px 5px lightgrey;
     border-radius: 10px;
     margin: 2em;
@@ -134,7 +134,7 @@
 }
 
 .project-card:hover {
-    transform: scale(1.10);
+    transform: scale(1.05);
 }
 
 .project-card header {
