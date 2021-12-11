@@ -1,2 +1,2 @@
 # MuseShare
-## an interactive music collaboration web app
+An interactive music collaboration web app created by [Arjun Srivastava](github.com/Guitarjun), ...
