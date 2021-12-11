@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'; //import React Component
 import { useParams } from 'react-router';
 import { storage } from '../..';
 import { getImage } from '../../firebaseUtils';
+import { NavLink } from 'react-router-dom';
 
 // Incorporate collaborators somehow
 // TODO: Button to visit artist's page
@@ -35,6 +36,7 @@ export function ProjectPage(props) {
                 <p>{project['genre']}</p>
                 <button className="btn btn-dark mb-2"><span className="material-icons mb-3">play_arrow</span></button>
                 <button className="btn btn-primary">Download</button>
+                <button className="btn btn-seconday"><NavLink to={"/profile/" + projectUserId} activeClassName="active">Artist Profile</NavLink></button>
             </header>
             <main>
                 <div className="wrapper">

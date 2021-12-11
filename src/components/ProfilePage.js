@@ -35,9 +35,6 @@ export function ProfilePage(props) {
                         <h2>About:</h2>
                         <div className="group">
                             <p>{user['about']}</p>
-                            {/* <div className="forum-info">
-                                <p>Forum posts: {user.posts}</p>
-                            </div> */}
                         </div>
                     </div>
                     <ProjectList projects={selectedProjects} userId={urlUser}/>

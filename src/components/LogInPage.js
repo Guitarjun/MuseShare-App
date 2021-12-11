@@ -1,13 +1,10 @@
 import React, { useRef, useState } from "react"; //import React Component
-import { Form, Button, Card, Alert } from "react-bootstrap";
+import { Form, Button, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 
 import 'firebase/auth';
-import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
-import { database } from "..";
-import { storage } from "..";
 
 export default function LogInPage() {
     const emailRef = useRef();
@@ -25,8 +22,9 @@ export default function LogInPage() {
         login(email, password)
         .catch(err => {
             setError("Failed to log in");
-            console.log(err)}); //log any errors for debugging 
+            console.log(err)}); //log any errors for debugging
         history.push('/');
+        setLoading(false);
     }
   
     return (

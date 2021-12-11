@@ -1,10 +1,9 @@
 import { React, useState } from 'react';
 import { Redirect, useParams } from 'react-router';
-import { storage } from '..';
 import ProjectList from './projects/ProjectList';
 import { Alert } from "react-bootstrap";
 import { useAuth } from '../contexts/AuthContext';
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { getImage } from '../firebaseUtils';
 
 // TODO: delete project, delete account
@@ -16,14 +15,13 @@ export default function Dashboard(props) {
     const history = useHistory();
     const { currentUser } = useAuth();
 
-    if (!currentUser) {
-        return <Redirect to="/login"/>
-    }
-   
-
     let selectedProjects = props.projectsData;
     let userData = props.userData;
     let urlUser = urlParams.userId;
+
+    if (!currentUser || props.userId != urlUser)  {
+        return <Redirect to="/login"/>
+    }
 
     let user = userData[String(urlUser)];
 
@@ -39,7 +37,10 @@ export default function Dashboard(props) {
 
     // Read image from cloud storage
     // TODO: Fix memory leak
-    getImage(setImageUrl, user['imagePath']);
+    if (user) {
+        getImage(setImageUrl, user['imagePath']);
+    }
+    
     
     if(!user) {
         return <h2>User not found</h2> //if user does not exist

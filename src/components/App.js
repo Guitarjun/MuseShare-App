@@ -20,8 +20,8 @@ import Dashboard from './Dashboard';
 // Add pagination
 // Need to store different versions of projects
 // Need to update security
-// Need to add forms, handleSubmission(), etc.
 // Need to add comment features
+// TODO: upload project page, comment feature/data structure definitions (add flag), user delete their own account, remove all refs in Cloud Storage
 function App(props) {
 
   const [userData, setUserData] = useState([]);

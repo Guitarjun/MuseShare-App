@@ -51,8 +51,9 @@ export default function SignUpPage() {
         })
         .catch((error) => { //report any errors
             console.log(error.message);
+            setError(error.message);
         });
-        history.push("/")
+        history.push("/");
         setLoading(false);
     }
   
