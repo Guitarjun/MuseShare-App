@@ -1,5 +1,5 @@
 import { React, useState } from 'react';
-import { useParams } from 'react-router';
+import { Redirect, useParams } from 'react-router';
 import { storage } from '..';
 import ProjectList from './projects/ProjectList';
 import { Alert } from "react-bootstrap";
@@ -14,6 +14,11 @@ export default function Dashboard(props) {
     const[imageUrl, setImageUrl] = useState(null);
     const [error, setError] = useState("");
     const history = useHistory();
+    const { currentUser } = useAuth();
+
+    if (!currentUser) {
+        return <Redirect to="/login"/>
+    }
    
 
     let selectedProjects = props.projectsData;
