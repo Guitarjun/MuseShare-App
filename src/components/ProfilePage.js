@@ -5,38 +5,22 @@ import ProjectList from './projects/ProjectList';
 
 export function ProfilePage(props) {
     const urlParams = useParams();
-    const [onUserProfile, setOnUserProfile] = useState(false);  // Indicates whether user is on their own profile page
     const[imageUrl, setImageUrl] = useState(null);
 
     let selectedProjects = props.projectsData;
-    let currentUserId = props.userId;
     let userData = props.userData;
-    let user = null;
-
     let urlUser = urlParams.urlUser;
 
-    if (currentUserId == urlUser) {  // User is on their own profile page
-        setOnUserProfile(true);
-        // ...
-    }
+    let user = userData[String(urlUser)];
 
-    if (onUserProfile) {
-        // if we are on our own profile page...
-    }
 
-    // Filter for this user's projects
-    for (let userId in userData) {
-        if (userId == urlUser) {
-            user = userData[String(userId)];
-        }
-    }
     if(!user) {
         return <h2>User not found</h2> //if user does not exist
     }
 
     // Read image from cloud storage
     // TODO: Fix memory leak
-    getImage(setImageUrl, user['imagePath']);
+    // getImage(setImageUrl, user['imagePath']);
     
     return (
         <body>

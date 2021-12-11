@@ -6,12 +6,13 @@ import { ProfilePage } from './ProfilePage';
 import { useState, useEffect } from 'react';
 import ProjectList from './projects/ProjectList';
 import { ProjectPage } from './projects/ProjectPage';
-import Signup, { SignUpPage } from './SignUpPage';
+import SignUpPage from './SignUpPage';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import UploadProjectPage from './projects/UploadProjectPage';
 import { database } from '..';
 import { AuthProvider } from '../contexts/AuthContext';
+import LogInPage from './LogInPage';
 
 // CURRENT SCHEMA USERS/PROJECTS IS NOT EFFICIENT FOR FINDING PROJECTS, NEED TO OPTIMIZE
 // Add pagination
@@ -101,9 +102,11 @@ function App(props) {
             <Route path="/profile/:urlUser">
               <ProfilePage projectsData={selectedProjects} userData={userData} currentUser={currentUser} userId={userId}/>
             </Route>
-            <Route path="/signup">
-              {/* <SignUpPage currentUser={currentUser} userId={userId}/> */}
-              <Signup />
+            <Route exact path="/signup">
+              <SignUpPage />
+            </Route>
+            <Route exact path="/login">
+              <LogInPage />
             </Route>
             <Route path="/upload">
               <UploadProjectPage currentUser={currentUser} userId={userId}/>

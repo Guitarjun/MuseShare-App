@@ -9,7 +9,7 @@ import 'firebase/compat/auth';
 import { database } from "..";
 import { storage } from "..";
 
-export default function Signup() {
+export default function SignUpPage() {
     const emailRef = useRef();
     const passwordRef = useRef();
     const displayNameRef = useRef();
@@ -33,7 +33,8 @@ export default function Signup() {
         let displayName = displayNameRef.current.value;
         let about = aboutRef.current.value;
         let photoFile = null;
-        firebase.auth().createUserWithEmailAndPassword(email, password)
+        // firebase.auth().createUserWithEmailAndPassword(email, password)
+        signup(email, password)
         .then((userCredentials) => {
         let user = userCredentials.user; //access the newly created user and set fields
         user.updateProfile({
@@ -97,7 +98,7 @@ export default function Signup() {
     )
   }
 
-export function SignUpPage(props) {
+export function SignUp(props) {
 
     // This page will double as a sign up and a login page
     // Something like ("Sign up [sign up logic and forms]! Already have an account? Login instead... [login logic and forms]")
