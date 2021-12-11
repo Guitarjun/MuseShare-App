@@ -93,6 +93,7 @@ function writeProjectData(userId, projectId, name, genre, description, audioFile
     });
 }
 
+// TODO: Implement upload monitoring
 // Write project audio file and image to cloud storage
 function writeProjectStorage(photoFile, audioFile, photoFilePath, audioFilePath) {
     let photoUploadTask = storage.ref().child(photoFilePath).put(photoFile);
