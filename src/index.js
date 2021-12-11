@@ -22,6 +22,9 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+// Auth
+export const auth = firebase.auth();
+
 // Global variables for database
 export var database = firebase.database(); // Realtime database
 export var storage = firebase.storage(); // Cloud storage

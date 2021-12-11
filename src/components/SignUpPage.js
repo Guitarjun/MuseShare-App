@@ -1,9 +1,101 @@
-import React, { useState } from "react"; //import React Component
+import React, { useRef, useState } from "react"; //import React Component
+import { Form, Button, Card, Alert } from "react-bootstrap";
+import { useAuth } from "../contexts/AuthContext";
+import { Link, useHistory } from "react-router-dom";
+
 import 'firebase/auth';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import { database } from "..";
 import { storage } from "..";
+
+export default function Signup() {
+    const emailRef = useRef();
+    const passwordRef = useRef();
+    const displayNameRef = useRef();
+    const aboutRef = useRef();
+    const passwordConfirmRef = useRef();
+    const { signup } = useAuth();
+    const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
+    const history = useHistory();
+  
+    async function handleSubmit(e) {
+      e.preventDefault();
+  
+      if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+        return setError("Passwords do not match");
+      }
+        setError("");
+        setLoading(true);
+        let email = emailRef.current.value;
+        let password = passwordRef.current.value;
+        let displayName = displayNameRef.current.value;
+        let about = aboutRef.current.value;
+        let photoFile = null;
+        firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then((userCredentials) => {
+        let user = userCredentials.user; //access the newly created user and set fields
+        user.updateProfile({
+            displayName: displayName,
+            // photoURL: photoURL
+        })
+        console.log('User created: '+user.uid);
+        }).then(() => { 
+                // Non-user-inputted fields
+        let userId = email.substring(0, email.indexOf("@"));   // User key
+        // let photoURL = 'users/'+userId+'/profilePicture/'+photoFile;    // The purpose of this field is to store a reference in the realtime database to the image file (which exists in the cloud storage)
+        let photoUrl = null;
+        writeUserData(email, userId, photoUrl, displayName, about);
+            writeUserStorage(photoFile, photoUrl);
+            console.log('User data uploaded: ' + userId);
+        })
+        .catch((error) => { //report any errors
+            console.log(error.message);
+        });
+        history.push("/")
+        setLoading(false);
+    }
+  
+    return (
+    <div className="wrapper">
+        {/* <Card> */}
+          {/* <Card.Body> */}
+            <h2 className="text-center mb-4">Sign Up</h2>
+            {error && <Alert variant="danger">{error}</Alert>}
+            <Form onSubmit={handleSubmit}>
+              <Form.Group id="display">
+                <Form.Label>Display Name</Form.Label>
+                <Form.Control type="text" placeholder="Your public name" ref={displayNameRef} required />
+              </Form.Group>
+              <Form.Group id="about">
+                <Form.Label>About You</Form.Label>
+                <Form.Control type="text" placeholder="Brief description" ref={aboutRef} required />
+              </Form.Group>
+              <Form.Group id="email">
+                <Form.Label>Email</Form.Label>
+                <Form.Control type="email" ref={emailRef} required />
+              </Form.Group>
+              <Form.Group id="password">
+                <Form.Label>Password</Form.Label>
+                <Form.Control type="password" ref={passwordRef} required />
+              </Form.Group>
+              <Form.Group id="password-confirm">
+                <Form.Label>Password Confirmation</Form.Label>
+                <Form.Control type="password" ref={passwordConfirmRef} required />
+              </Form.Group>
+              <Button disabled={loading} className=" btn-secondary mt-3 w-100" type="submit">
+                Sign Up
+              </Button>
+            </Form>
+          {/* </Card.Body> */}
+        {/* </Card> */}
+        <div className="w-100 text-center mt-2">
+          Already have an account? <Link to="/login">Log In</Link>
+        </div>
+    </div>
+    )
+  }
 
 export function SignUpPage(props) {
 
@@ -55,15 +147,6 @@ export function SignUpPage(props) {
     firebase.auth().signOut()
     .catch(err => console.log(err)); //log any errors for debugging
 
-    // MODIFY BELOW FOR REACT STRUCTURE/UI
-    return (
-        <body>
-            <header className="signup-page"> 
-            {/* TODO: Entire UI for both sign up and login options*/}
-            Sign up page
-            </header>
-        </body>
-    );
 }
 
 // Write user data for realtime database
@@ -72,7 +155,7 @@ function writeUserData(email, userId, photoUrl, name, about) {
         displayName: name,
         email: email,
         imagePath: photoUrl,
-        introduction: about,
+        about: about,
     });
 }
 

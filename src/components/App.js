@@ -6,11 +6,12 @@ import { ProfilePage } from './ProfilePage';
 import { useState, useEffect } from 'react';
 import ProjectList from './projects/ProjectList';
 import { ProjectPage } from './projects/ProjectPage';
-import { SignUpPage } from './SignUpPage';
+import Signup, { SignUpPage } from './SignUpPage';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import UploadProjectPage from './projects/UploadProjectPage';
 import { database } from '..';
+import { AuthProvider } from '../contexts/AuthContext';
 
 // CURRENT SCHEMA USERS/PROJECTS IS NOT EFFICIENT FOR FINDING PROJECTS, NEED TO OPTIMIZE
 // Add pagination
@@ -88,25 +89,28 @@ function App(props) {
 
   return (
     <div className="app">
-      <NavBar currentUser={currentUser} userId={userId} callback={applyFilter}/>
-      <Switch>
-          <Route exact path="/">
-            <ProjectList projects={selectedProjects} />
-          </Route>
-          <Route path="/projects/:userId/:projectId">
-            <ProjectPage projects={projectsData} currentUser={currentUser} userId={userId}/>
-          </Route>
-          <Route path="/profile/:urlUser">
-            <ProfilePage projectsData={selectedProjects} userData={userData} currentUser={currentUser} userId={userId}/>
-          </Route>
-          <Route path="/login">
-            <SignUpPage currentUser={currentUser} userId={userId}/>
-          </Route>
-          <Route path="/upload">
-            <UploadProjectPage currentUser={currentUser} userId={userId}/>
-          </Route>
-          <Redirect to="/" />
-      </Switch>
+      <AuthProvider>
+        <NavBar currentUser={currentUser} userId={userId} callback={applyFilter}/>
+        <Switch>
+            <Route exact path="/">
+              <ProjectList projects={selectedProjects} />
+            </Route>
+            <Route path="/projects/:userId/:projectId">
+              <ProjectPage projects={projectsData} currentUser={currentUser} userId={userId}/>
+            </Route>
+            <Route path="/profile/:urlUser">
+              <ProfilePage projectsData={selectedProjects} userData={userData} currentUser={currentUser} userId={userId}/>
+            </Route>
+            <Route path="/signup">
+              {/* <SignUpPage currentUser={currentUser} userId={userId}/> */}
+              <Signup />
+            </Route>
+            <Route path="/upload">
+              <UploadProjectPage currentUser={currentUser} userId={userId}/>
+            </Route>
+            <Redirect to="/" />
+        </Switch>
+      </AuthProvider>
       <footer className="margin-200">
           <p><a href="mailto:arj1@uw.edu"><span className="material-icons">email</span> arj1@uw.edu</a></p>
           <p>&copy; Arjun, Rhea, Kyle</p>

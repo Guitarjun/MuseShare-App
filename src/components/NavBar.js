@@ -14,7 +14,7 @@ function NavBar(props) {
         loginLink = <NavLink to="/signup" activeClassName="active">Log Out</NavLink>
         // Log out logic ^
     } else {
-        profileLink = <NavLink to={"/signup"} activeClassName="active">Profile</NavLink>;
+        profileLink = <NavLink to="/signup" >Profile</NavLink>;
         loginLink = <NavLink to="/signup" activeClassName="active">Log In</NavLink>
     }
 

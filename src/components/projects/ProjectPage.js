@@ -16,13 +16,12 @@ export function ProjectPage(props) {
 
     let projects = projectsData[String(projectUserId)];
     if (!projects) {
-        console.log('cant find user')
         return <body className="project-page"><h2>User not found</h2></body>;
     }
     let project =  projects[String(projectId)]; //find project based on url
     if(!project) return <h2>Project not found</h2> //if not found
     
-    
+    // TODO: Fix memory leak
     getImage(setImageUrl, project['imagePath']);
     const artist = "By: " + project.author;
 
@@ -87,6 +86,11 @@ export function CommentSection({comments}) {
             {commentList}
         </section>
     );
+}
+
+// Add flagging method
+function Comment() {
+
 }
 
 function getImage(setImage, path) {
