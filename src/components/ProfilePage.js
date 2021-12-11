@@ -21,7 +21,7 @@ export function ProfilePage(props) {
 
     // Read image from cloud storage
     // TODO: Fix memory leak
-    // getImage(setImageUrl, user['imagePath']);
+    getImage(setImageUrl, user['imagePath']);
     
     return (
         <body>

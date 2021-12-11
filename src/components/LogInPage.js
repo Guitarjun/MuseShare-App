@@ -31,16 +31,14 @@ export default function LogInPage() {
   
     return (
     <div className="wrapper">
-        {/* <Card> */}
-          {/* <Card.Body> */}
             <h2 className="text-center mb-4">Log In</h2>
             {error && <Alert variant="danger">{error}</Alert>}
             <Form onSubmit={handleSubmit}>
-              <Form.Group id="email">
+              <Form.Group className="m-3" id="email">
                 <Form.Label>Email</Form.Label>
                 <Form.Control type="email" ref={emailRef} required />
               </Form.Group>
-              <Form.Group id="password">
+              <Form.Group className="m-3" id="password">
                 <Form.Label>Password</Form.Label>
                 <Form.Control type="password" ref={passwordRef} required />
               </Form.Group>
@@ -48,8 +46,6 @@ export default function LogInPage() {
                 Log In
               </Button>
             </Form>
-          {/* </Card.Body> */}
-        {/* </Card> */}
         <div className="w-100 text-center mt-2">
           Need an account? <Link to="/signup">Sign Up</Link>
         </div>
