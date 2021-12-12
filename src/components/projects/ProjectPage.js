@@ -45,14 +45,10 @@ export function ProjectPage(props) {
             </header>
             <main>
                 <div className="wrapper">
-                    <div className="about">
-                        <h2>Musician's Note:</h2>
-                        <div className="group">
-                            <p>{project['description']}</p>
-                        </div>
-                    </div>
+                    <p>Musician's Note: {project['description']}</p>
+                    <p>Comments:</p>
+                    {/* <CommentSection /> */}
                 </div>
-                {/* <CommentSection /> */}
             </main>
         </div>
     );

@@ -3,7 +3,11 @@
 /* App */
 
 .app footer {
-    margin-left: 1em;
+    padding: 1em;
+    color: white;
+    background-color: #202225;
+    width: 100%;
+    margin-top: 2rem;
 }
 
 /* Text */
@@ -113,13 +117,6 @@ p {
 
 .filter-dropdown label {
     padding-right: 0.5em;
-}
-
-/* footer */
-footer {
-    color: white;
-    background-color: #202225;
-    width: 100%;
 }
 
 /* ProjectList */
@@ -258,7 +255,6 @@ footer {
 
 header.profile-page {
     background-color: #909090;
-    /* text-align: center; */
     margin-bottom: 0;
     margin-top: 60px;
     padding-bottom: 3rem;
@@ -297,31 +293,47 @@ header.profile-page {
     width: calc(66.666% - 2rem);
 }
 
+.projects-title {
+    font-size: 2.5rem;
+}
+
 /* Project Page */
 .project-page img {
-    max-width: 400px;
+    height: 200px;
+    margin-bottom: 0;
 }
   
 .project-page header {
     background-color: #909090;
     text-align: center;
+    padding-top: 80px;
 }
 
 .project-page h1 {
     font-size: 3rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
 }
 
 .project-page h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
 }
 
 .project-page .wrapper p {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 
 .project-page .btn {
     height: 50px;
     margin-bottom: 1rem;
+}
+
+.wrapper {
+    margin-left: 3rem;
+}
+
+.project-page .wrapper {
+    margin-top: 3rem;
 }
 
 /* Sign Up Page */

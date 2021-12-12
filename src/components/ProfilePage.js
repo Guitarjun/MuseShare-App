@@ -39,7 +39,7 @@ export function ProfilePage(props) {
             </header>
             <main>
                 <div className="wrapper">
-                    <h2>Projects:</h2>
+                    <h1 className="projects-title">Projects</h1>
                     <ProjectList projects={selectedProjects} userId={urlUser}/>
                 </div>
             </main>
