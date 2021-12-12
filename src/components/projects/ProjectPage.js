@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'; //import React Component
 import { useParams } from 'react-router';
 import { getImage, getAudio } from '../../firebaseUtils';
 import { NavLink } from 'react-router-dom';
+import ReactAudioPlayer from 'react-audio-player';
 
 // Incorporate collaborators somehow
 // TODO: Button to visit artist's page
@@ -38,8 +39,9 @@ export function ProjectPage(props) {
                 <h1>{project['name']}</h1>
                 <h2>{artist}</h2>
                 <p>Genre: {project['genre']}</p>
-                <button className="btn btn-dark mr-2"><span className="material-icons">play_arrow</span></button>
-                <button className="btn btn-primary mr-2">Download</button>
+                <ReactAudioPlayer src={audioUrl} controls/>
+                {/* <button className="btn btn-dark mr-2"><span className="material-icons">play_arrow</span></button>
+                <button className="btn btn-primary mr-2">Download</button> */}
                 <button className="btn btn-seconday"><NavLink to={"/profile/" + projectUserId} activeClassName="active">Artist Profile</NavLink></button>
                 
             </header>

@@ -2,7 +2,8 @@ import React from "react";
 import { useState } from 'react';
 import { Redirect } from 'react-router';
 import _ from 'lodash';
-import { getImage } from "../../firebaseUtils";
+import { getImage, getAudio } from "../../firebaseUtils";
+import ReactAudioPlayer from 'react-audio-player';
 
 function ProjectList(props) {
     let selectedProjects = props.projects;
@@ -50,8 +51,11 @@ function ProjectCard({project, projectId, userId}) {
 
     const [redirectTo, setRedirect] = useState(undefined);
     const [imageUrl, setImageUrl] = useState(null);
+    const [audioUrl, setAudioUrl] = useState(null);
 
     getImage(setImageUrl, project['imagePath']);
+    let audioPath = project['audioFilePath'];
+    getAudio(setAudioUrl, audioPath);
 
     // Update this with added userId in path
     const handleClick = () => {
@@ -73,10 +77,11 @@ function ProjectCard({project, projectId, userId}) {
                 <h1>{project.name}</h1>
                 <h2>{artists}</h2>
                 <p>{"Genre: " + project.genre}</p>
-                <section className="song-buttons">
+                {/* <section className="song-buttons">
                     <button className="btn btn-dark"><span className="material-icons">play_arrow</span></button>
                     <button className="btn btn-primary">Download</button>
-                </section>
+                </section> */}
+                <ReactAudioPlayer src={audioUrl} controls/>
             </div>
         </div>
     );

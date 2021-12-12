@@ -55,7 +55,7 @@ function App(props) {
   }, []);
 
   const applyFilter = function(genre) {
-    if (genre == 'All') {
+    if (genre === 'All') {
       setSelectedProjects(projectsData);
     } else {
       let newData = {};
@@ -64,7 +64,7 @@ function App(props) {
         newData[String(userId)] = {};
         for (let projectId in artistProjects) {
             let project = artistProjects[String(projectId)];
-            if (genre == project['genre']) {
+            if (genre === project['genre']) {
               newData[String(userId)][projectId] = project; // Need this to append
             }
         }

@@ -19,7 +19,7 @@ export default function Dashboard(props) {
     let userData = props.userData;
     let urlUser = urlParams.userId;
 
-    if (!currentUser || props.userId != urlUser)  {
+    if (!currentUser || props.userId !== urlUser)  {
         return <Redirect to="/login"/>
     }
 
@@ -54,7 +54,7 @@ export default function Dashboard(props) {
                         <img src={imageUrl} alt={urlUser + " profile image"}/>
                     </div>
                     <div className="profileInfo">
-                        <h1>{user['displayName']}</h1>
+                        <h1>{user['displayName']} (Me)</h1>
                         <h2>{user['about']}</h2>
                         <p><a href={"mailto:"+user['email']}><span className="material-icons">email</span>{user['email']}</a></p>
                         {error && <Alert variant="danger">{error}</Alert>}
