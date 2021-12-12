@@ -17,10 +17,10 @@ function FilterDropdown(props) {
             <label htmlFor="genre-select">Genre:</label>
             <select onChange={handleChangeSelect} id="genre-select">
                 <option value="All">All</option>
-                <option value="Rock">Rock</option>
                 <option value="Pop">Pop</option>
                 <option value="Hip Hop/Rap">Hip Hop/Rap</option>
                 <option value="Indie">Indie</option>
+                <option value="Rock">Rock</option>
                 <option value="Country">Country</option>
                 <option value="Other">Other</option>
             </select>

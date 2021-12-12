@@ -31,10 +31,11 @@ export function ProjectPage(props) {
                 <img className="mb-3" src={imageUrl} alt={project.name + " image"}/>
                 <h1>{project['name']}</h1>
                 <h2>{artist}</h2>
-                <p>{project['genre']}</p>
-                <button className="btn btn-dark mb-2"><span className="material-icons mb-3">play_arrow</span></button>
-                <button className="btn btn-primary">Download</button>
+                <p>Genre: {project['genre']}</p>
+                <button className="btn btn-dark mr-2"><span className="material-icons">play_arrow</span></button>
+                <button className="btn btn-primary mr-2">Download</button>
                 <button className="btn btn-seconday"><NavLink to={"/profile/" + projectUserId} activeClassName="active">Artist Profile</NavLink></button>
+                
             </header>
             <main>
                 <div className="wrapper">

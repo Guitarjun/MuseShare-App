@@ -26,22 +26,21 @@ export function ProfilePage(props) {
     return (
         <body>
             <header className="profile-page">
-                <img src={imageUrl} alt={urlUser + " profile image"}/>
-                <h1>{user['displayName']}</h1>
+                <div className="profile">
+                    <div class="profile-image">
+                        <img src={imageUrl} alt={urlUser + " profile image"}/>
+                    </div>
+                    <div className="profileInfo">
+                        <h1>{user['displayName']}</h1>
+                        <h2>{user['about']}</h2>
+                        <p><a href={"mailto:"+user['email']}><span className="material-icons">email</span>{user['email']}</a></p>
+                    </div>
+                </div>
             </header>
             <main>
                 <div className="wrapper">
-                    <div className="about">
-                        <h2>About:</h2>
-                        <div className="group">
-                            <p>{user['about']}</p>
-                        </div>
-                    </div>
+                    <h2>Projects:</h2>
                     <ProjectList projects={selectedProjects} userId={urlUser}/>
-                    <div className="contact">
-                        <h2>Contact:</h2>
-                        <p><a href={"mailto:"+user['email']}><span className="material-icons">email</span>{user['email']}</a></p>
-                    </div>
                 </div>
             </main>
         </body>

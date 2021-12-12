@@ -6,6 +6,16 @@
     margin-left: 1em;
 }
 
+/* Text */
+
+h1, h2 {
+    font-weight: 300;
+}
+
+p {
+    font-weight: 400;
+}
+
 /* Navbar */
 
 .navbar {
@@ -105,6 +115,13 @@
     padding-right: 0.5em;
 }
 
+/* footer */
+footer {
+    color: white;
+    background-color: #202225;
+    width: 100%;
+}
+
 /* ProjectList */
 
 .project-list {
@@ -152,7 +169,7 @@
     font-size: 1em;
 }
 
-.project-card .song-buttons {
+.song-buttons {
     display: flex;
 }
 
@@ -241,16 +258,44 @@
 
 header.profile-page {
     background-color: #909090;
-    text-align: center;
+    /* text-align: center; */
     margin-bottom: 0;
-    padding-bottom: 0.25rem;
+    margin-top: 60px;
+    padding-bottom: 3rem;
   }
 
-  header.profile-page img{
-    max-width: 400px;
-    margin-top: 5rem;
-  }
+.profile {
+    padding: 5rem 0;
+}
 
+.profile-image {
+    float: left;
+    width: calc(33.333% - 1rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-image img {
+    height: 300px;
+}
+
+.profile-page h1 {
+    display: inline-block;
+    font-size: 3.2rem;
+}
+
+.profile-page h2 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.profile-info {
+    float: left;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    width: calc(66.666% - 2rem);
+}
 
 /* Project Page */
 .project-page img {
@@ -262,8 +307,21 @@ header.profile-page {
     text-align: center;
 }
 
+.project-page h1 {
+    font-size: 3rem;
+}
+
+.project-page h2 {
+    font-size: 2rem;
+}
+
 .project-page .wrapper p {
     font-size: 1.5rem;
+}
+
+.project-page .btn {
+    height: 50px;
+    margin-bottom: 1rem;
 }
 
 /* Sign Up Page */

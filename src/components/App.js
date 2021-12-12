@@ -119,9 +119,9 @@ function App(props) {
             <Redirect to="/" />
         </Switch>
       </AuthProvider>
-      <footer className="margin-200">
-          <p><a href="mailto:arj1@uw.edu"><span className="material-icons">email</span> arj1@uw.edu</a></p>
-          <p>&copy; Arjun, Rhea, Kyle</p>
+      <footer>
+          <p className="margin-200"><a href="mailto:arj1@uw.edu"><span className="material-icons">email</span> arj1@uw.edu</a></p>
+          <p className="margin-200">&copy; Arjun, Rhea, Kyle</p>
       </footer>
     </div>
   );
