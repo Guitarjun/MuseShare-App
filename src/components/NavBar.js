@@ -10,7 +10,7 @@ function NavBar(props) {
     let dashboardLink = null;
     // If user is logged in, profile button takes them to their profile, otherwise takes them to login page
     if (!currentUser) {
-        loginLink = <NavLink to="/signup" activeClassName="active">Log In</NavLink>;
+        loginLink = <NavLink to="/login" activeClassName="active">Log In</NavLink>;
     } else {
         dashboardLink = <NavLink to={"/dashboard/" + userId} activeClassName="active">Profile</NavLink>;
     }

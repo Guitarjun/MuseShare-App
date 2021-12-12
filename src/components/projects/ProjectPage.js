@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'; //import React Component
 import { useParams } from 'react-router';
-import { getImage } from '../../firebaseUtils';
+import { getImage, getAudio } from '../../firebaseUtils';
 import { NavLink } from 'react-router-dom';
 
 // Incorporate collaborators somehow
@@ -13,6 +13,7 @@ export function ProjectPage(props) {
     let projectsData = props.projects;
 
     const [imageUrl, setImageUrl] = useState(null);
+    const [audioUrl, setAudioUrl] = useState(null);
 
     let projects = projectsData[String(projectUserId)];
     if (!projects) {
@@ -24,6 +25,11 @@ export function ProjectPage(props) {
     // TODO: Fix memory leak
     getImage(setImageUrl, project['imagePath']);
     const artist = "By: " + project.author;
+
+    // Path to audio file location in Cloud Storage
+    let audioPath = project['audioFilePath'];
+    getAudio(setAudioUrl, audioPath);
+    // TODO: use audio path/audio file to add download link + react audio player
 
     return (
         <div className="project-page">

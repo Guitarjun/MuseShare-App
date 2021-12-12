@@ -25,7 +25,7 @@ function UploadProjectPage(props) {
 
     // If user is not logged in, redirect them to login/signup page (DO NOT MODIFY)
     if (!currentUser) {
-        return <Redirect to='/signup' />
+        return <Redirect to='/login'/>
     }
 
     async function handleSubmit(e) {
@@ -56,7 +56,7 @@ function UploadProjectPage(props) {
                 <h2 className="text-center mt-4">Upload Project</h2>
                 {error && <Alert variant="danger">{error}</Alert>}
                 <Form onSubmit={handleSubmit}>
-                  <Form.Group className="m-3" id="display">
+                  <Form.Group className="m-3 " id="display">
                     <Form.Label>Project Name</Form.Label>
                     <Form.Control type="text" placeholder="Public name of the project" ref={projectRef} required />
                   </Form.Group>
