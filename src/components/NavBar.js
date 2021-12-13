@@ -1,4 +1,5 @@
 import React from "react"; //import React Component
+import { useEffect } from 'react';
 import { NavLink } from "react-router-dom";
 import FilterDropdown from './FilterDropdown';
 
@@ -8,16 +9,17 @@ function NavBar(props) {
     let userId = props.userId;
     let loginLink = null;
     let dashboardLink = null;
+
     // If user is logged in, profile button takes them to their profile, otherwise takes them to login page
     if (!currentUser) {
         loginLink = <NavLink to="/login" activeClassName="active">Log In</NavLink>;
     } else {
         dashboardLink = <NavLink to={"/dashboard/" + userId} activeClassName="active">Profile</NavLink>;
     }
-
+    
     return (
         <nav className="navbar">
-            <div className="left-wrapper">
+            <div className="first-container">
                 <ul>
                     <li>
                         <span className="material-icons" aria-label="Home">music_note</span>
@@ -26,7 +28,7 @@ function NavBar(props) {
                     {showFilter && <li><FilterDropdown callback={props.callback}/></li>}
                 </ul>
             </div>
-            <div className="right-wrapper">
+            <div className="second-container">
                 <ul>
                     <li>
                         <NavLink exact to="/" activeClassName="active">Projects</NavLink>

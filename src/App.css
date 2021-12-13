@@ -59,36 +59,24 @@ p {
     background-color: #202225;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: baseline;
     padding: 0;
     z-index : 1;
 }
 
-.navbar .left-wrapper {
-    width: 100%;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-}
-
-.navbar .right-wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
 .navbar ul {
     list-style-type: none;
-    padding: 0;
     margin: 0;
 }
 
-.navbar .left-wrapper li {
-    margin: 0.5em 0.5em 0 0.5em;
+.navbar .first-container li {
+    padding: 0.5em 0.5em 0 0.5em;
     font-size: 1em;
 }
 
-.navbar .right-wrapper li {
-    margin: 0.5em 1px;
+.navbar .second-container li {
+    padding: 0.5em 1px;
     font-size: 1.5em;
 }
 
@@ -102,7 +90,6 @@ p {
 
 .navbar span {
     user-select: none;
-    top: 0.1em;
 }
 
 .navbar a {
@@ -121,25 +108,14 @@ p {
 }
 
 @media(min-width: 481px) {
-    .navbar .left-wrapper li {
+    .navbar .first-container li {
         font-size: 1.5em;
     }
 }
 
-@media(min-width: 775px) {
+@media(min-width: 600px) {
     .navbar {
-        flex-wrap: nowrap;
         justify-content: space-between;
-    }
-
-    .navbar .right-wrapper {
-        width: max-content;
-        justify-content: end;
-    }
-
-    .navbar .left-wrapper {
-        width: max-content;
-        justify-content: start;
     }
 }
 
