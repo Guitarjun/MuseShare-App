@@ -1,12 +1,11 @@
 import React from "react"; //import React Component
-import { useEffect } from 'react';
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import FilterDropdown from './FilterDropdown';
 
 function NavBar(props) {
-    const showFilter = true;
-    let currentUser = props.currentUser;
-    let userId = props.userId;
+    const currentUser = props.currentUser;
+    const userId = props.userId;
+    const showFilter = useLocation().pathname == "/";
     let loginLink = null;
     let dashboardLink = null;
 
@@ -16,7 +15,7 @@ function NavBar(props) {
     } else {
         dashboardLink = <NavLink to={"/dashboard/" + userId} activeClassName="active">Profile</NavLink>;
     }
-    
+
     return (
         <nav className="navbar">
             <div className="first-container">

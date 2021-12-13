@@ -96,28 +96,28 @@ function App(props) {
         <AuthProvider>
           <NavBar currentUser={currentUser} userId={userId} callback={applyFilter}/>
           <Switch>
-              <Route exact path="/">
-                <ProjectList projects={selectedProjects} />
-              </Route>
-              <Route path="/projects/:userId/:projectId">
-                <ProjectPage projects={projectsData} currentUser={currentUser} userId={userId}/>
-              </Route>
-              <Route path="/profile/:urlUser">
-                <ProfilePage projectsData={selectedProjects} userData={userData} currentUser={currentUser} userId={userId}/>
-              </Route>
-              <PrivateRoute exact path="/dashboard/:userId"> 
-                <Dashboard projectsData={selectedProjects} userData={userData} userId={userId} />
-              </PrivateRoute>
-              <Route exact path="/signup">
-                <SignUpPage />
-              </Route>
-              <Route exact path="/login">
-                <LogInPage />
-              </Route>
-              <Route path="/upload">
-                <UploadProjectPage currentUser={currentUser} userId={userId}/>
-              </Route>
-              <Redirect to="/" />
+            <Route exact path="/">
+              <ProjectList projects={selectedProjects} />
+            </Route>
+            <Route path="/projects/:userId/:projectId">
+              <ProjectPage projects={projectsData} currentUser={currentUser} userId={userId}/>
+            </Route>
+            <Route path="/profile/:urlUser">
+              <ProfilePage projectsData={selectedProjects} userData={userData} currentUser={currentUser} userId={userId}/>
+            </Route>
+            <PrivateRoute exact path="/dashboard/:userId"> 
+              <Dashboard projectsData={selectedProjects} userData={userData} userId={userId} />
+            </PrivateRoute>
+            <Route exact path="/signup">
+              <SignUpPage />
+            </Route>
+            <Route exact path="/login">
+              <LogInPage />
+            </Route>
+            <Route path="/upload">
+              <UploadProjectPage currentUser={currentUser} userId={userId}/>
+            </Route>
+            <Redirect to="/" />
           </Switch>
         </AuthProvider>
       </main>
