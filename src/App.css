@@ -1,13 +1,43 @@
 /* TODO: Improve responsive design (for smaller screens, larger is fine) */
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /* App */
 
+.app {
+    min-height: 100vh;
+    overflow: hidden;
+    display: block;
+    position: relative;
+    padding-bottom: 5.5em;
+}
+
+.app main {
+    padding-top: 7em;
+}
+
 .app footer {
-    padding: 1em;
     color: white;
     background-color: #202225;
+    position: absolute;
+    bottom: 0;
     width: 100%;
-    margin-top: 2rem;
+    height: 5.5em;
+}
+
+.app footer p{
+    margin-top: 0.5em;
+    margin-left: 0.5em;
+}
+
+@media(min-width: 775px) {
+    .app main {
+        padding-top: 6em;
+    }
 }
 
 /* Text */
@@ -124,14 +154,7 @@ p {
 .project-list {
     display: flex;
     flex-flow: row wrap;
-    margin-top: 7em;
     justify-content: space-evenly;
-}
-
-@media(min-width: 775px) {
-    .project-list {
-        margin-top: 6em;
-    }
 }
 
 /* ProjectCard */
