@@ -12,7 +12,7 @@
 
 /* Text */
 
-h1, h2 {
+h1, h2, h3 {
     font-weight: 300;
 }
 
@@ -254,7 +254,7 @@ p {
 
 /* Profile Page */
 
-header.profile-page {
+header.profile-page, .citations-page header{
     background-color: #909090;
     margin-bottom: 0;
     margin-top: 60px;
@@ -342,8 +342,26 @@ header.profile-page {
     margin-top: 3rem;
 }
 
-/* Sign Up Page */
-.signup-page header {
-    background-color: #909090;
-    text-align: center;
+/* Citations page */
+.citations-page header h1 {
+    padding-top: 60px;
+    font-size: 3rem;
+}
+
+.citations-page h2 {
+    font-size: 1.8rem;
+    padding-top: 20px;
+}
+
+.citations-page h3 {
+    font-size: 1.3rem;
+    margin-top: 35px;
+}
+
+.citations-page p {
+    font-size: 1rem;
+}
+
+.margin-50 {
+    margin-left: 50px;
 }

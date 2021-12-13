@@ -15,6 +15,8 @@ import { AuthProvider } from '../contexts/AuthContext';
 import LogInPage from './LogInPage';
 import PrivateRoute from './PrivateRoute';
 import Dashboard from './Dashboard';
+import {Link} from "react-router-dom";
+import Citations from "./Citations";
 
 // CURRENT SCHEMA USERS/PROJECTS IS NOT EFFICIENT FOR FINDING PROJECTS, NEED TO OPTIMIZE
 // Add pagination
@@ -110,6 +112,9 @@ function App(props) {
             <Route exact path="/signup">
               <SignUpPage />
             </Route>
+            <Route exact path="/citations">
+              <Citations />
+            </Route>
             <Route exact path="/login">
               <LogInPage />
             </Route>
@@ -120,8 +125,9 @@ function App(props) {
         </Switch>
       </AuthProvider>
       <footer>
-          <p className="margin-200"><a href="mailto:arj1@uw.edu"><span className="material-icons">email</span> arj1@uw.edu</a></p>
-          <p className="margin-200">&copy; Arjun, Rhea, Kyle</p>
+          <p><a href="mailto:arj1@uw.edu"><span className="material-icons">email</span> arj1@uw.edu</a></p>
+          <p>&copy; Arjun, Rhea, Kyle</p>
+          <p><Link to="/Citations">Media Citations</Link></p>
       </footer>
     </div>
   );
