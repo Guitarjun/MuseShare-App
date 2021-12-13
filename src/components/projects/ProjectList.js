@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Redirect } from 'react-router';
 import _ from 'lodash';
 import { getImage, getAudio } from "../../firebaseUtils";
@@ -8,6 +8,11 @@ import ReactAudioPlayer from 'react-audio-player';
 function ProjectList(props) {
     let selectedProjects = props.projects;
     let currentUserId = props.userId;  // For only displaying a specific user's projects
+    const resetFilter = props.resetFilter;
+
+    useEffect(() => {
+        return resetFilter;
+    }, []);
 
     // Fix weird duplicate projects issue
     if(_.isEmpty(selectedProjects) || !selectedProjects || selectedProjects.length == 0) {
@@ -17,7 +22,6 @@ function ProjectList(props) {
             </div>
         );
     }
-
 
     let projectsList = [];
     if (currentUserId) {   // Only show this user's projects

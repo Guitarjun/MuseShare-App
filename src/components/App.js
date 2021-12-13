@@ -56,7 +56,7 @@ function App(props) {
     return (() => {userRef.off()});
   }, []);
 
-  const applyFilter = function(genre) {
+  const applyFilter = (genre) => {
     if (genre === 'All') {
       setSelectedProjects(projectsData);
     } else {
@@ -73,6 +73,10 @@ function App(props) {
       }
       setSelectedProjects(newData);
     }
+  }
+
+  const resetFilter = () => {
+    setSelectedProjects(projectsData);
   }
 
   // Check if user is logged in
@@ -99,7 +103,7 @@ function App(props) {
           <NavBar currentUser={currentUser} userId={userId} callback={applyFilter}/>
           <Switch>
               <Route exact path="/">
-                <ProjectList projects={selectedProjects} />
+                <ProjectList projects={selectedProjects} resetFilter={resetFilter} />
               </Route>
               <Route path="/projects/:userId/:projectId">
                 <ProjectPage projects={projectsData} currentUser={currentUser} userId={userId}/>

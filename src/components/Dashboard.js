@@ -50,7 +50,7 @@ export default function Dashboard(props) {
         <div>
             <header className="profile-page">
                 <div className="profile">
-                    <div class="profile-image">
+                    <div className="profile-image">
                         <img src={imageUrl} alt={urlUser + " profile image"}/>
                     </div>
                     <div className="profileInfo">
