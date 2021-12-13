@@ -1,13 +1,43 @@
 /* TODO: Improve responsive design (for smaller screens, larger is fine) */
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /* App */
 
+.app {
+    min-height: 100vh;
+    overflow: hidden;
+    display: block;
+    position: relative;
+    padding-bottom: 5.5em;
+}
+
+.app main {
+    margin-top: 7em;
+}
+
 .app footer {
-    padding: 1em;
     color: white;
     background-color: #202225;
+    position: absolute;
+    bottom: 0;
     width: 100%;
-    margin-top: 2rem;
+    height: 5.5em;
+}
+
+.app footer p{
+    margin-top: 0.5em;
+    margin-left: 0.5em;
+}
+
+@media(min-width: 775px) {
+    .app main {
+        margin-top: 6em;
+    }
 }
 
 /* Text */
@@ -29,36 +59,34 @@ p {
     background-color: #202225;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: baseline;
     padding: 0;
     z-index : 1;
 }
 
-.navbar .left-wrapper {
-    width: 100%;
+.navbar .first-container {
     display: flex;
     flex-wrap: nowrap;
-    justify-content: center;
 }
 
-.navbar .right-wrapper {
-    width: 100%;
+.navbar .second-container {
     display: flex;
-    justify-content: center;
+    flex-wrap: nowrap;
 }
 
 .navbar ul {
     list-style-type: none;
-    padding: 0;
     margin: 0;
 }
 
-.navbar .left-wrapper li {
-    margin: 0.5em 0.5em 0 0.5em;
+.navbar .first-container li {
+    padding: 0.5em 0.5em 0 0.5em;
     font-size: 1em;
 }
 
-.navbar .right-wrapper li {
-    margin: 0.5em 1px;
+.navbar .second-container li {
+    padding: 0.5em 1px;
     font-size: 1.5em;
 }
 
@@ -72,12 +100,10 @@ p {
 
 .navbar span {
     user-select: none;
-    top: 0.1em;
 }
 
 .navbar a {
-    padding: 0.5em;
-    border-radius: 5px;
+    padding: 0.5em 0.5em 0.4em 0.5em;
 }
 
 .navbar a:hover {
@@ -87,29 +113,19 @@ p {
 }
 
 .navbar .active {
-    box-shadow: 0px 0px 0px 2px white inset; /*Border contained in bounds of element*/
+    box-shadow: 0px -3px white inset; /*Border contained in bounds of element*/
 }
 
 @media(min-width: 481px) {
-    .navbar .left-wrapper li {
+    .navbar .first-container li {
         font-size: 1.5em;
     }
 }
 
-@media(min-width: 775px) {
+@media(min-width: 1025px) {
     .navbar {
         flex-wrap: nowrap;
         justify-content: space-between;
-    }
-
-    .navbar .right-wrapper {
-        width: max-content;
-        justify-content: end;
-    }
-
-    .navbar .left-wrapper {
-        width: max-content;
-        justify-content: start;
     }
 }
 
@@ -124,14 +140,7 @@ p {
 .project-list {
     display: flex;
     flex-flow: row wrap;
-    margin-top: 7em;
     justify-content: space-evenly;
-}
-
-@media(min-width: 775px) {
-    .project-list {
-        margin-top: 6em;
-    }
 }
 
 /* ProjectCard */
