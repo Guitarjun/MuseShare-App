@@ -33,7 +33,7 @@ export function ProfilePage(props) {
                     <div className="profileInfo">
                         <h1>{user['displayName']}</h1>
                         <h2>{user['about']}</h2>
-                        <p><a href={"mailto:"+user['email']}><span className="material-icons">email</span>{user['email']}</a></p>
+                        <p><a className='text-dark' href={"mailto:"+user['email']}><span className="material-icons text-dark">email</span>{user['email']}</a></p>
                     </div>
                 </div>
             </header>
