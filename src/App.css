@@ -17,7 +17,7 @@
 }
 
 .app main {
-    padding-top: 7em;
+    margin-top: 7em;
 }
 
 .app footer {
@@ -36,7 +36,7 @@
 
 @media(min-width: 775px) {
     .app main {
-        padding-top: 6em;
+        margin-top: 6em;
     }
 }
 
