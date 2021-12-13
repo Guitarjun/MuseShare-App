@@ -65,6 +65,16 @@ p {
     z-index : 1;
 }
 
+.navbar .first-container {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.navbar .second-container {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
 .navbar ul {
     list-style-type: none;
     margin: 0;
@@ -93,8 +103,7 @@ p {
 }
 
 .navbar a {
-    padding: 0.5em;
-    border-radius: 5px;
+    padding: 0.5em 0.5em 0.4em 0.5em;
 }
 
 .navbar a:hover {
@@ -104,7 +113,7 @@ p {
 }
 
 .navbar .active {
-    box-shadow: 0px 0px 0px 2px white inset; /*Border contained in bounds of element*/
+    box-shadow: 0px -3px white inset; /*Border contained in bounds of element*/
 }
 
 @media(min-width: 481px) {
@@ -113,8 +122,9 @@ p {
     }
 }
 
-@media(min-width: 600px) {
+@media(min-width: 1025px) {
     .navbar {
+        flex-wrap: nowrap;
         justify-content: space-between;
     }
 }
