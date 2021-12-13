@@ -39,11 +39,12 @@ export function ProjectPage(props) {
                 <h1>{project['name']}</h1>
                 <h2>{artist}</h2>
                 <p>Genre: {project['genre']}</p>
-                <ReactAudioPlayer src={audioUrl} controls/>
-                {/* <button className="btn btn-dark mr-2"><span className="material-icons">play_arrow</span></button>
-                <button className="btn btn-primary mr-2">Download</button> */}
-                <button className="btn btn-seconday"><NavLink to={"/profile/" + projectUserId} activeClassName="active">Artist Profile</NavLink></button>
-                
+                <div>
+                    <ReactAudioPlayer src={audioUrl} controls className="audioPlayer"/>
+                    {/* <button className="btn btn-dark mr-2"><span className="material-icons">play_arrow</span></button>
+                    <button className="btn btn-primary mr-2">Download</button> */}
+                    <button className="btn btn-seconday"><NavLink to={"/profile/" + projectUserId} activeClassName="active">Artist Profile</NavLink></button>
+                </div>
             </header>
             <main>
                 <div className="wrapper">

@@ -300,7 +300,7 @@ header.profile-page {
 
 /* Project Page */
 .project-page img {
-    height: 200px;
+    height: 300px;
     margin-bottom: 0;
 }
   
@@ -311,22 +311,27 @@ header.profile-page {
 }
 
 .project-page h1 {
-    font-size: 3rem;
+    font-size: 2.7rem;
     margin-top: 0;
     margin-bottom: 1rem;
 }
 
 .project-page h2 {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
 }
 
 .project-page .wrapper p {
     font-size: 1.3rem;
 }
 
+.project-page .audioPlayer{
+    margin-right: 10px;
+}
 .project-page .btn {
-    height: 50px;
-    margin-bottom: 1rem;
+    padding: 13px;
+    margin-bottom: 2.5rem;
+    border-radius: 30px;
+    margin-top: 0;
 }
 
 .wrapper {
