@@ -1,11 +1,3 @@
-/* TODO: Improve responsive design (for smaller screens, larger is fine) */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 /* App */
 
 .app {
@@ -167,12 +159,12 @@ p {
     justify-content: center;
 }
 
-.project-card h1 {
+.project-card h2 {
     font-size: 1.5em;
     font-style: italic;
 }
 
-.project-card h2 {
+.project-card h3 {
     font-size: 1em;
 }
 
@@ -197,11 +189,11 @@ p {
 }
 
 @media(min-width: 768px) {
-    .project-card h1 {
+    .project-card h2 {
         font-size: 2em;
     }
     
-    .project-card h2 {
+    .project-card h3 {
         font-size: 1.5em;
     }
 
@@ -230,7 +222,7 @@ p {
     border: 2px solid grey;
 }
 
-.comment-section h1 {
+.comment-section h2 {
     white-space: nowrap;
     width: 100%;
 }

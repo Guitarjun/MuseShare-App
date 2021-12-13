@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; //import React Component
+import React from 'react'; //import React Component
 
 function FilterDropdown(props) {
     let callback = props.callback;
@@ -8,10 +8,6 @@ function FilterDropdown(props) {
         callback(genre);
     }
 
-    const options = [
-        'one', 'two', 'three'
-    ];
-    const defaultOption = options[0];
     return (
         <div className="filter-dropdown">
             <label htmlFor="genre-select">Genre:</label>

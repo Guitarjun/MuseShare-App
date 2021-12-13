@@ -1,6 +1,5 @@
 import { React, useState } from 'react';
 import { useParams } from 'react-router';
-import { storage } from '..';
 import ProjectList from './projects/ProjectList';
 import { getImage } from '../firebaseUtils';
 

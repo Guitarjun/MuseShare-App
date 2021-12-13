@@ -5,7 +5,7 @@ import FilterDropdown from './FilterDropdown';
 function NavBar(props) {
     const currentUser = props.currentUser;
     const userId = props.userId;
-    const showFilter = useLocation().pathname == "/";
+    const showFilter = useLocation().pathname === "/";
     let loginLink = null;
     let dashboardLink = null;
 

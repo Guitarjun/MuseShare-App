@@ -15,10 +15,10 @@ function ProjectList(props) {
     }, []);
 
     // Fix weird duplicate projects issue
-    if(_.isEmpty(selectedProjects) || !selectedProjects || selectedProjects.length == 0) {
+    if(_.isEmpty(selectedProjects) || !selectedProjects || selectedProjects.length === 0) {
         return (
             <div className="project-list">
-                <h1>No available projects</h1>
+                <h2>No available projects</h2>
             </div>
         );
     }
@@ -78,8 +78,8 @@ function ProjectCard({project, projectId, userId}) {
                 <img src={imageUrl} alt={project.name + " image"}/>
             </div>
             <div className="card-body">
-                <h1>{project.name}</h1>
-                <h2>{artists}</h2>
+                <h2>{project.name}</h2>
+                <h3>{artists}</h3>
                 <p>{"Genre: " + project.genre}</p>
                 {/* <section className="song-buttons">
                     <button className="btn btn-dark"><span className="material-icons">play_arrow</span></button>

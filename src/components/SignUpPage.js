@@ -4,7 +4,6 @@ import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 
 import 'firebase/auth';
-import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import { database } from "..";
 import { storage } from "..";
