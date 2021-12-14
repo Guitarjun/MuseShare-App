@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from 'react';
 import { Redirect } from 'react-router';
 import _ from 'lodash';
@@ -52,9 +52,11 @@ function ProjectCard({project, projectId, userId}) {
     const [imageUrl, setImageUrl] = useState(null);
     const [audioUrl, setAudioUrl] = useState(null);
 
-    getImage(setImageUrl, project['imagePath']);
-    let audioPath = project['audioFilePath'];
-    getAudio(setAudioUrl, audioPath);
+    useEffect(() => {
+        getImage(setImageUrl, project['imagePath']);
+        let audioPath = project['audioFilePath'];
+        getAudio(setAudioUrl, audioPath);
+    }, [project]);
 
     // Update this with added userId in path
     const handleClick = () => {

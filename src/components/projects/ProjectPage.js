@@ -18,7 +18,7 @@ export function ProjectPage(props) {
 
     let projects = projectsData[String(projectUserId)];
     if (!projects) {
-        return <body className="project-page"><h2>User not found</h2></body>;
+        return <div className="project-page"><h2>User not found</h2></div>;
     }
     let project =  projects[String(projectId)]; //find project based on url
     if(!project) return <h2>Project not found</h2> //if not found
