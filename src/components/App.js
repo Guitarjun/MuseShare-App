@@ -93,17 +93,18 @@ function App(props) {
           setCurrentUser(null);
           setUserId(null);
       }
+    });
+    return authUnregFunc;
   });
-});
 
   return (
     <div className="app">
       <main>
         <AuthProvider>
-          <NavBar currentUser={currentUser} userId={userId} callback={applyFilter}/>
+          <NavBar currentUser={currentUser} userId={userId} callback={applyFilter} resetFilter={resetFilter} />
           <Switch>
               <Route exact path="/">
-                <ProjectList projects={selectedProjects} resetFilter={resetFilter} />
+                <ProjectList projects={selectedProjects} />
               </Route>
               <Route path="/projects/:userId/:projectId">
                 <ProjectPage projects={projectsData} currentUser={currentUser} userId={userId}/>

@@ -82,7 +82,7 @@ export default function SignUpPage() {
                 <Form.Control type="password" ref={passwordConfirmRef} required />
               </Form.Group>
               <Form.Group controlId="formFile" className="m-3">
-                <Form.Label htmlFor="profile pic">Profile Picture</Form.Label>
+                <Form.Label>Profile Picture</Form.Label>
                 <Form.Control onChange={(e) => setFile(e.target.files[0])} type="file" ref={imageRef} />
               </Form.Group>
               <Button disabled={loading} className=" btn-secondary mt-3 w-100" type="submit">
