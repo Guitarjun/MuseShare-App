@@ -7,7 +7,7 @@ function NavBar(props) {
     const userId = props.userId;
     let loginLink = null;
     let dashboardLink = null;
-    const showFilter = /^\/((profile|dashboard)\/[^\/]+)?$/.test(useLocation().pathname);
+    const showFilter = /^\/((profile|dashboard)\/[^/]+)?$/.test(useLocation().pathname);
 
     if(!showFilter) {
         props.resetFilter();

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'; //import React Component
+import React, { useState } from 'react'; //import React Component
 import { useParams } from 'react-router';
 import { getImage, getAudio } from '../../firebaseUtils';
 import { NavLink } from 'react-router-dom';

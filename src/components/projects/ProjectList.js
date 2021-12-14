@@ -21,7 +21,7 @@ function ProjectList(props) {
     let projectsList = [];
     if (currentUserId) {   // Only show this user's projects
         for (let userId in selectedProjects) {
-            if (userId == currentUserId) {
+            if (userId === currentUserId) {
                 let artistProjects = selectedProjects[String(userId)];
                 for (let projectId in artistProjects) {
                     let project = artistProjects[String(projectId)];
