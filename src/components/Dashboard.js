@@ -48,7 +48,7 @@ export default function Dashboard(props) {
 
     return (
         <div>
-            <header className="profile-page">
+            <header className="profile-page headers bottom-padding">
                 <div className="profile">
                     <div className="profile-image">
                         <img src={imageUrl} alt={urlUser + " profile image"}/>
@@ -56,7 +56,7 @@ export default function Dashboard(props) {
                     <div className="profile-info">
                         <h1>{user['displayName']} (Me)</h1>
                         <h2>{user['about']}</h2>
-                        <p><a href={"mailto:"+user['email']}><span className="material-icons">email</span>{user['email']}</a></p>
+                        <p><a className='text-dark' href={"mailto:"+user['email']}><span className="material-icons text-dark">email</span>{user['email']}</a></p>
                         {error && <Alert variant="danger">{error}</Alert>}
                         <button variant="link" onClick={handleLogout} className="btn btn-danger">Log Out</button>
                     </div>

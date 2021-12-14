@@ -83,13 +83,13 @@ function App(props) {
   useEffect(() => {
     let authUnregFunc = firebase.auth().onAuthStateChanged((firebaseUser) => {
       if(firebaseUser){ //firebaseUser defined: is logged in
-          console.log('logged in');
+          // console.log('logged in');
           setCurrentUser(firebaseUser); // Set current user if logged in
           let email = firebaseUser.email;
           setUserId(email.substring(0, email.indexOf("@")));
       }
       else { //firebaseUser undefined: is not logged in
-          console.log('logged out');
+          // console.log('logged out');
           setCurrentUser(null);
           setUserId(null);
       }

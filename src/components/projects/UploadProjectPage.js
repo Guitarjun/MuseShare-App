@@ -53,7 +53,7 @@ function UploadProjectPage(props) {
     // MODIFY BELOW FOR REACT STRUCTURE/UI
     return (
         <div className="wrapper">
-                <h1 className="text-center mt-4">Upload Project</h1>
+                <h1 className="text-center mb-4 header-padding">Upload Project</h1>
                 {error && <Alert variant="danger">{error}</Alert>}
                 <Form onSubmit={handleSubmit}>
                   <Form.Group className="m-3 " id="name">

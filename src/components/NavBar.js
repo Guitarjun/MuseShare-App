@@ -7,11 +7,12 @@ function NavBar(props) {
     const userId = props.userId;
     let loginLink = null;
     let dashboardLink = null;
-    const showFilter = /^\/((profile|dashboard)\/[^/]+)?$/.test(useLocation().pathname);
+    // const showFilter = /^\/((profile|dashboard)\/[^/]+)?$/.test(useLocation().pathname);
+    const showFilter = true;    // To avoid undefined behaviour
 
-    if(!showFilter) {
-        props.resetFilter();
-    }
+    // if(!showFilter) {
+    //     props.resetFilter();
+    // }
 
     // If user is logged in, profile button takes them to their profile, otherwise takes them to login page
     if (!currentUser) {
