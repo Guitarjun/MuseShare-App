@@ -8,11 +8,6 @@ import ReactAudioPlayer from 'react-audio-player';
 function ProjectList(props) {
     let selectedProjects = props.projects;
     let currentUserId = props.userId;  // For only displaying a specific user's projects
-    const resetFilter = props.resetFilter;
-
-    useEffect(() => {
-        return resetFilter;
-    }, []);
 
     // Fix weird duplicate projects issue
     if(_.isEmpty(selectedProjects) || !selectedProjects || selectedProjects.length === 0) {

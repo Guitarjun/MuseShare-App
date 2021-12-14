@@ -53,7 +53,7 @@ export default function Dashboard(props) {
                     <div className="profile-image">
                         <img src={imageUrl} alt={urlUser + " profile image"}/>
                     </div>
-                    <div className="profileInfo">
+                    <div className="profile-info">
                         <h1>{user['displayName']} (Me)</h1>
                         <h2>{user['about']}</h2>
                         <p><a href={"mailto:"+user['email']}><span className="material-icons">email</span>{user['email']}</a></p>

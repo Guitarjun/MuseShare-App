@@ -5,9 +5,13 @@ import FilterDropdown from './FilterDropdown';
 function NavBar(props) {
     const currentUser = props.currentUser;
     const userId = props.userId;
-    const showFilter = useLocation().pathname === "/";
     let loginLink = null;
     let dashboardLink = null;
+    const showFilter = /^\/((profile|dashboard)\/[^\/]+)?$/.test(useLocation().pathname);
+
+    if(!showFilter) {
+        props.resetFilter();
+    }
 
     // If user is logged in, profile button takes them to their profile, otherwise takes them to login page
     if (!currentUser) {
