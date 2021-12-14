@@ -96,6 +96,6 @@ export function CommentSection({comments}) {
 }
 
 // Add flagging method
-function Comment() {
+// function Comment() {
 
-}
+// }

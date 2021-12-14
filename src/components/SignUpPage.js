@@ -62,27 +62,27 @@ export default function SignUpPage() {
             {error && <Alert variant="danger">{error}</Alert>}
             <Form onSubmit={handleSubmit}>
               <Form.Group className="m-3" id="display">
-                <Form.Label for="display name">Display Name</Form.Label>
+                <Form.Label htmlFor="display name">Display Name</Form.Label>
                 <Form.Control type="text" placeholder="Your public name" ref={displayNameRef} required />
               </Form.Group>
               <Form.Group className="m-3" id="about">
-                <Form.Label for="about">About You</Form.Label>
+                <Form.Label htmlFor="about">About You</Form.Label>
                 <Form.Control type="text" placeholder="Brief description" ref={aboutRef} required />
               </Form.Group>
               <Form.Group className="m-3" id="email">
-                <Form.Label for="email">Email</Form.Label>
+                <Form.Label htmlFor="email">Email</Form.Label>
                 <Form.Control type="email" ref={emailRef} required />
               </Form.Group>
               <Form.Group className="m-3" id="password">
-                <Form.Label for="password">Password</Form.Label>
+                <Form.Label htmlFor="password">Password</Form.Label>
                 <Form.Control type="password" ref={passwordRef} required />
               </Form.Group>
               <Form.Group className="m-3" id="password-confirm">
-                <Form.Label for="password confirmation">Password Confirmation</Form.Label>
+                <Form.Label htmlFor="password confirmation">Password Confirmation</Form.Label>
                 <Form.Control type="password" ref={passwordConfirmRef} required />
               </Form.Group>
               <Form.Group controlId="formFile" className="m-3">
-                <Form.Label for="profile pic">Profile Picture</Form.Label>
+                <Form.Label htmlFor="profile pic">Profile Picture</Form.Label>
                 <Form.Control onChange={(e) => setFile(e.target.files[0])} type="file" ref={imageRef} />
               </Form.Group>
               <Button disabled={loading} className=" btn-secondary mt-3 w-100" type="submit">
