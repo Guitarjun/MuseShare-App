@@ -3,7 +3,7 @@ import { React } from 'react';
 export default function Citations() {
     return (
         <body className="citations-page">
-            <header>
+            <header className="headers bottom-padding">
                 <h1 className="margin-50">Citations</h1>
                 <p className="margin-50">This page contains citations of all the images and audio files used for our web app.</p>
                 <p className="margin-50">All media content was either original content created by one of our group members, made by creators who gave us permission to use their content, or free stock images/audio found online on Unsplash or Youtube's Audio Library.</p>

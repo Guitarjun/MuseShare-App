@@ -24,7 +24,7 @@ export function ProfilePage(props) {
     
     return (
         <body>
-            <header className="profile-page">
+            <header className="profile-page headers bottom-padding">
                 <div className="profile">
                     <div class="profile-image">
                         <img src={imageUrl} alt={urlUser + " profile image"}/>

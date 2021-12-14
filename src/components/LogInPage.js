@@ -29,7 +29,7 @@ export default function LogInPage() {
   
     return (
     <div className="wrapper">
-            <h2 className="text-center mb-4">Log In</h2>
+            <h2 className="text-center mb-4 header-padding">Log In</h2>
             {error && <Alert variant="danger">{error}</Alert>}
             <Form onSubmit={handleSubmit}>
               <Form.Group className="m-3" id="email">

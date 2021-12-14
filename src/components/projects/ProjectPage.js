@@ -34,7 +34,7 @@ export function ProjectPage(props) {
 
     return (
         <div className="project-page">
-            <header className="background-brown">
+            <header className="background-brown headers">
                 <img className="mb-3" src={imageUrl} alt={project.name + " image"}/>
                 <h1>{project['name']}</h1>
                 <h2>{artist}</h2>
