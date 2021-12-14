@@ -22,7 +22,7 @@ export default function LogInPage() {
         login(email, password)
         .catch(err => {
             setError("Failed to log in");
-            console.log(err)}); //log any errors for debugging
+        });
         history.push('/');
         setLoading(false);
     }

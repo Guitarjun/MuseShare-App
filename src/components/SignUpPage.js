@@ -42,11 +42,11 @@ export default function SignUpPage() {
         })
         console.log('User created: '+user.uid);
         }).then(() => { 
-        let userId = email.substring(0, email.indexOf("@"));   // User key
-        let photoUrl = 'users/'+userId+'/profilePicture/'+photoName;    // The purpose of this field is to store a reference in the realtime database to the image file (which exists in the cloud storage)
-        writeUserData(email, userId, photoUrl, displayName, about);
-        writeUserStorage(file, photoUrl);
-        console.log('User data uploaded: ' + userId);
+          let userId = email.substring(0, email.indexOf("@"));   // User key
+          let photoUrl = 'users/'+userId+'/profilePicture/'+photoName;    // The purpose of this field is to store a reference in the realtime database to the image file (which exists in the cloud storage)
+          writeUserData(email, userId, photoUrl, displayName, about);
+          writeUserStorage(file, photoUrl);
+          console.log('User data uploaded: ' + userId);
         })
         .catch((error) => { //report any errors
             console.log(error.message);

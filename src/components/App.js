@@ -1,5 +1,3 @@
-// import logo from './logo.svg';
-//import './../App.css';  // Get main css for whole project
 import { Route, Switch, Redirect } from 'react-router-dom';
 import NavBar from './NavBar';
 import { ProfilePage } from './ProfilePage';
@@ -18,11 +16,6 @@ import Dashboard from './Dashboard';
 import {Link} from "react-router-dom";
 import Citations from "./Citations";
 
-// CURRENT SCHEMA USERS/PROJECTS IS NOT EFFICIENT FOR FINDING PROJECTS, NEED TO OPTIMIZE
-// Add pagination
-// Need to store different versions of projects
-// Need to update security
-// TODO: comment feature/data structure definitions (add flag), user delete their own account, remove all refs in Cloud Storage
 function App(props) {
 
   const [userData, setUserData] = useState([]);
@@ -83,13 +76,11 @@ function App(props) {
   useEffect(() => {
     let authUnregFunc = firebase.auth().onAuthStateChanged((firebaseUser) => {
       if(firebaseUser){ //firebaseUser defined: is logged in
-          // console.log('logged in');
           setCurrentUser(firebaseUser); // Set current user if logged in
           let email = firebaseUser.email;
           setUserId(email.substring(0, email.indexOf("@")));
       }
       else { //firebaseUser undefined: is not logged in
-          // console.log('logged out');
           setCurrentUser(null);
           setUserId(null);
       }

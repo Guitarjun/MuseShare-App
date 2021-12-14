@@ -6,7 +6,6 @@ import { useAuth } from '../contexts/AuthContext';
 import { useHistory } from "react-router-dom";
 import { getImage } from '../firebaseUtils';
 
-// TODO: delete project, delete account
 export default function Dashboard(props) {
     const urlParams = useParams();
     const { logout } = useAuth();
@@ -36,7 +35,6 @@ export default function Dashboard(props) {
     }
 
     // Read image from cloud storage
-    // TODO: Fix memory leak
     if (user) {
         getImage(setImageUrl, user['imagePath']);
     }
