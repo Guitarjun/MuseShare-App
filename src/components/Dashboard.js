@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import { React, useEffect, useState } from 'react';
 import { Redirect, useParams } from 'react-router';
 import ProjectList from './projects/ProjectList';
 import { Alert } from "react-bootstrap";
@@ -18,10 +18,6 @@ export default function Dashboard(props) {
     let userData = props.userData;
     let urlUser = urlParams.userId;
 
-    if (!currentUser || props.userId !== urlUser)  {
-        return <Redirect to="/login"/>
-    }
-
     let user = userData[String(urlUser)];
 
     async function handleLogout() {
@@ -34,14 +30,18 @@ export default function Dashboard(props) {
         }
     }
 
-    // Read image from cloud storage
-    if (user) {
-        getImage(setImageUrl, user['imagePath']);
-    }
-    
-    
+    useEffect(() => {
+        // Read image from cloud storage
+        if (user) {
+            getImage(setImageUrl, user['imagePath']);
+        }
+    }, [user]);
+
     if(!user) {
         return <h2>User not found</h2> //if user does not exist
+    }
+    if (!currentUser || props.userId !== urlUser)  {
+        return <Redirect to="/login"/>
     }
 
     return (

@@ -25,7 +25,7 @@ export default function SignUpPage() {
     async function handleSubmit(e) {
         e.preventDefault();
         if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-        return setError("Passwords do not match");
+          return setError("Passwords do not match");
         }
         setError("");
         setLoading(true);
@@ -85,7 +85,7 @@ export default function SignUpPage() {
                 <Form.Label>Profile Picture</Form.Label>
                 <Form.Control onChange={(e) => setFile(e.target.files[0])} type="file" ref={imageRef} />
               </Form.Group>
-              <Button disabled={loading} className=" btn-secondary mt-3 w-100" type="submit">
+              <Button disabled={loading} className=" btn-secondary mt-3 w-100" type="submit" aria-label="submit button">
                 Sign Up
               </Button>
             </Form>
