@@ -56,21 +56,21 @@ function UploadProjectPage(props) {
                 <h1 className="text-center mt-4">Upload Project</h1>
                 {error && <Alert variant="danger">{error}</Alert>}
                 <Form onSubmit={handleSubmit}>
-                  <Form.Group className="m-3 " id="display">
-                    <Form.Label htmlFor="projec title">Project Name</Form.Label>
+                  <Form.Group className="m-3 " id="name">
+                    <Form.Label>Project Name</Form.Label>
                     <Form.Control type="text" placeholder="Public name of the project" ref={projectRef} required />
                   </Form.Group>
                   <Form.Group className="m-3" id="about">
-                    <Form.Label htmlFor="description">Project Description</Form.Label>
+                    <Form.Label>Project Description</Form.Label>
                     <Form.Control type="text" placeholder="Brief description" ref={descriptionRef} required />
                   </Form.Group>
                   <div className="m-3"><FilterDropdown callback={setGenre}/></div>
                   <Form.Group controlId="formFile" className="m-3">
-                    <Form.Label htmlFor="cover art image">Project Cover Image</Form.Label>
+                    <Form.Label>Project Cover Image</Form.Label>
                     <Form.Control onChange={(e) => setImageFile(e.target.files[0])} type="file" ref={imageRef} />
                   </Form.Group>
                   <Form.Group controlId="formFile" className="m-3">
-                    <Form.Label htmlFor="audio file">Project Audio File</Form.Label>
+                    <Form.Label>Project Audio File</Form.Label>
                     <Form.Control onChange={(e) => setAudioFile(e.target.files[0])} type="file" ref={audioRef} />
                   </Form.Group>
                   <Button disabled={loading} className=" btn-secondary m-3 w-100" type="submit">
