@@ -12,7 +12,7 @@ function ProjectList(props) {
 
     useEffect(() => {
         return resetFilter;
-    }, []);
+    });
 
     // Fix weird duplicate projects issue
     if(_.isEmpty(selectedProjects) || !selectedProjects || selectedProjects.length === 0) {

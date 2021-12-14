@@ -23,13 +23,13 @@ export function ProfilePage(props) {
     getImage(setImageUrl, user['imagePath']);
     
     return (
-        <body>
+        <div>
             <header className="profile-page headers bottom-padding">
                 <div className="profile">
-                    <div class="profile-image">
+                    <div className="profile-image">
                         <img src={imageUrl} alt={urlUser + " profile image"}/>
                     </div>
-                    <div className="profileInfo">
+                    <div className="">
                         <h1>{user['displayName']}</h1>
                         <h2>{user['about']}</h2>
                         <p><a className='text-dark' href={"mailto:"+user['email']}><span className="material-icons text-dark">email</span>{user['email']}</a></p>
@@ -42,7 +42,7 @@ export function ProfilePage(props) {
                     <ProjectList projects={selectedProjects} userId={urlUser}/>
                 </div>
             </main>
-        </body>
+        </div>
     );
 }
 

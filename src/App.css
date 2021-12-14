@@ -264,14 +264,18 @@ p {
 
 .profile {
     padding: 5rem 0;
+    margin-left: 3rem;
+    margin-right: 3rem;
 }
 
 .profile-image {
     float: left;
-    width: calc(33.333% - 1rem);
+    /* width: calc(33.333% - 1rem); */
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 3rem;
+    margin-left: 3rem;
 }
 
 .profile-image img {
@@ -293,6 +297,7 @@ p {
     font-size: 1.6rem;
     line-height: 1.5;
     width: calc(66.666% - 2rem);
+
 }
 
 .projects-title {
