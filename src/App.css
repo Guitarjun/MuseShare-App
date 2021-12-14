@@ -10,6 +10,7 @@
 
 .app main {
     margin-top: 7em;
+    margin-bottom: 5em;
 }
 
 .app footer {
@@ -18,12 +19,12 @@
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 5.5em;
+    height: 8em;
 }
 
 .app footer p{
     margin-top: 0.5em;
-    margin-left: 0.5em;
+    margin-left: 2em;
 }
 
 @media(min-width: 1025px) {
@@ -185,7 +186,7 @@ p {
 
 .project-card img {
     border-radius: 10px 10px 0 0;
-    width: 300px;
+    width: 400px;
     height: 400px;
     object-fit: cover;
 }
@@ -197,11 +198,6 @@ p {
     
     .project-card h3 {
         font-size: 1.5em;
-    }
-
-    .project-card img {
-        border-radius: 10px 10px 0 0;
-        width: 400px;
     }
 }
 
