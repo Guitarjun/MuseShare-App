@@ -1,4 +1,5 @@
 # MuseShare
-An interactive music collaboration web app created by [Arjun Srivastava](https://github.com/Guitarjun), ...
+An interactive music collaboration web app originally created by [Arjun Srivastava](https://github.com/Guitarjun), Rhea Guliani, and Kyle Reinholdtsen
+Currently maintained and updated by Arjun Srivastava
 
-#_Currently hosted on [Firebase](https://museshare-5e6ed.web.app/)_#
+_Currently hosted on [Firebase](https://museshare-5e6ed.web.app/)_
